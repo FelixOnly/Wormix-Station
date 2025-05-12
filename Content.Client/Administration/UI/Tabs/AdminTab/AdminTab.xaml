@@ -35,6 +35,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>
             <cc:CommandButton Command="timetransferpanel" Text="{Loc admin-player-actions-window-time-transfer}"/>
             <cc:CommandButton Command="achatwindow" Text="{Loc admin-player-actions-window-admin-chat}"/>
+            <!-- ADT-Tweak-Start -->
+            <cc:UICommandButton Command="echo-chat-panel" Text="{Loc admin-player-actions-window-echo-chat-panel}" WindowType="{x:Type at:EchoChatPanelWindow}"/>
+            <!-- ADT-Tweak-End -->
         </GridContainer>
     </BoxContainer>
 </Control>
