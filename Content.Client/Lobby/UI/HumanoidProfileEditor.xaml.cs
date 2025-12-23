@@ -141,11 +141,13 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
 // SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kutosss <162154227+Kutosss@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 MarkerWicker <markerWicker@proton.me>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Svarshik <96281939+lexaSvarshik@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -156,6 +158,8 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client._Orion.Lobby.UI;
+using Content.Client.Guidebook;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
@@ -164,7 +168,6 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Shared._CorvaxGoob.CCCVars;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.GameTicking;
@@ -192,20 +195,14 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
-using Content.Client._CorvaxGoob.TTS;
-using Content.Client._Orion.RichText;
-using Content.Shared._CorvaxGoob;
-using Content.Shared._Orion.RichText;
-using Content.Shared.ADT.CCVar;
-using Content.Shared.SD; // CorvaxGoob-TTS
-
+using Content.Goobstation.Common.CCVar; // Goob Station - Barks
+using Content.Goobstation.Common.Barks; // Goob Station - Barks
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]
     public sealed partial class HumanoidProfileEditor : BoxContainer
     {
-
-        private OptionButton _erpStatus = null!; // SD-ERP-Status
+        [Dependency] private readonly DocumentParsingManager _parsingMan = default!; // Orion
 
         private readonly IClientPreferencesManager _preferencesManager;
         private readonly IConfigurationManager _cfgManager;
@@ -226,7 +223,6 @@ namespace Content.Client.Lobby.UI
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
-
         // Orion-Start
         private TextEdit? _flavorTextOOCEdit;
         private TextEdit? _characterTextEdit;
@@ -243,8 +239,6 @@ namespace Content.Client.Lobby.UI
 
         // One at a time.
         private LoadoutWindow? _loadoutWindow;
-
-        private TTSTab? _ttsTab;// CorvaxGoob-TTS
 
         private bool _exporting;
         private bool _imaging;
@@ -291,6 +285,8 @@ namespace Content.Client.Lobby.UI
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
         private ISawmill _sawmill;
+
+        private SpeciesWindow? _speciesWindow;  // Orion
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -684,10 +680,28 @@ namespace Content.Client.Lobby.UI
 
             #endregion Left
 
+/* // Orion-Edit: Replaced
             ShowClothes.OnToggled += args =>
             {
                 ReloadPreview();
             };
+*/
+
+            // Orion-Start
+            _clothingDisplayMode = ClothingDisplayMode.ShowAll;
+
+            ClothingDisplayButton.AddItem(Loc.GetString("humanoid-profile-editor-clothing-show-all"), (int)ClothingDisplayMode.ShowAll);
+            ClothingDisplayButton.AddItem(Loc.GetString("humanoid-profile-editor-clothing-show-underwear"), (int)ClothingDisplayMode.ShowUnderwearOnly);
+            ClothingDisplayButton.AddItem(Loc.GetString("humanoid-profile-editor-clothing-hide-all"), (int)ClothingDisplayMode.HideAll);
+            ClothingDisplayButton.SelectId((int)ClothingDisplayMode.ShowAll);
+
+            ClothingDisplayButton.OnItemSelected += args =>
+            {
+                ClothingDisplayButton.SelectId(args.Id);
+                _clothingDisplayMode = (ClothingDisplayMode)args.Id;
+                ReloadPreview();
+            };
+            // Orion-End
 
             SpeciesInfoButton.OnPressed += OnSpeciesInfoButtonPressed;
 
@@ -1004,56 +1018,6 @@ namespace Content.Client.Lobby.UI
         }
         // Orion-End
 
-        //CorvaxGoob-TTS-Start
-        #region Voice
-
-        private void RefreshVoiceTab()
-        {
-            if (!_cfgManager.GetCVar(CCCVars.TTSEnabled))
-                return;
-
-            _ttsTab = new TTSTab();
-            var children = new List<Control>();
-            foreach (var child in TabContainer.Children)
-                children.Add(child);
-
-            TabContainer.RemoveAllChildren();
-
-            for (int i = 0; i < children.Count; i++)
-            {
-                if (i == 1) // Set the tab to the 2nd place.
-                {
-                    TabContainer.AddChild(_ttsTab);
-                }
-                TabContainer.AddChild(children[i]);
-            }
-
-            TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-voice-tab"));
-
-            _ttsTab.OnVoiceSelected += voiceId =>
-            {
-                SetVoice(voiceId);
-                _ttsTab.SetSelectedVoice(voiceId);
-            };
-
-            _ttsTab.OnPreviewRequested += voiceId =>
-            {
-                _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId);
-            };
-        }
-
-        private void UpdateTTSVoicesControls()
-        {
-            if (Profile is null || _ttsTab is null)
-                return;
-
-            _ttsTab.UpdateControls(Profile, Profile.Sex);
-            _ttsTab.SetSelectedVoice(Profile.Voice);
-        }
-
-        #endregion
-        // CorvaxGoob-TTS-End
-
         /// <summary>
         /// Refreshes traits selector
         /// </summary>
@@ -1189,10 +1153,6 @@ namespace Content.Client.Lobby.UI
             for (var i = 0; i < _species.Count; i++)
             {
                 var name = Loc.GetString(_species[i].Name);
-
-                if (_species[i].SponsorOnly) // CorvaxGoob-Sponsors
-                    name += SponsorUtils.GetSponsorOnlySuffix();
-
                 SpeciesButton.AddItem(name, i);
 
                 if (Profile?.Species.Equals(_species[i].ID) == true)
@@ -1341,6 +1301,10 @@ namespace Content.Client.Lobby.UI
             PreviewDummy = _controller.LoadProfileEntity(Profile, JobOverride, ShowClothes.Pressed);
             SpriteView.SetEntity(PreviewDummy);
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, Profile.Name);
+
+            // Orion-Start
+            _flavorText?.TargetPreview.SetEntity(PreviewDummy);
+            // Orion-End
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -2007,6 +1971,7 @@ namespace Content.Client.Lobby.UI
             UpdateHeightWidthSliders();
             UpdateWeight();
             // end Goobstation: port EE height/width sliders
+            RefreshTraits(); // Goobstation: ported from DeltaV - Species trait exclusion
         }
 
         private void SetName(string newName)
@@ -2305,7 +2270,7 @@ namespace Content.Client.Lobby.UI
             SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
 
-        // begin Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+        // begin Goobstation: port EE height/width sliders
         private void UpdateHeightWidthSliders()
         {
             if (Profile is null)

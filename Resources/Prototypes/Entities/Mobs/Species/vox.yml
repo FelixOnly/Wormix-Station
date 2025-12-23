@@ -148,7 +148,7 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Bagawk','Click','Chitter','Hiss','Caw']
+    allowedEmotes: ['Bagawk']
   - type: TypingIndicator
     proto: vox
   - type: Vocal
@@ -156,18 +156,17 @@
       Male: UnisexVox
       Female: UnisexVox
       Unsexed: UnisexVox
-  - type: Butcherable # CorvaxGoob organ resprite
+  - type: Butcherable
     butcheringType: Spike
     spawned:
-    - id: FoodMeatVox
-      amount: 3
+    - id: FoodMeatChicken
+      amount: 5
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Vox
   - type: PassiveDamage
     # Augment normal health regen to be able to tank some Poison damage
     # This allows Vox to take their mask off temporarily to eat something without needing a trip to medbay afterwards.
-    splitBehavior: SplitEnsureAllDamagedAndOrganic # Goob
     allowedStates:
     - Alive
     damageCap: 20
@@ -205,13 +204,22 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+    # Orion-Start
+    - map: [ "underwear" ]
+    - map: [ "undershirt" ]
+    # Orion-End
+    # Orion-Edit-Start: Moved under jumpsuit
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    # Orion-Edit-End
+    - map: [ "socks" ] # Orion
+    - map: ["jumpsuit"]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
     - map: [ "enum.HumanoidVisualLayers.RHand" ]
     - map: [ "gloves" ]
+    - map: [ "wrists" ] # Orion
     - map: [ "shoes" ]
+    - map: [ "earsright" ] # Orion
     - map: [ "ears" ]
     - map: [ "eyes" ]
     - map: [ "id" ]
@@ -296,6 +304,33 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: outerClothing
+      # Orion-Start
+      undershirt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: jumpsuit
+      underwear:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: shoes
+      earsright:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: ears
+      wrists:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hand
+      # Orion-End
   # Goobstation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
   - type: Uncloneable
   - type: Absorbable # Goobstation - changelings
@@ -439,6 +474,33 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: outerClothing
+      # Orion-Start
+      undershirt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: jumpsuit
+      underwear:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: jumpsuit
+      socks:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: shoes
+      earsright:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: ears
+      wrists:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi
+            state: hand
+      # Orion-End
   - type: Hands
     leftHandDisplacement:
       sizeMaps:

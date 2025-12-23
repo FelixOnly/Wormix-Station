@@ -173,6 +173,7 @@ BenchBlueComfyLeft: BenchSteelWhiteLeft
 BenchBlueComfyRight: BenchSteelWhiteRight
 ScalpelCool: ScalpelAdvanced
 MirrorModern: Mirror
+ClothingUnderSocksBee: ClothingSocksBee
 
 # Goobstation - Submarine from DeltaV
 AirlockBoxerGlassLocked: AirlockServiceGlassLocked
@@ -440,7 +441,7 @@ MountainRock: AsteroidRock
 MountainRockMining: AsteroidRockMining
 
 # 2023-08-08
-# WindowTintedDirectional: WindowFrostedDirectional CorvaxGoob
+WindowTintedDirectional: WindowFrostedDirectional
 
 # 2023-08-10
 SyringeSpaceacillin: null
@@ -566,8 +567,8 @@ ActionVehicleHorn: null
 #CrateFunSyndicateSegway: null Goobstation - Re-add vehicles
 MobTaxiBot: null
 # MobSupplyBot: null
-#SpawnVehicleMotobike: null Corvax Goobstation - Re-add vehicles
-#SpawnVehicleATV: null Corvax Goobstation - Re-add vehicles
+SpawnVehicleMotobike: null
+SpawnVehicleATV: null
 #SpawnVehicleSecway: null Goobstation - Re-add vehicles
 #SpawnVehicleJanicart: null Goobstation - Re-add vehicles
 #VehicleJanicart: null Goobstation - Re-add vehicles
@@ -640,9 +641,8 @@ RPED: null
 TraversalDistorterMachineCircuitboard: null
 MachineTraversalDistorter: null
 # These are technically not equivalent, but it probably makes more sense to replace any existing SCAF stuff with SOME kind of armor, instead of just deleting it outright.
-# Commented by CorvaxGoob
-# ClothingHeadHelmetScaf: ClothingHeadHelmetBasic
-# ClothingOuterArmorScaf: ClothingOuterArmorBasic
+ClothingHeadHelmetScaf: ClothingHeadHelmetBasic
+ClothingOuterArmorScaf: ClothingOuterArmorBasic
 
 # 2024-03-31
 ClothingNeckFlowerWreath: ClothingHeadHatFlowerWreath
@@ -653,43 +653,42 @@ BriefcaseSyndieBase: null
 BodyBag_Container: BodyBag
 BodyBag_Folded: BodyBagFolded
 
-# CorvaxGoob-RubberAmmo : закоментированы некоторые откаты
 # 2024-04-26
-# BaseBulletRubber: null
-# BulletPistolRubber: BulletPistol
-# BulletMagnumRubber: BulletMagnum
-# BulletLightRifleRubber: BulletLightRifle
-# BulletRifleRubber: BulletRifle
+BaseBulletRubber: null
+BulletPistolRubber: BulletPistol
+BulletMagnumRubber: BulletMagnum
+BulletLightRifleRubber: BulletLightRifle
+BulletRifleRubber: BulletRifle
 BulletCaselessRifleRubber: BulletCaselessRifle
-# CartridgePistolRubber: CartridgePistol
-# CartridgeMagnumRubber: CartridgeMagnum
+CartridgePistolRubber: CartridgePistol
+CartridgeMagnumRubber: CartridgeMagnum
 CartridgeLightRifleRubber: CartridgeLightRifle
-# CartridgeRifleRubber: CartridgeRifle
+CartridgeRifleRubber: CartridgeRifle
 CartridgeCaselessRifleRubber: CartridgeCaselessRifle
-# MagazinePistolRubber: MagazinePistol
+MagazinePistolRubber: MagazinePistol
 MagazinePistolSubMachineGunRubber: MagazinePistolSubMachineGun
 MagazinePistolCaselessRifleRubber: MagazinePistolCaselessRifle
-# MagazineMagnumRubber: MagazineMagnum
+MagazineMagnumRubber: MagazineMagnum
 MagazineMagnumSubMachineGunRubber: MagazineMagnumSubMachineGun
 MagazineLightRifleRubber: MagazineLightRifle
 MagazineRifleRubber: MagazineRifle
 MagazineCaselessRifleRubber: MagazineCaselessRifle
 MagazineCaselessRifleShortRubber: MagazineCaselessRifleShort
-# SpeedLoaderPistolRubber: SpeedLoaderPistol
-# SpeedLoaderMagnumRubber: SpeedLoaderMagnum
-# MagazineBoxPistolRubber: MagazineBoxPistol
+SpeedLoaderPistolRubber: SpeedLoaderPistol
+SpeedLoaderMagnumRubber: SpeedLoaderMagnum
+MagazineBoxPistolRubber: MagazineBoxPistol
 # RIP box of magnum rubbers 202X to 2024
-# MagazineBoxMagnumRubber: MagazineBoxMagnum
+MagazineBoxMagnumRubber: MagazineBoxMagnum
 MagazineBoxLightRifleRubber: MagazineBoxLightRifle
-# MagazineBoxRifleRubber: MagazineBoxRifle
+MagazineBoxRifleRubber: MagazineBoxRifle
 MagazineBoxRifleBigRubber: MagazineBoxRifleBig
 MagazineBoxCaselessRifleRubber: MagazineBoxCaselessRifle
 MagazineBoxCaselessRifleBigRubber: MagazineBoxCaselessRifle10x24
-# BoxMagazinePistolRubber: BoxMagazinePistol
+BoxMagazinePistolRubber: BoxMagazinePistol
 BoxMagazinePistolHighCapacityRubber: BoxMagazinePistolHighCapacity
 BoxMagazinePistolSubMachineGunRubber: BoxMagazinePistolSubMachineGun
 BoxMagazineLightRifleRubber: BoxMagazineLightRifle
-# BoxMagazineRifleRubber: BoxMagazineRifle
+BoxMagazineRifleRubber: BoxMagazineRifle
 BoxMagazineCaselessRifleRubber: BoxMagazinePistolCaselessRifle
 BoxMagazineMagnumSubMachineGunRubber: BoxMagazineMagnumSubMachineGun
 WeaponPistolMk58Nonlethal: WeaponPistolMk58
@@ -919,9 +918,9 @@ WeaponSubMachineGunVectorRubber: null
 # 2025-02-11
 WallShuttleInterior: WallShuttle
 
-# 2025-02-18
-PosterContrabandLustyExomorph: PosterContrabandRealExomorph
-PosterContrabandBustyBackdoorExoBabes6: PosterContrabandRouny
+# 2025-02-18 | Orion-Edit
+PosterContrabandLustyExomorph: PosterContrabandLustyXenomorph
+PosterContrabandBustyBackdoorExoBabes6: PosterContrabandBustyBackdoorXenoBabes6
 
 # 2025-02-20
 MagazineBoxAntiMaterielBig: null
@@ -1017,6 +1016,9 @@ PlushieBlackburnKobliska: null
 # 2025-06-13 Goobstation
 BroomWitch: Broomstick
 
+# 2025-06-04 Goobstation
+SmartFridge: DVSmartFridgeMedical
+
 # 2025-05-02
 CigPackMixedNasty: CigPackMixed
 CigPackMixedMedical: CigPackMixed
@@ -1035,11 +1037,6 @@ SuitStorageBasic: SuitStorageEVA
 
 # 2025-05-18
 ClothingNeckCloakMiner: null
-
-# 2025-08-11 CorvaxGoob
-PlushieSamantha: null
-PlushieJvne: null
-PlushieFern: null
 
 # 2025-05-22
 MatterBinStockPart: MicroManipulatorStockPart
@@ -1085,75 +1082,8 @@ BarSignSpacebucksAlignTile: BarSignSpacebucks
 BarSignMaltroachAlignTile: BarSignMaltroach
 BarSignWhiskeyEchoesAlignTile: BarSignWhiskeyEchoes
 
-# CorvaxGoob : LRP Bullshit
-FishBoyFisher: null
-ImmovableRodSkibidi: null
-
 # 2025-06-21
 ClothingNeckHeadphones: ClothingMultipleHeadphones
 
-#2025-10-09 CorvaxGoob
-PlushieNigel: null
-PlushieBrizby: null
-PlushieBaldzby: null
-PlushieMnwaar: null
-PlushieBoggle: null
-PlushieLehmin: null
-
 # 2025-10-09
 FoodDonutJellySlugcat: FoodDonutJellyScurret
-
-# Reverted by CorvaxGoob-GhostBar
-# # 2026-01-04
-# GhostBarSpawner: null
-
-# 2026-01-18
-DVSmartFridgeMedical: SmartFridgeMedical
-
-# 2026-01-10 Goobstation Change Mapped Chem to Energy Chem by default
-ChemDispenser: EnergyChemDispenser
-
-#2026-2-13 CorvaxGoob
-PlushieLeguia: null
-PlushiePasha: null
-PlushieWachtel: null
-DVSmartFridge: SmartFridge
-
-#2026-05-11 CorvaxGoob
-SpawnMobGorillaLargo: SpawnMobBingleCargo
-
-#2026-04-14 CorvaxGoob
-BookExpensiveCrystal: null
-BookClones: null
-BookDAM: null
-BookFaks: null
-BookFamalis: null
-BookGrav: null
-BookHalifat: null
-BookRedspace: null
-BookShips: null
-BookZP: null
-BookUSSP: null
-BookMirt: null
-BookGior: null
-BookSNK: null
-BookUmpor: null
-BookNooc: null
-BookNakamura: null
-BookVitz: null
-BookGefest: null
-BookConarex: null
-BookPetr: null
-BookSaibasan: null
-BookUnath1: null
-BookUnath2: null
-BookDione: null
-BookBSS: null
-BookScaf: null
-BookMBS1: null
-BookMBS2: null
-BookImplants: null
-CrateServiceLoreBooks: null
-
-##2026-06-30 CorvaxGoob
-AshBush: FloraAshBush
