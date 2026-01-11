@@ -184,6 +184,7 @@
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
+  - type: ToggleableHUD # Orion
   - type: ActiveRadio
     receiveAllChannels: true
     globalReceive: true
