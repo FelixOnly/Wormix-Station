@@ -230,6 +230,7 @@ public partial class ChatBox : UIWidget
             return;
 
         ChatInput.ChannelSelector.Select(toSelect);
+        _controller.CurrentChannel = toSelect; // DeltaV - Alt Chat Indicators
     }
 
     private void OnInputKeyBindDown(GUIBoundKeyEventArgs args)
@@ -262,12 +263,14 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
 
         // Warn typing indicator about change
-        _controller.NotifyChatTextChange();
+        // _controller.NotifyChatTextChange(); // DeltaV
+        _controller.NotifySpecificChatTextChange(SelectedChannel); // DeltaV - Alt Chat Indicators
     }
 
     private void OnFocusEnter(LineEditEventArgs args)
     {
         // Warn typing indicator about focus
+        _controller.CurrentChannel = SelectedChannel; // DeltaV - Alt Chat Indicators
         _controller.NotifyChatFocus(true);
     }
 

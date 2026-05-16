@@ -9,17 +9,22 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Client.UserInterface.Systems.Chat;
 using Content.Shared.CCVar;
 using Content.Shared.Chat.TypingIndicator;
+using Content.Shared.EntityEffects.Effects;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client.Chat.TypingIndicator;
 
 // Client-side typing system tracks user input in chat box
-public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
+public sealed partial class TypingIndicatorSystem : SharedTypingIndicatorSystem // DeltaV - Made partial
 {
+    private static readonly ProtoId<TypingIndicatorPrototype> DirectID = "emote";
+
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -35,6 +40,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         base.Initialize();
 
         Subs.CVar(_cfg, CCVars.ChatShowTypingIndicator, OnShowTypingChanged);
+        InitializeAlternateTyping(); // DeltaV
     }
 
     // Orion-Start
@@ -109,6 +115,12 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         var state = TypingIndicatorState.None;
         if (_isClientChatFocused || _isClientEmoteWindowActive) // Orion-Edit: _isClientEmoteWindowActive
             state = _isClientTyping ? TypingIndicatorState.Typing : TypingIndicatorState.Idle;
+
+        if (_isClientEmoteWindowActive)
+        {
+            RaisePredictiveEvent(new TypingChangedEvent(state, DirectID));
+            return;
+        }
 
         // send a networked event to server
         RaisePredictiveEvent(new TypingChangedEvent(state));
