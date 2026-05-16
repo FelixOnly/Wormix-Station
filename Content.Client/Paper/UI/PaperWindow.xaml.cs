@@ -146,6 +146,8 @@ namespace Content.Client.Paper.UI
 
         public event Action<string>? OnSaved;
         public event Action<int>? OnSignatureRequested; // Starlight-edit
+        public event Action? Typing; // DeltaV
+        public event Action? SubmitPressed; // DeltaV
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -174,12 +176,14 @@ namespace Content.Client.Paper.UI
 
             Input.OnKeyBindDown += args => // Solution while TextEdit don't have events
             {
+                Typing?.Invoke(); // DeltaV
                 if (args.Function == EngineKeyFunctions.MultilineTextSubmit)
                 {
                     // SaveButton is disabled when we hit the max input limit. Just check
                     // that flag instead of trying to calculate the input length again
                     if (!SaveButton.Disabled)
                     {
+                        SubmitPressed?.Invoke(); // DeltaV
                         RunOnSaved();
                         args.Handle();
                     }
@@ -479,6 +483,7 @@ namespace Content.Client.Paper.UI
                 SaveButton.Disabled = false;
             }
         }
+
 
 
         // STARLIGHT-EDIT
