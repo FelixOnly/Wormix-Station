@@ -138,6 +138,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration.Logs;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -419,7 +420,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                new BarkData(profile.BarkProto, profile.BarkPitch, profile.LowBarkVar, profile.HighBarkVar)
                 // barkVoice // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
             );
         }
@@ -505,6 +507,13 @@ namespace Content.Server.Database
 
                 profile.Loadouts.Add(dz);
             }
+
+            // ADT start
+            profile.BarkProto = humanoid.Bark.Proto;
+            profile.BarkPitch = humanoid.Bark.Pitch;
+            profile.LowBarkVar = humanoid.Bark.MinVar;
+            profile.HighBarkVar = humanoid.Bark.MaxVar;
+            // ADT end
 
             return profile;
         }

@@ -183,6 +183,11 @@
   - type: FacehuggerImmune # Goobstation - Xenomorphs
   - type: GrabIntent #goob
   - type: Grabbable #goob
+  - type: SpeechBarks # ADT barks
+    data:
+      proto: SkeletonBarkOne
+      sound:
+        collection: ADTSkeletonBark
 
 - type: entity
   parent: BaseSpeciesDummy

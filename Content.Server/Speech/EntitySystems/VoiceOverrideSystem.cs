@@ -14,6 +14,7 @@ public sealed partial class VoiceOverrideSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<VoiceOverrideComponent, TransformSpeakerNameEvent>(OnTransformSpeakerName);
+        InitializeBarks();  // ADT Barks
     }
 
     private void OnTransformSpeakerName(Entity<VoiceOverrideComponent> entity, ref TransformSpeakerNameEvent args)

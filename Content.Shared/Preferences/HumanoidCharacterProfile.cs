@@ -60,7 +60,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
+using Content.Goobstation.Common.Barks;
+using Content.Shared.ADT.SpeechBarks; // Goob Station - Barks
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -164,6 +165,10 @@ namespace Content.Shared.Preferences
         [DataField]
         public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
+        // ADT Barks start
+        [DataField]
+        public BarkData Bark = new();
+        // ADT Barks end
         /// <summary>
         /// <see cref="_jobPriorities"/>
         /// </summary>
@@ -199,7 +204,8 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            BarkData bark) // ADT barks
             // ProtoId<BarkPrototype> barkVoice) // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
         {
             Name = name;
@@ -216,6 +222,7 @@ namespace Content.Shared.Preferences
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
+            Bark = bark; // ADT barks
             // BarkVoice = barkVoice; // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
 
             var hasHighPrority = false;
@@ -248,7 +255,8 @@ namespace Content.Shared.Preferences
                 other.PreferenceUnavailable,
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.Bark) // ADT Barks
                 // other.BarkVoice) // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
         {
         }
@@ -390,6 +398,40 @@ namespace Content.Shared.Preferences
             return new(this) { Voice = voice };
         }
         // CorvaxGoob-TTS-End
+
+        // ADT Barks start
+        public HumanoidCharacterProfile WithBarkProto(string bark)
+        {
+            return new(this)
+            {
+                Bark = Bark.WithProto(bark),
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkPitch(float pitch)
+        {
+            return new(this)
+            {
+                Bark = Bark.WithPitch(pitch),
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkMinVariation(float variation)
+        {
+            return new(this)
+            {
+                Bark = Bark.WithMinVar(variation),
+            };
+        }
+
+        public HumanoidCharacterProfile WithBarkMaxVariation(float variation)
+        {
+            return new(this)
+            {
+                Bark = Bark.WithMaxVar(variation),
+            };
+        }
+        // ADT Barks end
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
@@ -578,6 +620,7 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
+            if (!Bark.MemberwiseEquals(other.Bark)) return false; // ADT Barks
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 

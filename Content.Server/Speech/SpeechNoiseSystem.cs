@@ -27,6 +27,7 @@ using Robust.Shared.Random;
 // Goob Station
  using Content.Goobstation.Common.Barks;
 using Content.Goobstation.Common.CCVar;
+using Content.Shared.ADT.CCVar;
 using Robust.Shared.Configuration;
 
 
@@ -101,6 +102,9 @@ namespace Content.Server.Speech
 
         private void OnEntitySpoke(EntityUid uid, SpeechComponent component, EntitySpokeEvent args)
         {
+            if (_cfg.GetCVar(ADTCCVars.BarksEnabled))
+                return;
+
             // Goob station - Barks
             if (component.SpeechSounds == null
                 || !args.Language.SpeechOverride.RequireSpeech)

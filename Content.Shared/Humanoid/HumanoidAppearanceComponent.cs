@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared._CorvaxGoob.TTS;
+using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -158,6 +159,16 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public float Width = 1f;
 
     // end Goobstation: port EE height/width sliders
+
+    // ADT Barks start
+
+    /// <summary>
+    ///     Current voice. Used for correct cloning.
+    /// </summary>
+
+    [DataField("bark")]
+    public BarkData Bark = new();
+    // ADT Barks end
 }
 
 [DataDefinition]
