@@ -453,6 +453,20 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
+            profile.ERPStatus = (int) humanoid.ERPStatus; // SD-ERPStatus
+            // Orion-Start
+            profile.OOCFlavorText = humanoid.OocFlavorText;
+            profile.CharacterFlavorText = humanoid.CharacterFlavorText;
+            profile.GreenFlavorText = humanoid.GreenFlavorText;
+            profile.YellowFlavorText = humanoid.YellowFlavorText;
+            profile.RedFlavorText = humanoid.RedFlavorText;
+            profile.TagsFlavorText = humanoid.TagsFlavorText;
+            profile.LinksFlavorText = humanoid.LinksFlavorText;
+            profile.NSFWFlavorText = humanoid.NsfwFlavorText;
+            profile.NSFWLinksFlavorText = humanoid.NsfwLinksFlavorText;
+            profile.NSFWOOCFlavorText = humanoid.NsfwOOCFlavorText;
+            profile.NSFWTagsFlavorText = humanoid.NsfwTagsFlavorText;
+            // Orion-End
             profile.Species = humanoid.Species;
             profile.Voice = humanoid.Voice; // CorvaxGoob-TTS
             profile.Age = humanoid.Age;
