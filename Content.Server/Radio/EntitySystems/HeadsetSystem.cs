@@ -27,6 +27,8 @@ using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -36,6 +38,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goobstation
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Orion
 
     public override void Initialize()
     {
@@ -77,9 +80,16 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             && _whitelist.IsWhitelistPassOrNull(args.Channel.SendWhitelist, uid)) // Goobstation - Whitelisted channels
         {
             _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
+
+            var sound = args.Channel.OnSendSound ?? DefaultOnSound;
+            _audio.PlayEntity(sound, uid, uid);
+
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
+
     }
+
+
 
     protected override void OnGotEquipped(EntityUid uid, HeadsetComponent component, GotEquippedEvent args)
     {
@@ -120,6 +130,11 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             UpdateRadioChannels(uid, component);
         }
     }
+
+    private static readonly SoundSpecifier DefaultOnSound =
+        new SoundPathSpecifier(
+            "/Audio/_Orion/Radio/basic.ogg",
+            AudioParams.Default.WithVolume(-6).WithMaxDistance(2));
 
     private void OnHeadsetReceive(EntityUid uid, HeadsetComponent component, ref RadioReceiveEvent args)
     {
