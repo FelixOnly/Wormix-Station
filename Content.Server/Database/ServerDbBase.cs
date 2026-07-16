@@ -415,6 +415,8 @@ namespace Content.Server.Database
                 profile.NSFWTagsFlavorText,
                 // Orion-End
                 profile.Species,
+                profile.Height,
+                profile.Width,
                 voice, // CorvaxGoob-TTS
                 profile.Age,
                 sex,
@@ -482,6 +484,9 @@ namespace Content.Server.Database
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
+
+            profile.Height = humanoid.Height; // Goobstation: port EE height/width sliders
+            profile.Width = humanoid.Width; // Goobstation: port EE height/width sliders
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(

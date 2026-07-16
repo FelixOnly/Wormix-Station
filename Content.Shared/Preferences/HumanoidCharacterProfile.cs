@@ -186,6 +186,14 @@ namespace Content.Shared.Preferences
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
 
+        // begin Goobstation: port EE height/width sliders
+        [DataField]
+        public float Height { get; private set; }
+
+        [DataField]
+        public float Width { get; private set; }
+        // end Goobstation: port EE height/width sliders
+
         /// <summary>
         /// <see cref="Appearance"/>
         /// </summary>
@@ -246,6 +254,8 @@ namespace Content.Shared.Preferences
             string nsfwtagsflavortext,
             // Orion-End
             string species,
+            float height, // Goobstation: port EE height/width sliders
+            float width, // Goobstation: port EE height/width sliders
             string voice, // CorvaxGoob-TTS
             int age,
             Sex sex,
@@ -277,6 +287,8 @@ namespace Content.Shared.Preferences
             NsfwTagsFlavorText = nsfwtagsflavortext;
             // Orion-End
             Species = species;
+            Height = height; // Goobstation: port EE height/width sliders
+            Width = width; // Goobstation: port EE height/width sliders
             Voice = voice; // CorvaxGoob-TTS
             Age = age;
             Sex = sex;
@@ -325,6 +337,8 @@ namespace Content.Shared.Preferences
                 other.NsfwTagsFlavorText,
                 // Orion-End
                 other.Species,
+                other.Height, // Goobstation: port EE height/width sliders
+                other.Width, // Goobstation: port EE height/width sliders
                 other.Voice, // CorvaxGoob-TTS
                 other.Age,
                 other.Sex,
@@ -443,6 +457,8 @@ namespace Content.Shared.Preferences
                 Age = age,
                 Gender = gender,
                 Species = species,
+                Width = width, // Goobstation: port EE height/width sliders
+                Height = height, // Goobstation: port EE height/width sliders
                 Voice = voiceId, // CorvaxGoob-TTS
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
                 // BarkVoice = barkvoiceId, // Goob Station - Barks // CorvaxGoob-Revert : DB conflicts
@@ -535,6 +551,17 @@ namespace Content.Shared.Preferences
         {
             return new(this) { Species = species };
         }
+
+        // begin Goobstation: port EE height/width sliders
+        public HumanoidCharacterProfile WithHeight(float height)
+        {
+            return new(this) { Height = height };
+        }
+        public HumanoidCharacterProfile WithWidth(float width)
+        {
+            return new(this) { Width = width };
+        }
+        // end Goobstation: port EE height/width sliders
 
         // CorvaxGoob-TTS-Start
         public HumanoidCharacterProfile WithVoice(string voice)
@@ -754,9 +781,9 @@ namespace Content.Shared.Preferences
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
-            // if (Height != other.Height) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // if (Width != other.Width) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks // CorvaxGoob-Clearing
+            if (Height != other.Height) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            if (Width != other.Width) return false; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            //if (BarkVoice != other.BarkVoice) return false; // Goob Station - Barks // CorvaxGoob-Clearing
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
@@ -993,6 +1020,16 @@ namespace Content.Shared.Preferences
             nsfwtags = FormatTags(nsfwtags);
             // Orion-End
 
+            // begin Goobstation: port EE height/width sliders
+            var height = Height;
+            if (speciesPrototype != null)
+                height = Math.Clamp(Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
+
+            var width = Width;
+            if (speciesPrototype != null)
+                width = Math.Clamp(Width, speciesPrototype.MinWidth, speciesPrototype.MaxWidth);
+            // end Goobstation: port EE height/width sliders
+
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes); // CorvaxGoob-Sponsors
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -1055,8 +1092,8 @@ namespace Content.Shared.Preferences
             NsfwTagsFlavorText = nsfwtags;
             // Orion-End
             Age = age;
-            // Height = height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // Width = width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            Height = height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            Width = width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             Sex = sex;
             Gender = gender;
             Appearance = appearance;
@@ -1200,8 +1237,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(NsfwTagsFlavorText);
             // Orion-End
             hashCode.Add(Species);
-            // hashCode.Add(Height); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-            // hashCode.Add(Width); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            hashCode.Add(Height); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+            hashCode.Add(Width); // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
             hashCode.Add(Age);
             hashCode.Add((int) Sex);
             hashCode.Add((int) Gender);

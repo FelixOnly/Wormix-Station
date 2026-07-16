@@ -260,8 +260,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Species = profile.Species;
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;
-        // humanoid.Height = profile.Height; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
-        // humanoid.Width = profile.Width; // Goobstation: port EE height/width sliders // CorvaxGoob-Clearing
+        humanoid.Height = profile.Height; // Goobstation: port EE height/width sliders 
+        humanoid.Width = profile.Width; // Goobstation: port EE height/width sliders
 
         UpdateSprite((uid, humanoid, Comp<SpriteComponent>(uid)));
     }
