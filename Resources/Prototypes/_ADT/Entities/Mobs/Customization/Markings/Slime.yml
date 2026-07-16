@@ -2,7 +2,7 @@
   id: SlimeRabbitAntennae
   bodyPart: Head
   markingCategory: HeadTop
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   sprites:
     - sprite: _ADT/Mobs/Customization/Slime/custom.rsi
       state: rabbit-antennae
@@ -11,7 +11,7 @@
   id: SlimeRabbitEars
   bodyPart: Head
   markingCategory: HeadTop
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   sprites:
     - sprite: _ADT/Mobs/Customization/Slime/custom.rsi
       state: rabbit-ears
@@ -20,7 +20,7 @@
   id: SlimeButterflyWings
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   sprites:
     - sprite: _ADT/Mobs/Customization/Slime/custom.rsi
       state: butterfly_wings
@@ -30,7 +30,7 @@
   id: ADTSlimeNose
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   forcedColoring: true
   followSkinColor: true
   sprites:
@@ -41,7 +41,7 @@
   id: ADTSlimeMouth
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
     - sprite: _ADT/Mobs/Customization/Frontier/slime_parts.rsi
@@ -51,7 +51,7 @@
   id: ADTSlimeBrain
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
     - sprite: _ADT/Mobs/Customization/Frontier/slime_parts.rsi
@@ -61,7 +61,7 @@
   id: ADTSlimeEyeglow
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   coloring:
     default:
       type: !type:EyeColoring
@@ -75,7 +75,7 @@
   id: ADTSlimeEyeglowWide
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   coloring:
     default:
       type: !type:EyeColoring
@@ -91,7 +91,7 @@
   id: ADTSlimeEyeglowBig
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   coloring:
     default:
       type: !type:EyeColoring
@@ -107,7 +107,7 @@
   id: ADTSlimeLungs
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
     - sprite: _ADT/Mobs/Customization/Frontier/slime_parts.rsi
@@ -117,7 +117,7 @@
   id: ADTSlimeCore
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
     - sprite: _ADT/Mobs/Customization/Frontier/slime_parts.rsi
@@ -127,7 +127,7 @@
   id: ADTSlimeBonehead
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -141,7 +141,7 @@
   id: ADTSlimeBonechest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -155,7 +155,7 @@
   id: ADTSlimeBonearmleft
   bodyPart: LArm
   markingCategory: LeftArm
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -169,7 +169,7 @@
   id: ADTSlimeBonearmright
   bodyPart: RArm
   markingCategory: RightArm
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -183,7 +183,7 @@
   id: ADTSlimeBonefootleft
   bodyPart: LFoot
   markingCategory: LeftFoot
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -197,7 +197,7 @@
   id: ADTSlimeBonefootright
   bodyPart: RFoot
   markingCategory: RightFoot
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -211,7 +211,7 @@
   id: ADTSlimeBonehandleft
   bodyPart: LHand
   markingCategory: LeftHand
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -225,7 +225,7 @@
   id: ADTSlimeBonehandright
   bodyPart: RHand
   markingCategory: RightHand
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -239,7 +239,7 @@
   id: ADTSlimeBonelegleft
   bodyPart: LLeg
   markingCategory: LeftLeg
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -253,7 +253,7 @@
   id: ADTSlimeBonelegright
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   followSkinColor: false
   coloring:
     default:
@@ -267,7 +267,7 @@
   id: ADTfizz
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -278,7 +278,7 @@
   id: ADTbubble
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -289,7 +289,7 @@
   id: ADTfishbowl
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   forcedColoring: false
   followSkinColor: false
   sprites:
@@ -302,7 +302,7 @@
   id: ADTFadingStars
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Slime]
+  speciesRestriction: [SlimePerson]
   forcedColoring: false
   followSkinColor: false
   sprites:
