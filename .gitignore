@@ -322,3 +322,5 @@ config.json
 .github/workflows/update-prs.yaml
 Scripts/Custom/dublicate_killer.py
 Scripts/Custom/CheckEmptyMeta.py
+Resources/CheckNotusedTextures.py
+/Scripts/Custom/converterMP3toOGG.bat

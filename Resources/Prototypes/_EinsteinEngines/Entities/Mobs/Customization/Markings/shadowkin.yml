@@ -17,13 +17,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       shadowkin_stripes:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -89,13 +87,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       motley_secondary:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -118,13 +114,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       piercing_all:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -138,13 +132,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       piercing_left:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -158,13 +150,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       piercing_right:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -178,13 +168,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       ringed_all_secondary:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -198,13 +186,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       ringed_left_secondary:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -218,13 +204,11 @@
   speciesRestriction: [Shadowkin]
   coloring:
     default:
-      type:
-        !type:SkinColoring
+      type: !type:SkinColoring
     layers:
       ringed_right_secondary:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
+        type: !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
@@ -645,15 +629,6 @@
   sprites:
     - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
       state: body_lines
-
-- type: marking
-  id: BodyShadekinNeck
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Shadowkin]
-  sprites:
-    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
-      state: body_neck
 
 - type: marking
   id: BodyShadekinShield
