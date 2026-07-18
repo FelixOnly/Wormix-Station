@@ -5,7 +5,7 @@
 - type: species
   id: Hydrakin
   name: species-name-hydrakin
-  roundStart: true
+  roundStart: false
   prototype: MobHydrakin
   sprites: MobHydrakinSprites
   defaultSkinTone: "#ffffff"
@@ -16,9 +16,9 @@
   femaleFirstNames: NamesHydrakin
   naming: FirstDashFirst
   sexes:
-  - Unsexed
-  - Male
-  - Female
+    - Unsexed
+    - Male
+    - Female
 
 - type: speciesBaseSprites
   id: MobHydrakinSprites
@@ -52,15 +52,15 @@
     Head:
       points: 1
       required: true
-      defaultMarkings: [ HydrakinEyesDefault]
+      defaultMarkings: [HydrakinEyesDefault]
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ HydrakinTailDefault ]
+      defaultMarkings: [HydrakinTailDefault]
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ HydrakinEarsDefault ]
+      defaultMarkings: [HydrakinEarsDefault]
     Chest:
       points: 4
       required: false
