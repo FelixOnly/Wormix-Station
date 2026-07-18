@@ -38,6 +38,7 @@
   - Dwarf
   - Feroxi
   - Chitinid
+  - Hydrakin # Wormix Station Fix
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
