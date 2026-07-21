@@ -25,9 +25,6 @@ public sealed class ADTCCVars
     public static readonly CVarDef<float> BarksMaxDelay =
         CVarDef.Create("barks.max_delay", 0.6f, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 
-    public static readonly CVarDef<bool> ReplaceTTSWithBarks =
-        CVarDef.Create("barks.replace_tts", false, CVar.CLIENTONLY | CVar.ARCHIVE);
-
     public static readonly CVarDef<float> BarksVolume =
         CVarDef.Create("barks.volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 }
