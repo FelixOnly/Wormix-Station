@@ -1450,7 +1450,7 @@
   id: AnthropomorphTailKisune
   bodyPart: Tail
   markingCategory: Tail
-#  sponsorOnly: true
+#  #sponsorOnly: true # Wormix edit
   # speciesRestriction: [Anthropomorph, Felinid, Human]
   sprites:
   - sprite: _Orion/Mobs/Customization/Anthropomorph/mam_tails.rsi
@@ -1650,7 +1650,7 @@
   id: AnthropomorphTailSuccubus
   bodyPart: Tail
   markingCategory: Tail
-#  sponsorOnly: true
+#  #sponsorOnly: true # Wormix edit
   # speciesRestriction: [Anthropomorph, Felinid, Human]
   sprites:
   - sprite: _Orion/Mobs/Customization/Anthropomorph/mam_tails.rsi

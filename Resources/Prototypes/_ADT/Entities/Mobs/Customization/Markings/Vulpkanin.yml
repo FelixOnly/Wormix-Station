@@ -259,7 +259,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vulpkanin]
-  #sponsorOnly: true
+  #sponsorOnly: true # Wormix edit
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/vulpkanin_head.rsi
       state: skull_sponsor

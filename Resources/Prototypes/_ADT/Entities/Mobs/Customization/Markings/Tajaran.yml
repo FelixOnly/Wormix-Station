@@ -441,7 +441,7 @@
   bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Tajaran]
-  #sponsorOnly: true
+  #sponsorOnly: true # Wormix edit
   sprites:
     - sprite: _ADT/Mobs/Customization/Tajaran/tajaran_head.rsi
       state: patch_SPONSOR_ONLY
