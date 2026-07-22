@@ -17,6 +17,8 @@ public sealed class PatronSupportUIController : UIController, IOnStateEntered<Lo
 
     public void OnStateEntered(LobbyState state)
     {
+        return; // Wormix edit - Пока что рано просить монеты
+
         if (_hasShownThisSession)
             return;
 
