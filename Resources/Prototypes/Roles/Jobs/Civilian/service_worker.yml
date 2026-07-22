@@ -78,10 +78,9 @@
   name: job-name-serviceworker
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Civilian
-    time: 1800 #0.5 hr
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service

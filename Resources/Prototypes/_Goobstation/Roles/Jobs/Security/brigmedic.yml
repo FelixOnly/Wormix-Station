@@ -8,17 +8,13 @@
   name: job-name-brigmedic
   description: job-description-brigmedic
   playTimeTracker: JobBrigmedic
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Medical
-    time: 18000 # 5 hrs
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 18000 # 10 hrs
-  - !type:SpeciesRequirement # CorvaxGoob-Species
-    inverted: true
-    species:
-    - Abductor
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+        - Abductor
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos

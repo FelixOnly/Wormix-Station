@@ -3,18 +3,17 @@
   name: job-name-pilot
   description: job-description-pilot
   playTimeTracker: JobPilot
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 72000 #20 hrs
-  - !type:TraitsRequirement
-    inverted: true
-    traits:
-    - Muted
-  - !type:SpeciesRequirement # CorvaxGoob-Species
-    inverted: true
-    species:
-    - Abductor
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+        - Muted
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+        - Abductor
   startingGear: PilotGear
   icon: "JobIconPilot"
   supervisors: job-supervisors-hos

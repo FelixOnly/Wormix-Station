@@ -72,6 +72,9 @@
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop
   #goobcoins: 10 #Goob content Corvax-Goob-coins
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   access:
   - Service
   - Maintenance

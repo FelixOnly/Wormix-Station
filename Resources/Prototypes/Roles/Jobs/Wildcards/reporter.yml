@@ -60,6 +60,9 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   #goobcoins: 15 #Goob content Corvax-Goob-coins
   supervisors: job-supervisors-hop
   access:

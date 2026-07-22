@@ -136,21 +136,17 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
-  requirements:
-  - !type:RoleTimeRequirement
-    role: JobScientist
-    time: 21600 #6 hrs
-  - !type:DepartmentTimeRequirement
-    department: Science
-    time: 36000 #10 hrs
-  - !type:SpeciesRequirement # Goob - None Felinid
-    inverted: true
-    species:
-    - Felinid
-  - !type:SpeciesRequirement # CorvaxGoob-Species
-    inverted: true
-    species:
-    - Abductor
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
+    - !type:SpeciesRequirement # Goob - None Felinid
+      inverted: true
+      species:
+        - Felinid
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+        - Abductor
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"

@@ -82,6 +82,9 @@
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
   #goobcoins: 15 #Goob content Corvax-Goob-coins
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   guides: [ Janitorial ] # goobstation
   access:
   - Service

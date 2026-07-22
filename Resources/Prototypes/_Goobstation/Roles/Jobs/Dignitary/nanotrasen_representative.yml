@@ -98,10 +98,8 @@
   name: job-name-ntr
   description: job-description-ntr
   playTimeTracker: JobNanotrasenRepresentative
+  whitelisted: true #Wormix edit
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 180000  #50 hours
     - !type:AgeRequirement
       requiredAge: 21
     - !type:SpeciesRequirement # Goob - None Felinid

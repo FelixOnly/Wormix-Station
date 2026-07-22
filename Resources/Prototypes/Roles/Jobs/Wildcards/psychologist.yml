@@ -107,6 +107,9 @@
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo
   #goobcoins: 15 #Goob content Corvax-Goob-coins
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   skills: # CorvaxGoob-Skills
   - MedicalEquipment
   access:

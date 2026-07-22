@@ -99,13 +99,9 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
-  requirements:
+  requirements: # Wormix edit
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 #10 hrs
-      inverted: true # stop playing intern if you're good at security!
+      time: 10800 #3 hrs
     - !type:SpeciesRequirement # CorvaxGoob-Species
       inverted: true
       species:

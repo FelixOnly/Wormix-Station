@@ -70,9 +70,9 @@
   name: job-name-lawyer
   description: job-description-lawyer
   playTimeTracker: JobLawyer
-  requirements:
+  requirements: # Wormix edit
     - !type:OverallPlaytimeRequirement
-      time: 9000 # 2.5 hrs
+      time: 10800 #3 hrs
     - !type:SpeciesRequirement # CorvaxGoob-Species
       inverted: true
       species:

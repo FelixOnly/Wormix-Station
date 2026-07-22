@@ -63,11 +63,9 @@
   name: job-name-intern
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 36000 # 10 hrs
-      inverted: true # stop playing intern if you're good at med!
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine

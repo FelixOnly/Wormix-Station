@@ -3,10 +3,9 @@
   name: job-name-surgeon
   description: job-description-surgeon
   playTimeTracker: JobSurgeon
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 54000 #15 hrs
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   startingGear: SurgeonGear
   icon: "JobIconSurgeon"
   supervisors: job-supervisors-cmo

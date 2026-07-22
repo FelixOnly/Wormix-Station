@@ -136,22 +136,9 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 14400 # 4 hours
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 14400 # 4 hours
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
     - !type:SpeciesRequirement # Goob - None Felinid
       inverted: true
       species:

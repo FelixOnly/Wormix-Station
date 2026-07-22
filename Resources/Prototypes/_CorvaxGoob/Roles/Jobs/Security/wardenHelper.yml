@@ -3,10 +3,9 @@
   name: job-name-wardenHelper
   description: job-description-wardenHelper
   playTimeTracker: JobWardenHelper
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 72000 #20 hrs
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
     - !type:SpeciesRequirement # CorvaxGoob-Species
       inverted: true
       species:

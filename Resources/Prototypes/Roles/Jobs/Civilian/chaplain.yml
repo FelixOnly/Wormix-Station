@@ -68,9 +68,9 @@
   name: job-name-chaplain
   description: job-description-chaplain
   playTimeTracker: JobChaplain
-  requirements:
+  requirements: # Wormix edit
     - !type:OverallPlaytimeRequirement
-      time: 72000 # CorvaxGoob 5 hours -> 20 hours
+      time: 10800 #3 hrs
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
