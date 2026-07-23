@@ -271,6 +271,11 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
             ? "null"
             : string.Join(", ", banInfo.Users.Select(u => $"{u.UserName} ({u.UserId})"));
 
+        // Wormix
+        var justUsername = banInfo.Users.Count == 0
+            ? "null"
+            : string.Join(", ", banInfo.Users.Select(u => u.UserName));
+
         _chat.SendAdminAlert(Loc.GetString(
             "cmd-roleban-success",
             ("target", targetName),
@@ -280,9 +285,11 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
         var adminName = banInfo.BanningAdmin == null
             ? Loc.GetString("system-user")
-            : (await _db.GetPlayerRecordByUserId(banInfo.BanningAdmin.Value))?.LastSeenUserName ?? Loc.GetString("system-user");
+            : (await _db.GetPlayerRecordByUserId(banInfo.BanningAdmin.Value))?.LastSeenUserName ??
+              Loc.GetString("system-user");
 
-        SendRoleBanWebhook(banDef, targetName, adminName);
+        // Wormix
+        SendRoleBanWebhook(banDef, justUsername, adminName);
 
         foreach (var (userId, _) in banInfo.Users)
         {

@@ -50,7 +50,7 @@ public sealed partial class BanManager
                 message = Loc.GetString("ban-manager-notify-discord",
                     ("admin", admin),
                     ("player", player),
-                    ("expiration", ban.ExpirationTime),
+                    ("expiration", ban.ExpirationTime.Value.DateTime),
                     ("reason", ban.Reason));
 
             var embed = new WebhookEmbed
@@ -108,7 +108,7 @@ public sealed partial class BanManager
                     ("admin", admin),
                     ("player", player),
                     ("roles", string.Join(", ", ban.Roles.GetValueOrDefault())),
-                    ("expiration", ban.ExpirationTime),
+                    ("expiration", ban.ExpirationTime.Value.DateTime),
                     ("reason", ban.Reason));
 
             var embed = new WebhookEmbed
