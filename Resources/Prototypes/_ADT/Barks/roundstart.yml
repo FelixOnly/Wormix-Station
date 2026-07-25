@@ -205,8 +205,9 @@
 - type: speechBark
   id: Starlo
   name: bark-starlo-name
-  sound: /Audio/_ADT/Voice/Vocal-Barks/undertale-yellow-starlo.ogg
-   # Deltarune crap its going to happen now @@@ QWERTY barks addont folder
+  sound:
+    /Audio/_ADT/Voice/Vocal-Barks/undertale-yellow-starlo.ogg
+    # Deltarune crap its going to happen now @@@ QWERTY barks addont folder
   category: undertale_yellow
 
 - type: speechBark
@@ -231,7 +232,7 @@
   id: RoxlsCaard
   name: bark-roxlscaard-name
   sound:
-    collection: _ADTRouxlsKaard
+    collection: ADTRouxlsKaard
   category: deltarune
 
 - type: speechBark
@@ -457,4 +458,3 @@
   name: bark-weh-name
   sound: /Audio/_ADT/Voice/Vocal-Barks/weh.ogg
   category: standard
-
