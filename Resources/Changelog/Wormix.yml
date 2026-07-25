@@ -23,3 +23,9 @@ Entries:
       changes:
       - { message: "Добавлена возможность Агосту видеть все статусы.", type: Add }
       - { message: "Исправленны пути у барков из ADT.", type: Fix }
+    - author: Sablerti
+      id: 4
+      time: '2026-07-25T00:00:00.0000000+00:00'
+      changes:
+      - { message: "Добавлен функция позинг и Барки юнитам, и дронам.", type: Add }
+      - { message: "Добавленны барки с Ориона.", type: Add }
