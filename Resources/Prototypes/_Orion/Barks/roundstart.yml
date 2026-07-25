@@ -1,0 +1,183 @@
+# undertale 
+
+- type: speechBark
+  id: AceAttorney
+  name: bark-name-ace-attorney
+  sound:
+    collection: AceAttorney
+  category: undertale
+  
+# Dont Starve  
+
+- type: speechBark
+  id: DontStarveWilson
+  name: bark-name-dont-starve-wilson
+  sound: /Audio/_Orion/Voice/DontStarve/wilson_bark.ogg
+  category: Don't Starve
+  
+- type: speechBark
+  id: DontStarveWolfgang
+  name: bark-name-dont-starve-wolfgang
+  sound: /Audio/_Orion/Voice/DontStarve/wolfgang_bark.ogg
+  category: Don't Starve
+  
+- type: speechBark
+  id: DontStarveWoodie
+  name: bark-name-dont-starve-woodie
+  sound: /Audio/_Orion/Voice/DontStarve/woodie_bark.ogg
+  category: Don't Starve
+
+- type: speechBark
+  id: DontStarveWurt
+  name: bark-name-dont-starve-wurt
+  sound: /Audio/_Orion/Voice/DontStarve/wurt_bark.ogg
+  category: Don't Starve
+
+- type: speechBark
+  id: DontStarveWx78
+  name: bark-name-dont-starve-wx78
+  sound: /Audio/_Orion/Voice/DontStarve/wx78_bark.ogg
+  category: Don't Starve
+  
+# Kazooie
+  
+- type: speechBark
+  id: KazooieAhuh
+  name: bark-name-kazooie-ahuh
+  sound: /Audio/_Orion/Voice/Kazooie/ahuh.ogg
+  category: Kazooie
+  
+- type: speechBark
+  id: KazooieBird
+  name: bark-name-kazooie-bird
+  sound:
+    collection: KazooieBird
+  category: Kazooie
+  
+- type: speechBark
+  id: KazooieCaw
+  name: bark-name-kazooie-caw
+  sound:
+    collection: KazooieCaw
+  category: Kazooie
+  
+- type: speechBark
+  id: KazooieCry
+  name: bark-name-kazooie-cry
+  sound: /Audio/_Orion/Voice/Kazooie/cry.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieWoop
+  name: bark-name-kazooie-woop
+  sound: /Audio/_Orion/Voice/Kazooie/woop.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieEhh
+  name: bark-name-kazooie-ehh
+  sound:
+    collection: KazooieEhh
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieFaucet
+  name: bark-name-kazooie-faucet
+  sound:
+    collection: KazooieFaucet
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieGrowl
+  name: bark-name-kazooie-growl
+  sound:
+    collection: KazooieGrowl
+  category: Kazooie 
+
+- type: speechBark
+  id: KazooieHaha
+  name: bark-name-kazooie-haha
+  sound: /Audio/_Orion/Voice/Kazooie/haha.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieHoot
+  name: bark-name-kazooie-hoot
+  sound: /Audio/_Orion/Voice/Kazooie/hoot.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieMoan
+  name: bark-name-kazooie-moan
+  sound:
+    collection: KazooieMoan
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieRaah
+  name: bark-name-kazooie-raah
+  sound:
+    collection: KazooieRaah
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieRibbit
+  name: bark-name-kazooie-ribbit
+  sound: /Audio/_Orion/Voice/Kazooie/ribbit.ogg
+  category: Kazooie 
+
+- type: speechBark
+  id: KazooieSlurp
+  name: bark-name-kazooie-slurp
+  sound: /Audio/_Orion/Voice/Kazooie/slurp.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieTweet
+  name: bark-name-kazooie-tweet
+  sound: /Audio/_Orion/Voice/Kazooie/tweet.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieUhm
+  name: bark-name-kazooie-uhm
+  sound: /Audio/_Orion/Voice/Kazooie/uhm.ogg
+  category: Kazooie 
+  
+- type: speechBark
+  id: KazooieZap
+  name: bark-name-kazooie-zap
+  sound: /Audio/_Orion/Voice/Kazooie/zap.ogg
+  category: Kazooie 
+  
+# Standart
+
+- type: speechBark
+  id: Bleat
+  name: bark-name-bleat
+  sound: /Audio/_Orion/Voice/bleat.ogg
+  category: standard 
+  
+- type: speechBark
+  id: Moth
+  name: bark-name-moth
+  sound: /Audio/_Orion/Voice/mothsqueak.ogg
+  category: standard 
+  
+- type: speechBark
+  id: Nomi
+  name: bark-name-nomi
+  sound: /Audio/_Orion/Voice/nomi.ogg
+  category: standard 
+
+- type: speechBark
+  id: Poyo
+  name: bark-name-poyo
+  sound: /Audio/_Orion/Voice/poyo.ogg
+  category: standard 
+  
+- type: speechBark
+  id: Hisses
+  name: bark-name-hisses
+  sound: /Audio/_Orion/Voice/Reptilian/reptilian_hiss.ogg
+  category: standard 

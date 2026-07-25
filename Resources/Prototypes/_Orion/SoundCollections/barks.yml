@@ -1,0 +1,54 @@
+- type: soundCollection
+  id: AceAttorney
+  files:
+  - /Audio/_Orion/Voice/AceAttorney/aa_blip.ogg
+  - /Audio/_Orion/Voice/AceAttorney/aa_blip_typewriter.ogg
+  - /Audio/_Orion/Voice/AceAttorney/aa_dd_blip.ogg
+  - /Audio/_Orion/Voice/AceAttorney/aa_tgaa_blip.ogg
+
+- type: soundCollection
+  id: KazooieBird
+  files:
+  - /Audio/_Orion/Voice/Kazooie/birdwhistle.ogg
+  - /Audio/_Orion/Voice/Kazooie/birdwhistle2.ogg
+
+- type: soundCollection
+  id: KazooieCaw
+  files:
+  - /Audio/_Orion/Voice/Kazooie/caw.ogg
+  - /Audio/_Orion/Voice/Kazooie/caw2.ogg
+  - /Audio/_Orion/Voice/Kazooie/caw3.ogg
+
+- type: soundCollection
+  id: KazooieEhh
+  files:
+  - /Audio/_Orion/Voice/Kazooie/ehh.ogg
+  - /Audio/_Orion/Voice/Kazooie/ehh2.ogg
+  - /Audio/_Orion/Voice/Kazooie/ehh3.ogg
+  - /Audio/_Orion/Voice/Kazooie/ehh4.ogg
+  - /Audio/_Orion/Voice/Kazooie/ehh5.ogg
+
+- type: soundCollection
+  id: KazooieFaucet
+  files:
+  - /Audio/_Orion/Voice/Kazooie/faucet.ogg
+  - /Audio/_Orion/Voice/Kazooie/faucet2.ogg
+
+- type: soundCollection
+  id: KazooieGrowl
+  files:
+  - /Audio/_Orion/Voice/Kazooie/growl.ogg
+  - /Audio/_Orion/Voice/Kazooie/growl2.ogg
+
+- type: soundCollection
+  id: KazooieMoan
+  files:
+  - /Audio/_Orion/Voice/Kazooie/moan1.ogg
+  - /Audio/_Orion/Voice/Kazooie/moan2.ogg
+  - /Audio/_Orion/Voice/Kazooie/moan3.ogg
+
+- type: soundCollection
+  id: KazooieRaah
+  files:
+  - /Audio/_Orion/Voice/Kazooie/raah1.ogg
+  - /Audio/_Orion/Voice/Kazooie/raah2.ogg
