@@ -4,18 +4,21 @@
   description: job-description-radiohost
   playTimeTracker: JobRadioHost
   startingGear: RadioHostGear
+  requirements: # Wormix edit
+    - !type:OverallPlaytimeRequirement
+      time: 10800 #3 hrs
   icon: "JobIconRadioHost"
   supervisors: job-supervisors-hop
   access:
-  - Maintenance
-  - Journalism
-  - Service
+    - Maintenance
+    - Journalism
+    - Service
 
 - type: startingGear
   id: RadioHostGear
   equipment:
     ears: ClothingHeadsetAltRadioHost
-#   eyes: ClothingEyesGlassesSunglasses # CorvaxGoob-loadouts: replaced on a RadiohostGlasses loadout
+    #   eyes: ClothingEyesGlassesSunglasses # CorvaxGoob-loadouts: replaced on a RadiohostGlasses loadout
     belt: ClothingBeltStorageWaistbag
     shoes: ClothingShoesColorBlack
     id: RadioHostPDA
@@ -29,4 +32,3 @@
     jumpsuit: ClothingUniformJumpsuitHawaiBlack
     shoes: ClothingShoesColorBlack
     id: RadioHostPDA
-
