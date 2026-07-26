@@ -153,8 +153,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.ReturnToRoundPressed += ReturnToRound; // Europa
-        Gui.GhostBarPressed += GhostBarPressed; // CorvaxGoob-GhostBar
-        Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // CorvaxGoob-GhostBar
+        // Gui.GhostBarPressed += GhostBarPressed; // CorvaxGoob-GhostBar
+        // Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // CorvaxGoob-GhostBar
         // Wormix remove
         // Gui.ThunderdomePressed += ThunderdomePressed; // Goobstation - Thunderdome
         Gui.TargetWindow.WarpClicked += OnWarpClicked;

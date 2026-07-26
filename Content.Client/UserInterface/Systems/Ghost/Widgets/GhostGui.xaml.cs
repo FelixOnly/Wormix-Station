@@ -35,7 +35,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
-    public event Action? GhostBarPressed; // CorvaxGoob-GhostBar
+    // public event Action? GhostBarPressed; // CorvaxGoob-GhostBar
     public event Action? ThunderdomePressed; // Goobstation - Thunderdome
     public event Action? ReturnToRoundPressed; // Europa
     private int _prevNumberRoles;
@@ -55,7 +55,7 @@ public sealed partial class GhostGui : UIWidget
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
         ReturnToRound.OnPressed += _ => ReturnToRoundPressed?.Invoke(); // Europa
-        GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // CorvaxGoob-GhostBar
+        // GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // CorvaxGoob-GhostBar
         // Wormix remove
         // ThunderdomeButton.OnPressed += _ => ThunderdomePressed?.Invoke(); // Goobstation - Thunderdome
     }
@@ -71,7 +71,7 @@ public sealed partial class GhostGui : UIWidget
     public void Update(int? roles, bool? canReturnToBody, bool? canEnterGhostBar = true, bool? canTakeGhostRoles = true)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
-        GhostBarButton.Disabled = !canEnterGhostBar ?? true; // CorvaxGoob-GhostBar
+        // GhostBarButton.Disabled = !canEnterGhostBar ?? true; // CorvaxGoob-GhostBar
         // Goobstation start
         GhostRolesButton.Disabled = !canTakeGhostRoles ?? true;
         // Goobstation end

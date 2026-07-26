@@ -43,10 +43,10 @@ public sealed class GhostBarSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
-        SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
+        // SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        // SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
 
-        SubscribeLocalEvent<GhostBarPlayerComponent, OpenGhostRolesListActionEvent>(OnActionOpenGhostRoles);
+        // SubscribeLocalEvent<GhostBarPlayerComponent, OpenGhostRolesListActionEvent>(OnActionOpenGhostRoles);
     }
 
     const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
