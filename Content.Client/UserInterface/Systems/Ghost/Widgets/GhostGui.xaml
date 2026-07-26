@@ -17,6 +17,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <Button Name="GhostWarpButton" Text="{Loc ghost-gui-ghost-warp-button}" />
         <Button Name="GhostRolesButton" />
         <Button Name="GhostBarButton" Text="{Loc 'ghost-target-window-ghostbar'}" />
+        <Button Name="ReturnToRound" Access="Public" Disabled="True" Text="{Loc ghost-gui-return-to-round-button}" ToolTip="{Loc 'ghost-gui-return-to-round-button-tooltip'}" /> <!-- Orion -->
         <!-- CorvaxGoob - Ghost Bar -->
 
         <!-- <Button Name="ThunderdomeButton" Text="{Loc thunderdome-ghost-button-default}" /> Wormix remove -->

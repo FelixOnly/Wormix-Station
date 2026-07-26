@@ -37,6 +37,7 @@ public sealed partial class GhostGui : UIWidget
     public event Action? GhostRolesPressed;
     public event Action? GhostBarPressed; // CorvaxGoob-GhostBar
     public event Action? ThunderdomePressed; // Goobstation - Thunderdome
+    public event Action? ReturnToRoundPressed; // Europa
     private int _prevNumberRoles;
 
     public GhostGui()
@@ -53,6 +54,7 @@ public sealed partial class GhostGui : UIWidget
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
+        ReturnToRound.OnPressed += _ => ReturnToRoundPressed?.Invoke(); // Europa
         GhostBarButton.OnPressed += _ => GhostBarPressed?.Invoke(); // CorvaxGoob-GhostBar
         // Wormix remove
         // ThunderdomeButton.OnPressed += _ => ThunderdomePressed?.Invoke(); // Goobstation - Thunderdome
