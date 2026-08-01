@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprited by PuroSlavKing (Github) | banner_spiderclan sprited by UmbiMax",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "banner_inteq"
+    },
+    {
+      "name": "banner_ueg"
+    },
+    {
+      "name": "banner_ueg_alt"
+    },
+    {
+      "name": "banner_spiderclan"
+    }
+  ]
+}
