@@ -1,0 +1,88 @@
+- type: gameMap
+  id: WormixOrbital
+  mapName: NTALS Орбитал
+  mapPath: /Maps/_Wormix/Stations/Orbital/orbital_constr.yml
+  maxRandomOffset: 0
+  randomRotation: false
+  minPlayers: 0
+  maxPlayers: 30
+  stations:
+    WormixOrbital:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Орбитал {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'RES'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Wormix/Stations/Orbital/Shuttles/emergency.yml
+        - type: StationJobs
+          availableJobs:
+            # command
+            Captain: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            # cargo
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 1, 1 ]
+            #ShaftMiner: [ 2, 2 ]
+            CargoTechnician: [ 4, 4 ]
+            # engineering
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 2, 2 ]
+            AtmosphericTechnician: [ 2, 2 ]
+            TechnicalAssistant: [ 2, 2 ]
+            # medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 2, 2 ]
+            Virologist: [ 1, 1 ]
+            Psychologist: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            # science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 4 ]
+            ResearchAssistant: [ 3, 3 ]
+            # security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 6, 6 ]
+            SecurityCadet: [ 2, 2 ]
+            Detective: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            # service
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+            Chef: [ 2, 2 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 2, 2 ]
+            ServiceWorker: [ 3, 3 ]
+            Passenger: [ -1, -1 ]
+            #RadioHost: [ 1, 1 ]
+            # silicon
+            Borg: [ 1, 1 ]
+        - type: StationGoal
+          goals:
+          - Singularity
+          - SolarPanels
+          - Artifacts
+          - Bank
+          - Zoo
+          - MiningOutpost
+          - Tesla
+          - SecurityTraining
+          - Theatre
+          - Botany
+          - Bunker
+          - BluespaceHarvest
+        # - type: StationCargoShuttle
+          # path: /Maps/_CorvaxGoob/Stations/Silly/Shuttles/corvax_cargo_silly.yml
