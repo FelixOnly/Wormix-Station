@@ -14,7 +14,7 @@
       edges:
         - to: bed
           completed:
-            - !type:SnapToGrid { }
+            - !type:SnapToGrid {}
           steps:
             - material: Steel
               amount: 2
@@ -24,14 +24,14 @@
               doAfter: 1
         - to: dogbed
           completed:
-            - !type:SnapToGrid { }
+            - !type:SnapToGrid {}
           steps:
             - material: WoodPlank
               amount: 10
               doAfter: 1
         - to: medicalbed
           completed:
-            - !type:SnapToGrid { }
+            - !type:SnapToGrid {}
           steps:
             - material: Plasteel
               amount: 2
@@ -64,6 +64,45 @@
           steps:
             - tool: Screwing
               doAfter: 1
+        # Orion-Start
+        - to: double_bed_complete
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 2
+              doAfter: 1
+        # Orion-End
+    # Orion-Start
+    - node: double_bed_complete
+      entity: DoubleBed
+      edges:
+        - to: bed
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 4
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    # Orion-End
     - node: medicalbed
       entity: MedicalBed
       edges:
@@ -78,3 +117,4 @@
           steps:
             - tool: Screwing
               doAfter: 1
+

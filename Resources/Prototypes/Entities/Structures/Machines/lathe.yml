@@ -282,76 +282,74 @@
 
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine ] # Goob: Automation
+  parent: [BaseMachinePowered, ConstructibleMachine, BaseAutomatedMachine] # Goob: Automation
   abstract: true
   name: lathe
   components:
-  - type: Appearance
-  - type: WiresVisuals
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
-        density: 190
-        mask:
-        - MachineMask
-        layer:
-          - MachineLayer
-  - type: Lathe
-  - type: MaterialStorage
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: WiresPanel
-  - type: ActivatableUI
-    key: enum.LatheUiKey.Key
-  - type: ActivatableUIRequiresPower
-  - type: UserInterface
-    interfaces:
-      enum.LatheUiKey.Key:
-        type: LatheBoundUserInterface
-      enum.ResearchClientUiKey.Key:
-        type: ResearchClientBoundUserInterface
-  - type: Transform
-    anchored: true
-  - type: Pullable
-  - type: StaticPrice
-    price: 800
-  - type: ResearchClient
-  - type: TechnologyDatabase
-  - type: Speech # Goobstation - Lathe message on recipes update
-    speechSounds: Lathe
-  - type: AutomationSlots # Goobstation
-    slots:
-    - !type:AutomatedMaterialStorage
-      input: AutomationSlotMaterials
-      output: null
-    - !type:AutomatedPorts
-      sinks:
-      - LathePrint
-  - type: LatheAutomation # Goobstation
-  - type: SpamEmitSound # Goobstation - random lathe sounds
-    minInterval: 300
-    maxInterval: 900
-    sound:
-      collection: RandomLatheSounds
-      params:
-        volume: -12 # Ambient
-        maxDistance: 10
-        variation: 0.05
-  - type: SpamEmitSoundRequirePower # Goobstation
+    - type: Appearance
+    - type: WiresVisuals
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeAabb
+            bounds: "-0.4,-0.4,0.4,0.4"
+          density: 190
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: Lathe
+    - type: MaterialStorage
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:ChangeConstructionNodeBehavior
+              node: machineFrame
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: WiresPanel
+    - type: ActivatableUI
+      key: enum.LatheUiKey.Key
+    - type: ActivatableUIRequiresPower
+    - type: UserInterface
+      interfaces:
+        enum.LatheUiKey.Key:
+          type: LatheBoundUserInterface
+        enum.ResearchClientUiKey.Key:
+          type: ResearchClientBoundUserInterface
+    - type: Transform
+      anchored: true
+    - type: Pullable
+    - type: StaticPrice
+      price: 800
+    - type: ResearchClient
+    - type: TechnologyDatabase
+    - type: Speech # Goobstation - Lathe message on recipes update
+      speechSounds: Lathe
+    - type: AutomationSlots # Goobstation
+      slots:
+        - !type:AutomatedMaterialStorage
+          input: AutomationSlotMaterials
+          output: null
+        - !type:AutomatedPorts
+          sinks:
+            - LathePrint
+    - type: LatheAutomation # Goobstation
+    - type: SpamEmitSound # Goobstation - random lathe sounds
+      minInterval: 300
+      maxInterval: 900
+      sound:
+        collection: RandomLatheSounds
+        params:
+          volume: -12 # Ambient
+          maxDistance: 10
+          variation: 0.05
+    - type: SpamEmitSoundRequirePower # Goobstation
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -359,34 +357,34 @@
   parent: BaseLathe
   id: BaseLatheLube
   components:
-  - type: ReagentSpeed
-    solution: lube
-    modifiers:
-      SpaceLube: 0.25
-      SpaceGlue: 5
-  - type: SolutionContainerManager
-    solutions:
-      lube:
-        maxVol: 250
-  - type: Spillable
-    solution: lube
-  - type: RefillableSolution
-    solution: lube
-  - type: ExaminableSolution
-    solution: lube
+    - type: ReagentSpeed
+      solution: lube
+      modifiers:
+        SpaceLube: 0.25
+        SpaceGlue: 5
+    - type: SolutionContainerManager
+      solutions:
+        lube:
+          maxVol: 250
+    - type: Spillable
+      solution: lube
+    - type: RefillableSolution
+      solution: lube
+    - type: ExaminableSolution
+      solution: lube
 
 - type: entity
   abstract: true
   id: BaseHyperlathe
   components:
-  - type: Lathe
-    materialUseMultiplier: 0.5
-    timeMultiplier: 1.5
-  - type: LatheHeatProducing
-  - type: ReagentSpeed
-    modifiers:
-      SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
-      SpaceGlue: 5 # no change from normal lathe, overheat!!!
+    - type: Lathe
+      materialUseMultiplier: 0.5
+      timeMultiplier: 1.5
+    - type: LatheHeatProducing
+    - type: ReagentSpeed
+      modifiers:
+        SpaceLube: 0.8 # being faster means less heat so lube needs to be nerfed
+        SpaceGlue: 5 # no change from normal lathe, overheat!!!
 
 - type: entity
   id: Autolathe
@@ -394,74 +392,74 @@
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/autolathe.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: AutolatheMachineCircuitboard
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
-    staticPacks:
-    - ToolsStatic
-    - PartsStatic
-    - AtmosStatic
-    - CablesStatic
-    #- CargoStatic Goob edit - Moved to Cargo fab
-    - MaterialsStatic
-    - BasicChemistryStatic
-    - RollerBedsStatic
-    - LightsStatic
-    - ServiceStatic
-    - PowerCellsStatic
-    - ElectronicsStatic
-    # Goobstation
-    - NailsStatic
-    - LatheMiscStatic
-    - MedicalVehiclesStatic
-    - GrenadeTriggersStatic
-    - TapeRecorderStatic
-    - MiscSignallersStatic
-    - HydroponicsStatic # CorvaxGoob
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - SecurityWeaponsStatic
-    - SecurityAmmoStatic
-    # Goobstation
-    - SecurityWeaponsStaticGoob
-    - SecurityAmmoStaticGoob
-    - SyndicateAmmoLightStatic
-    - ScienceExplosives
-  - type: BlueprintReceiver
-    whitelist:
-      tags:
-      - BlueprintAutolathe
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      blueprint: !type:Container
-  - type: EmptyOnMachineDeconstruct
-    containers:
-    - blueprint
+    - type: Sprite
+      sprite: Structures/Machines/autolathe.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: AutolatheMachineCircuitboard
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
+    - type: Lathe
+      idleState: icon
+      runningState: building
+      unlitIdleState: unlit
+      unlitRunningState: unlit-building
+      staticPacks:
+        - ToolsStatic
+        - PartsStatic
+        - AtmosStatic
+        - CablesStatic
+        #- CargoStatic Goob edit - Moved to Cargo fab
+        - MaterialsStatic
+        - BasicChemistryStatic
+        - RollerBedsStatic
+        - LightsStatic
+        - ServiceStatic
+        - PowerCellsStatic
+        - ElectronicsStatic
+        # Goobstation
+        - NailsStatic
+        - LatheMiscStatic
+        - MedicalVehiclesStatic
+        - GrenadeTriggersStatic
+        - TapeRecorderStatic
+        - MiscSignallersStatic
+        - HydroponicsStatic # CorvaxGoob
+    - type: EmagLatheRecipes
+      emagStaticPacks:
+        - SecurityWeaponsStatic
+        - SecurityAmmoStatic
+        # Goobstation
+        - SecurityWeaponsStaticGoob
+        - SecurityAmmoStaticGoob
+        - SyndicateAmmoLightStatic
+        - ScienceExplosives
+    - type: BlueprintReceiver
+      whitelist:
+        tags:
+          - BlueprintAutolathe
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        blueprint: !type:Container
+    - type: EmptyOnMachineDeconstruct
+      containers:
+        - blueprint
 
 - type: entity
   id: AutolatheHyperConvection
@@ -469,10 +467,10 @@
   name: hyper convection autolathe
   description: A highly-experimental autolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/autolathe_hypercon.rsi
-  - type: Machine
-    board: AutolatheHyperConvectionMachineCircuitboard
+    - type: Sprite
+      sprite: Structures/Machines/autolathe_hypercon.rsi
+    - type: Machine
+      board: AutolatheHyperConvectionMachineCircuitboard
 
 - type: entity
   id: Protolathe
@@ -480,75 +478,75 @@
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/protolathe.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: ProtolatheMachineCircuitboard
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
-    #staticPacks: - Goobstation - Move static recipes to autolathe
-    #- ChemistryStatic
-    #- SurgeryStatic
-    dynamicPacks:
-    - AdvancedTools
-    #- ScienceEquipment - Goobstation - Moved to Scifab
-    #- ScienceExplosives - Goobstation - Moved to Scifab
-    - ScienceClothing
-    - PowerCells
-    #- ScienceWeapons - Goobstation - Moved to Scifab
-    #- Mining - Goobstation - Moved to Cargofab
-    #- AtmosTools - Goobstation - Moved to Engifab
-    #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
-    #- Chemistry - Goobstation
-    - Janitor
-    - Instruments
-    - Equipment # Goobstation note: handheld mass scanner is removed
-    - FauxTiles
-    # Goobstation Packs
-    # - ServiceWeapons
-    - SpecOpsGoogles
-    - MedicalMisc
-    - MedicalVehiclesAdvanced
-    - UpgradeKits
-    - ConstructionBagOfHolding
-    # Einstein Engines Packs
-    - Translators
-    # CorvaxGoob Packs
-    - BodyBagsDynamic # AdvancedBodyBags
-  - type: EmagLatheRecipes
-    emagDynamicPacks:
-    - SecurityAmmo
-    - SecurityExplosives
-    #- SecurityEquipment # Goobstation
-    - SecurityWeapons
-    # Goobstation Packs
-    - SecurityAmmoGoob
-    - SecurityWeaponsGoob
-    - RestraintTechnology
-    - MiningWeapons
-    # CorvaxGoob Packs
-    emagStaticPacks:
-    - SyndicateBodyBagsStatic # AdvancedBodyBag
+    - type: Sprite
+      sprite: Structures/Machines/protolathe.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: ProtolatheMachineCircuitboard
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
+    - type: Lathe
+      idleState: icon
+      runningState: building
+      unlitIdleState: unlit
+      unlitRunningState: unlit-building
+      #staticPacks: - Goobstation - Move static recipes to autolathe
+      #- ChemistryStatic
+      #- SurgeryStatic
+      dynamicPacks:
+        - AdvancedTools
+        #- ScienceEquipment - Goobstation - Moved to Scifab
+        #- ScienceExplosives - Goobstation - Moved to Scifab
+        - ScienceClothing
+        - PowerCells
+        #- ScienceWeapons - Goobstation - Moved to Scifab
+        #- Mining - Goobstation - Moved to Cargofab
+        #- AtmosTools - Goobstation - Moved to Engifab
+        #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
+        #- Chemistry - Goobstation
+        - Janitor
+        - Instruments
+        - Equipment # Goobstation note: handheld mass scanner is removed
+        - FauxTiles
+        # Goobstation Packs
+        # - ServiceWeapons
+        - SpecOpsGoogles
+        - MedicalMisc
+        - MedicalVehiclesAdvanced
+        - UpgradeKits
+        - ConstructionBagOfHolding
+        # Einstein Engines Packs
+        - Translators
+        # CorvaxGoob Packs
+        - BodyBagsDynamic # AdvancedBodyBags
+    - type: EmagLatheRecipes
+      emagDynamicPacks:
+        - SecurityAmmo
+        - SecurityExplosives
+        #- SecurityEquipment # Goobstation
+        - SecurityWeapons
+        # Goobstation Packs
+        - SecurityAmmoGoob
+        - SecurityWeaponsGoob
+        - RestraintTechnology
+        - MiningWeapons
+      # CorvaxGoob Packs
+      emagStaticPacks:
+        - SyndicateBodyBagsStatic # AdvancedBodyBag
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -556,10 +554,10 @@
   name: hyper convection protolathe
   description: A highly-experimental protolathe that harnesses the power of extreme heat to slowly create objects more cost-effectively.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/protolathe_hypercon.rsi
-  - type: Machine
-    board: ProtolatheHyperConvectionMachineCircuitboard
+    - type: Sprite
+      sprite: Structures/Machines/protolathe_hypercon.rsi
+    - type: Machine
+      board: ProtolatheHyperConvectionMachineCircuitboard
 
 - type: entity
   id: CircuitImprinter
@@ -567,58 +565,58 @@
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/circuit_imprinter.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: CircuitImprinterMachineCircuitboard
-  - type: Lathe
-    producingSound: /Audio/Machines/circuitprinter.ogg
-    idleState: icon
-    runningState: building
-    staticPacks:
-    #- ScienceBoardsStatic - Goobstation - Moved to Scifab
-    - ServiceBoardsStatic
-    - CargoBoardsStatic
-    #- MedicalBoardsStatic - Goobstation - Moved to Scifab and Medfab
-    #- EngineeringBoardsStatic - Goobstation - Moved to Scifab and Engifab
-    - CircuitFloorsStatic
-    # Goobstation Packs
-    - SharedBoardsStatic
-    - MedicalBoardsStaticGoob
-    - SecurityBoardsStaticGoob
-    - ServiceBoardsStaticGoob
-    dynamicPacks:
-    - EngineeringBoards
-    - CargoBoards
-    - MedicalBoards
-    - ServiceBoards
-    #- ScienceBoards - Goobstation - Moved to Scifab
-    - CameraBoards
-    #- MechBoards - Goobstation - split between departmental lathes
-    - ShuttleBoards
-    # Goobstation Packs
-    - SharedBoards
-    - ShuttleBoardsGoob
-    # CorvaxGoob Packs
-    - BluespaceTechnologyBoards # BluespaceHarvester
-    - BluespaceHarvesterBoards # BluespaceHarvester
-    - Cloning # Cloning
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
-  - type: RequireProjectileTarget
+    - type: Sprite
+      sprite: Structures/Machines/circuit_imprinter.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: CircuitImprinterMachineCircuitboard
+    - type: Lathe
+      producingSound: /Audio/Machines/circuitprinter.ogg
+      idleState: icon
+      runningState: building
+      staticPacks:
+        #- ScienceBoardsStatic - Goobstation - Moved to Scifab
+        - ServiceBoardsStatic
+        - CargoBoardsStatic
+        #- MedicalBoardsStatic - Goobstation - Moved to Scifab and Medfab
+        #- EngineeringBoardsStatic - Goobstation - Moved to Scifab and Engifab
+        - CircuitFloorsStatic
+        # Goobstation Packs
+        - SharedBoardsStatic
+        - MedicalBoardsStaticGoob
+        - SecurityBoardsStaticGoob
+        - ServiceBoardsStaticGoob
+      dynamicPacks:
+        - EngineeringBoards
+        - CargoBoards
+        - MedicalBoards
+        - ServiceBoards
+        #- ScienceBoards - Goobstation - Moved to Scifab
+        - CameraBoards
+        #- MechBoards - Goobstation - split between departmental lathes
+        - ShuttleBoards
+        # Goobstation Packs
+        - SharedBoards
+        - ShuttleBoardsGoob
+        # CorvaxGoob Packs
+        - BluespaceTechnologyBoards # BluespaceHarvester
+        - BluespaceHarvesterBoards # BluespaceHarvester
+        - Cloning # Cloning
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
+    - type: RequireProjectileTarget
 
 - type: entity
   id: CircuitImprinterHyperConvection
@@ -626,10 +624,10 @@
   name: hyper convection circuit imprinter
   description: A highly-experimental circuit imprinter that harnesses the power of extreme heat to slowly create objects more cost-effectively.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/circuit_imprinter_hypercon.rsi
-  - type: Machine
-    board: CircuitImprinterHyperConvectionMachineCircuitboard
+    - type: Sprite
+      sprite: Structures/Machines/circuit_imprinter_hypercon.rsi
+    - type: Machine
+      board: CircuitImprinterHyperConvectionMachineCircuitboard
 
 - type: entity
   id: ExosuitFabricator
@@ -637,63 +635,63 @@
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/exosuit_fabricator.rsi
-    layers:
-    - state: fab-idle
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: fab-load
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: fab-o
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: ExosuitFabricatorMachineCircuitboard
-  - type: Lathe
-    idleState: fab-idle
-    runningState: fab-active
-    staticPacks:
-    - RoboticsStatic
-    - BorgModulesStatic
-    - BorgLimbsStatic
-    # Goobstation Packs
-    - MechPartsStatic
-    # - BorgModulesStaticGoob #Removes surgery module, medical cyborgs start with them
-    - IPCPartsStatic
-    - PowerCagesStatic
-    - PartsStatic
-    - CablesStatic
-    - PowerCellsStatic
-    dynamicPacks:
-    - Robotics
-    - BorgModules
-    - MechParts
-    - MechEquipment
-    # Goobstation Packs
-    - MechPartsGoob
-    - Modsuits
-    - PowerCages
-    - BorgModulesGoob
-    - BasicCybernetics
-    - MedicalCybernetics
-    - AdvancedCybernetics
-    - PowerAugments
-    - ToolAugments
-    - PowerCells
-  - type: EmagLatheRecipes # Goobstation
-    emagStaticPacks:
-    - MechWeaponsSecurityStatic
-    emagDynamicPacks:
-    - MechWeaponsSalvage
-    - MechWeaponsSecurityLight
-  - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
-  - type: GuideHelp
-    guides:
-    - Robotics
+    - type: Sprite
+      sprite: Structures/Machines/exosuit_fabricator.rsi
+      layers:
+        - state: fab-idle
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: fab-load
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: fab-o
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: ExosuitFabricatorMachineCircuitboard
+    - type: Lathe
+      idleState: fab-idle
+      runningState: fab-active
+      staticPacks:
+        - RoboticsStatic
+        - BorgModulesStatic
+        - BorgLimbsStatic
+        # Goobstation Packs
+        - MechPartsStatic
+        # - BorgModulesStaticGoob #Removes surgery module, medical cyborgs start with them
+        - IPCPartsStatic
+        - PowerCagesStatic
+        - PartsStatic
+        - CablesStatic
+        - PowerCellsStatic
+      dynamicPacks:
+        - Robotics
+        - BorgModules
+        - MechParts
+        - MechEquipment
+        # Goobstation Packs
+        - MechPartsGoob
+        - Modsuits
+        - PowerCages
+        - BorgModulesGoob
+        - BasicCybernetics
+        - MedicalCybernetics
+        - AdvancedCybernetics
+        - PowerAugments
+        - ToolAugments
+        - PowerCells
+    - type: EmagLatheRecipes # Goobstation
+      emagStaticPacks:
+        - MechWeaponsSecurityStatic
+      emagDynamicPacks:
+        - MechWeaponsSalvage
+        - MechWeaponsSecurityLight
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
+    - type: GuideHelp
+      guides:
+        - Robotics
 
 - type: entity
   id: Biofabricator
@@ -701,42 +699,42 @@
   name: biocube fabricator
   description: Produces animal cubes using biomass.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/biofabricator.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-      color: "#ffaa99"
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      color: "#ffaaaa"
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-      color: "#ffaaaa"
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: BiofabricatorMachineCircuitboard
-  - type: MaterialStorage
-    ignoreColor: true
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-  - type: Lathe
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - FriendlyCubesStatic
-    # Goobstation Packs
-    - HumanoidCubesStatic
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - HostileCubesStatic
-    # Goobstation Packs
-    - EmagCubesStatic
+    - type: Sprite
+      sprite: Structures/Machines/biofabricator.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+          color: "#ffaa99"
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+          color: "#ffaaaa"
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+          color: "#ffaaaa"
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: BiofabricatorMachineCircuitboard
+    - type: MaterialStorage
+      ignoreColor: true
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+    - type: Lathe
+      idleState: icon
+      runningState: building
+      staticPacks:
+        - FriendlyCubesStatic
+        # Goobstation Packs
+        - HumanoidCubesStatic
+    - type: EmagLatheRecipes
+      emagStaticPacks:
+        - HostileCubesStatic
+        # Goobstation Packs
+        - EmagCubesStatic
 
 - type: entity
   id: SecurityTechFab
@@ -744,74 +742,74 @@
   name: security techfab
   description: Prints equipment and circuitboards for use by security crew. #Goobstation - Circuitboards description
   components:
-  - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: sec
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: SecurityTechFabCircuitboard
-  - type: Lathe
-    idleState: icon
-    runningState: icon
-    staticPacks:
-    - SecurityEquipmentStatic
-    - SecurityPracticeStatic
-    - SecurityAmmoStatic
-    - SecurityWeaponsStatic
-    # Goobstation
-    - SecurityAmmoStaticGoob
-    - SecurityEquipmentStaticGoob
-    - SecurityHypoStatic
-    - MechWeaponsSecurityStatic
-    - SecurityBoardsStaticGoob
-    - SecurityBoardsStaticGoob
-    - PowerCellsStatic
-    - ScienceExplosives
-    - GrenadeTriggersStatic
-    - SecurityWeaponsStaticGoob
-    - SecurityAmmoStaticCorvaxGoob # Corvax-Goob-UncleStyopa
-    dynamicPacks:
-    - SalvageSecurityBoards
-    - SalvageSecurityWeapons
-    - SecurityEquipment
-    - SecurityBoards
-    - SecurityExplosives
-    - SecurityAmmo
-    - SecurityWeapons
-    - SecurityDisablers
-    # Goobstation
-    - SecurityWeaponsGoob
-    - RestraintTechnology
-    - MechBoardsSecurity
-    - MechWeaponsSecurityLight
-    - MechWeaponsSecurityHeavy
-    - SecurityAmmoGoob
-    - SecurityCybernetics
-    # - ServiceWeapons
-    - SpecOpsGoogles
-    - PowerCells
-    # CorvaxGoob Packs
-    - SecurityCaptureDevicePack # WeaponGrapplingGunHunter
-    - WorkBeltsSecDynamic # WorkBelts-Techfab
-  - type: EmagLatheRecipes # Goobstation
-    emagStaticPacks:
-    - SyndicateAmmoLightStatic
-    - SyndicateAmmoHeavyStatic
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    - type: Sprite
+      sprite: Structures/Machines/techfab.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: sec
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: SecurityTechFabCircuitboard
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+        - SecurityEquipmentStatic
+        - SecurityPracticeStatic
+        - SecurityAmmoStatic
+        - SecurityWeaponsStatic
+        # Goobstation
+        - SecurityAmmoStaticGoob
+        - SecurityEquipmentStaticGoob
+        - SecurityHypoStatic
+        - MechWeaponsSecurityStatic
+        - SecurityBoardsStaticGoob
+        - SecurityBoardsStaticGoob
+        - PowerCellsStatic
+        - ScienceExplosives
+        - GrenadeTriggersStatic
+        - SecurityWeaponsStaticGoob
+        - SecurityAmmoStaticCorvaxGoob # Corvax-Goob-UncleStyopa
+      dynamicPacks:
+        - SalvageSecurityBoards
+        - SalvageSecurityWeapons
+        - SecurityEquipment
+        - SecurityBoards
+        - SecurityExplosives
+        - SecurityAmmo
+        - SecurityWeapons
+        - SecurityDisablers
+        # Goobstation
+        - SecurityWeaponsGoob
+        - RestraintTechnology
+        - MechBoardsSecurity
+        - MechWeaponsSecurityLight
+        - MechWeaponsSecurityHeavy
+        - SecurityAmmoGoob
+        - SecurityCybernetics
+        # - ServiceWeapons
+        - SpecOpsGoogles
+        - PowerCells
+        # CorvaxGoob Packs
+        - SecurityCaptureDevicePack # WeaponGrapplingGunHunter
+        - WorkBeltsSecDynamic # WorkBelts-Techfab
+    - type: EmagLatheRecipes # Goobstation
+      emagStaticPacks:
+        - SyndicateAmmoLightStatic
+        - SyndicateAmmoHeavyStatic
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
 
 - type: entity
   id: AmmoTechFab
@@ -838,13 +836,13 @@
       idleState: icon
       runningState: icon
       staticPacks:
-      - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
+        - SecurityAmmoStatic
+        # Goobstation Packs
+        - SecurityAmmoStaticGoob
     - type: EmagLatheRecipes # Goobstation Packs
       emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
+        - SyndicateAmmoLightStatic
+        - SyndicateAmmoHeavyStatic
     - type: MaterialStorage
       whitelist:
         tags:
@@ -858,69 +856,69 @@
   name: medical techfab
   description: Prints equipment and circuitboards for use by the medbay.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/techfab.rsi
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: med
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Lathe
-    idleState: icon
-    runningState: icon
-    staticPacks:
-    - TopicalsStatic
-    - ChemistryStatic
-    - MedicalStatic
-    - RollerBedsStatic
-    - MedicalClothingStatic
-    - EmptyMedkitsStatic
-    - SurgeryStatic
-    # Goobstation Packs
-    - ParamedHypoStatic
-    - MedicalPatchesStatic
-    - SurgeryStaticGoob
-    - MedicalVehiclesStatic
-    - MedicalBoardsStatic
-    - MedicalBoardsStaticGoob
-    - PowerCellsStatic
-    - GrenadeTriggersStatic
-    # Einstein Engines Packs
-    - SyringeCase
-    dynamicPacks:
-    - Chemistry
-    # Goobstation Packs
-    - Surgery
-    - MedicalCybernetics
-    - EnvirosuitExtinguisherRefill
-    - MedicalMisc
-    - MedicalMiscRestricted
-    - MedicalVehiclesAdvanced
-    - MedicalBoards
-    - Janitor
-    - Genetics
-    - MedicalCloning
-    # Einstein Engines Packs
-    - Translators # Language
-    - TranslatorImplanters # Language
-    # CorvaxGoob Packs
-    - BodyBagsDynamic # AdvancedBodyBag
-    - WorkBeltsMedDynamic # WorkBelts-Techfab
-  - type: Machine
-    board: MedicalTechFabCircuitboard
-  - type: EmagLatheRecipes # Goobstation Packs
-    emagStaticPacks:
-    - SyndicateCatridgesStatic
-    # CorvaxGoob Packs
-    - SyndicateBodyBagsStatic # AdvancedBodyBags
-  - type: StealTarget
-    stealGroup: MedicalTechFabCircuitboard
+    - type: Sprite
+      sprite: Structures/Machines/techfab.rsi
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: med
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Lathe
+      idleState: icon
+      runningState: icon
+      staticPacks:
+        - TopicalsStatic
+        - ChemistryStatic
+        - MedicalStatic
+        - RollerBedsStatic
+        - MedicalClothingStatic
+        - EmptyMedkitsStatic
+        - SurgeryStatic
+        # Goobstation Packs
+        - ParamedHypoStatic
+        - MedicalPatchesStatic
+        - SurgeryStaticGoob
+        - MedicalVehiclesStatic
+        - MedicalBoardsStatic
+        - MedicalBoardsStaticGoob
+        - PowerCellsStatic
+        - GrenadeTriggersStatic
+        # Einstein Engines Packs
+        - SyringeCase
+      dynamicPacks:
+        - Chemistry
+        # Goobstation Packs
+        - Surgery
+        - MedicalCybernetics
+        - EnvirosuitExtinguisherRefill
+        - MedicalMisc
+        - MedicalMiscRestricted
+        - MedicalVehiclesAdvanced
+        - MedicalBoards
+        - Janitor
+        - Genetics
+        - MedicalCloning
+        # Einstein Engines Packs
+        - Translators # Language
+        - TranslatorImplanters # Language
+        # CorvaxGoob Packs
+        - BodyBagsDynamic # AdvancedBodyBag
+        - WorkBeltsMedDynamic # WorkBelts-Techfab
+    - type: Machine
+      board: MedicalTechFabCircuitboard
+    - type: EmagLatheRecipes # Goobstation Packs
+      emagStaticPacks:
+        - SyndicateCatridgesStatic
+        # CorvaxGoob Packs
+        - SyndicateBodyBagsStatic # AdvancedBodyBags
+    - type: StealTarget
+      stealGroup: MedicalTechFabCircuitboard
 
 - type: entity
   parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit
@@ -928,51 +926,52 @@
   name: uniform printer
   description: Prints new or replacement uniforms.
   components:
-  - type: Transform
-    noRot: false
-  - type: Sprite
-    sprite: Structures/Machines/uniform_printer.rsi
-    snapCardinals: false
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-  - type: Machine
-    board: UniformPrinterMachineCircuitboard
-  - type: Lathe
-    producingSound: /Audio/Machines/uniformprinter.ogg
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - ClothingCivilian
-    - ClothingCargo
-    - ClothingCommand
-    - ClothingEngineering
-    - ClothingMedical
-    - ClothingScience
-    - ClothingSecurity
-    - ClothingService
-    - WinterCoats
-    - Ties
-    - Scarves
-    - Carpets
-    - Bedsheets
-    - CorvaxClothing
-    # Goobstation Packs
-    - ClothingCasualJumpsuits
-    - ClothingCommandSummer
-  - type: EmagLatheRecipes
-    emagStaticPacks:
-    - ClothingCentComm
-    - ClothingSyndie
-    # Goobstation Packs
-    - ClothingDurathreadArmoured
-    - ClothingCasualContrabandJumpsuits
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    - type: Transform
+      noRot: false
+    - type: Sprite
+      sprite: Structures/Machines/uniform_printer.rsi
+      snapCardinals: false
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+    - type: Machine
+      board: UniformPrinterMachineCircuitboard
+    - type: Lathe
+      producingSound: /Audio/Machines/uniformprinter.ogg
+      idleState: icon
+      runningState: building
+      staticPacks:
+        - ClothingCivilian
+        - ClothingCargo
+        - ClothingCommand
+        - ClothingEngineering
+        - ClothingMedical
+        - ClothingScience
+        - ClothingSecurity
+        - ClothingService
+        - WinterCoats
+        - Ties
+        - Scarves
+        - Carpets
+        - Bedsheets
+        - DoubleBedsheets # Orion
+        - CorvaxClothing
+        # Goobstation Packs
+        - ClothingCasualJumpsuits
+        - ClothingCommandSummer
+    - type: EmagLatheRecipes
+      emagStaticPacks:
+        - ClothingCentComm
+        - ClothingSyndie
+        # Goobstation Packs
+        - ClothingDurathreadArmoured
+        - ClothingCasualContrabandJumpsuits
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - RawMaterial
+          - Ingot
 
 - type: entity
   id: Biogenerator
@@ -980,42 +979,42 @@
   name: biogenerator
   description: Converts plants into biomass, which can be used to construct useful items.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/biofabricator.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: inserting
-      map: ["enum.MaterialStorageVisualLayers.Inserting"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: BiogeneratorMachineCircuitboard
-  - type: MaterialStorage
-  - type: ProduceMaterialExtractor
-  - type: ItemSlots
-    slots:
-      beaker_slot:
-        name: lathe-component-output-slot-beaker-name
-        whitelist:
-          components:
-          - FitsInDispenser
-  - type: ContainerContainer
-    containers:
-      machine_board: !type:Container
-      machine_parts: !type:Container
-      beaker_slot: !type:ContainerSlot
-  - type: Lathe
-    reagentOutputSlotId: beaker_slot
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - BioGenIngredientsStatic
-    - BioGenMaterialsStatic
+    - type: Sprite
+      sprite: Structures/Machines/biofabricator.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: inserting
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: BiogeneratorMachineCircuitboard
+    - type: MaterialStorage
+    - type: ProduceMaterialExtractor
+    - type: ItemSlots
+      slots:
+        beaker_slot:
+          name: lathe-component-output-slot-beaker-name
+          whitelist:
+            components:
+              - FitsInDispenser
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+        machine_parts: !type:Container
+        beaker_slot: !type:ContainerSlot
+    - type: Lathe
+      reagentOutputSlotId: beaker_slot
+      idleState: icon
+      runningState: building
+      staticPacks:
+        - BioGenIngredientsStatic
+        - BioGenMaterialsStatic
 
 - type: entity
   parent: [BaseLathe, BaseSiloUtilizer] # Goob edit
@@ -1055,8 +1054,8 @@
       defaultProductionAmount: 10
       outputToStorage: true # Goob edit
       staticPacks:
-      - OreSmelting
-      - RGlassSmelting
+        - OreSmelting
+        - RGlassSmelting
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
@@ -1067,17 +1066,17 @@
   name: industrial ore processor
   description: An ore processor specifically designed for mass-producing metals in industrial applications.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/ore_processor_industrial.rsi
-  - type: Machine
-    board: OreProcessorIndustrialMachineCircuitboard
-  - type: Lathe
-    materialUseMultiplier: 0.75
-    timeMultiplier: 0.5
-    staticPacks:
-    - OreSmelting
-    - RGlassSmelting
-    - AdvancedSmelting
+    - type: Sprite
+      sprite: Structures/Machines/ore_processor_industrial.rsi
+    - type: Machine
+      board: OreProcessorIndustrialMachineCircuitboard
+    - type: Lathe
+      materialUseMultiplier: 0.75
+      timeMultiplier: 0.5
+      staticPacks:
+        - OreSmelting
+        - RGlassSmelting
+        - AdvancedSmelting
 
 - type: entity
   parent: [BaseLathe, BaseSiloUtilizer] # CorvaxGoob-changes: add BaseSiloUtilizer
@@ -1085,30 +1084,30 @@
   name: sheet-meister 2000
   description: A very sheety machine.
   components:
-  - type: Sprite
-    sprite: Structures/Machines/sheetifier.rsi
-    layers:
-    - state: base_machine
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: buttons_on
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-  - type: Machine
-    board: SheetifierMachineCircuitboard
-  - type: MaterialStorage
-    dropOnDeconstruct: false #should drop ores instead of ingots/sheets
-    ignoreColor: true
-    canEjectStoredMaterials: false
-    whitelist:
-      tags:
-      - Meat # CorvaxGoob-changes: Raw > meat
-      - Wooden
-      - Boll
-  - type: Lathe
-    idleState: base_machine
-    runningState: base_machine_processing
-    staticPacks:
-    - SheetifierStatic
+    - type: Sprite
+      sprite: Structures/Machines/sheetifier.rsi
+      layers:
+        - state: base_machine
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: buttons_on
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - type: Machine
+      board: SheetifierMachineCircuitboard
+    - type: MaterialStorage
+      dropOnDeconstruct: false #should drop ores instead of ingots/sheets
+      ignoreColor: true
+      canEjectStoredMaterials: false
+      whitelist:
+        tags:
+          - Meat # CorvaxGoob-changes: Raw > meat
+          - Wooden
+          - Boll
+    - type: Lathe
+      idleState: base_machine
+      runningState: base_machine_processing
+      staticPacks:
+        - SheetifierStatic
 
 - type: entity
   parent: [BaseLatheLube, BaseSiloUtilizer] # CorvaxGoob
@@ -1116,32 +1115,32 @@
   name: cutter machine
   description: This is a cutter. It cuts. Add variety to your station floor with eye-pleasing patterns! Don't stick your fingers in.
   components:
-  - type: Transform
-    noRot: false
-  - type: Sprite
-    sprite: Structures/Machines/cuttermachine.rsi
-    snapCardinals: true
-    layers:
-    - state: icon
-      map: ["enum.LatheVisualLayers.IsRunning"]
-    - state: unlit
-      shader: unshaded
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: CutterMachineCircuitboard
-  - type: Lathe
-    producingSound: /Audio/Machines/cutter.ogg
-    idleState: icon
-    runningState: building
-    staticPacks:
-    - FloorTilesStatic
-  - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - Metal
-        - Wooden
-        - RawMaterial
-        - Plastic
+    - type: Transform
+      noRot: false
+    - type: Sprite
+      sprite: Structures/Machines/cuttermachine.rsi
+      snapCardinals: true
+      layers:
+        - state: icon
+          map: ["enum.LatheVisualLayers.IsRunning"]
+        - state: unlit
+          shader: unshaded
+          map: ["enum.PowerDeviceVisualLayers.Powered"]
+        - state: panel
+          map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: Machine
+      board: CutterMachineCircuitboard
+    - type: Lathe
+      producingSound: /Audio/Machines/cutter.ogg
+      idleState: icon
+      runningState: building
+      staticPacks:
+        - FloorTilesStatic
+    - type: MaterialStorage
+      whitelist:
+        tags:
+          - Sheet
+          - Metal
+          - Wooden
+          - RawMaterial
+          - Plastic
