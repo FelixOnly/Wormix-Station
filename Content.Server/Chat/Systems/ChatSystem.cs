@@ -509,6 +509,42 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Announcements
 
+    // DS14-announce-start
+    public void DispatchAdminFilteredAnnouncement(
+        Filter filter,
+        string message,
+        string? sender = null,
+        bool playSound = true,
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null)
+    {
+
+        sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message",
+            ("sender", sender),
+            ("message", FormattedMessage.EscapeText(message)));
+
+        foreach (var session in filter.Recipients)
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Radio, message, wrappedMessage, default, false, session.Channel, colorOverride, true);
+        }
+
+        if (playSound)
+        {
+            if (announcementSound == null)
+            {
+                if (sender == Loc.GetString("chat-manager-sender-announcement"))
+                    announcementSound = new SoundPathSpecifier(CentComAnnouncementSound);
+            }
+
+            _audio.PlayGlobal(announcementSound ?? new SoundPathSpecifier(DefaultAnnouncementSound), filter, true, announcementSound?.Params ?? AudioParams.Default.WithVolume(-2f));
+        }
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Filtered station announcement from {sender}: {message}");
+    }
+    // DS14-announce-end
+
     /// <summary>
     /// Dispatches an announcement to all.
     /// </summary>
@@ -521,7 +557,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+        bool isCentcommSender = false // DS14-announce
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");

@@ -8,3 +8,15 @@ admin-announce-type-server = Сервер
 admin-announce-keep-open = Держать открытым
 cmd-announceui-desc = Открывает меню объявлений.
 cmd-announceui-help = Использование: announceui
+# DS14-start
+admin-announce-enable-tts = Включить озвучку
+admin-announce-custom-centcomm-tts = Своя озвучка объявления
+admin-announce-footer = При запуске раунда система выбирает одну озвучку объявления из списка и использует её если не включить опцию Своя озвучка объявления.
+admin-announce-color-placeholder = Цвет (HEX)
+admin-announce-sound-placeholder = Путь к звуку
+admin-announce-volume-placeholder = Громкость
+admin-announce-sender-placeholder = Подпись отправителя
+admin-announce-sender-default = Оператор ЦК
+admin-announce-target-all = Все
+# DS14-end
+
