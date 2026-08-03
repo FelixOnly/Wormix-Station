@@ -1,0 +1,19 @@
+- type: entity
+  parent: [ PlushieRGBee, BaseStorageItem, BaseBagOpenClose ]
+  name: Пчела-сумка
+  description: Многие дизайнеры считают это хорошая попытка объединить плюшивость и вместительность.
+  id: BeePack
+  suffix: HaloShivter
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-zip
+      map: ["closeLayer"]
+    - state: icon-open
+      map: ["openLayer"]
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    storageCloseSound: /Audio/Items/zip.ogg
+    storageOpenSound: /Audio/Items/zip.ogg
+    

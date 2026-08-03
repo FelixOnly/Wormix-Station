@@ -90,7 +90,7 @@
     ClothingUniformJumpskirtColorPink: 2
     ClothingUniformJumpsuitColorDarkBlue: 2
     ClothingUniformJumpskirtColorDarkBlue: 2
-    ClothingUniformJumpsuitColorDarkGreen:  2
+    ClothingUniformJumpsuitColorDarkGreen: 2
     ClothingUniformJumpskirtColorDarkGreen: 2
     ClothingUniformJumpsuitColorTeal: 2
     ClothingUniformJumpskirtColorTeal: 2
@@ -181,6 +181,7 @@
     ClothingBackpackSatchelSmugglerUnanchored: 1
     ClothingHeadHatSolidHeadband: 2
     ClothingNeckFellForItAward: 1 # Goobstation
+    BeePack: 3 # Wormix
   # DO NOT ADD MORE, USE UNIFORM DYING
   emaggedInventory: #Goobstation
     ClothingOuterCoatSyndieCapArmored: 1
