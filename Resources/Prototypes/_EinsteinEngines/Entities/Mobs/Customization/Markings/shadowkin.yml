@@ -532,15 +532,6 @@
       state: body_blackhole
 
 - type: marking
-  id: BodyShadekinBrace
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Shadowkin]
-  sprites:
-    - sprite: _ADT/Mobs/Customization/Shadekin/shadekin_overlay.rsi
-      state: body_brace
-
-- type: marking
   id: BodyShadekinBrawly
   bodyPart: LLeg
   markingCategory: Overlay
