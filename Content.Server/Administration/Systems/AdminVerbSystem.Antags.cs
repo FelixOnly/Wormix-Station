@@ -89,6 +89,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
 using Content.Shared.Administration;
 using Content.Server.Clothing.Systems;
+using Content.Shared._DeadSpace.Events.Roles.Components;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind.Components;
@@ -131,6 +132,27 @@ public sealed partial class AdminVerbSystem
             return;
 
         var targetPlayer = targetActor.PlayerSession;
+
+        // DS14-start
+        var eventRoleName = Loc.GetString("admin-verb-text-make-event-role");
+        Verb eventRole = new()
+        {
+            Priority = -1,
+            Text = eventRoleName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_DeadSpace/Interface/Misc/antag_icons.rsi"), "Event"),
+            Act = () =>
+            {
+                if (HasComp<EventRoleComponent>(args.Target))
+                    RemComp<EventRoleComponent>(args.Target);
+                else
+                    EnsureComp<EventRoleComponent>(args.Target);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", eventRoleName, Loc.GetString("admin-verb-make-event-role")),
+        };
+        args.Verbs.Add(eventRole);
+        // DS14-End
 
         var traitorName = Loc.GetString("admin-verb-text-make-traitor");
         Verb traitor = new()

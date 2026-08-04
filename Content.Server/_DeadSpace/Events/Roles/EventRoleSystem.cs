@@ -1,0 +1,44 @@
+// Мёртвый Космос, Licensed under custom terms with restrictions on public hosting and commercial use, full text: https://raw.githubusercontent.com/dead-space-server/space-station-14-fobos/master/LICENSE.TXT
+
+using Content.Server.Chat.Managers;
+using Content.Shared.Mind;
+using Content.Shared.Chat;
+using Content.Shared._DeadSpace.Events.Roles.Components;
+using Robust.Server.Player;
+
+namespace Content.Server._DeadSpace.Events.Roles;
+
+public sealed class AutoDeleteOnDeathSystem : EntitySystem
+{
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<EventRoleComponent, ComponentAdd>(OnComponentAdd);
+        SubscribeLocalEvent<EventRoleComponent, ComponentRemove>(OnComponentRem);
+    }
+
+    private void OnComponentAdd(EntityUid uid, EventRoleComponent component, ComponentAdd args)
+    {
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && _player.TryGetSessionById(mind.UserId, out var session))
+        {
+            var message = Loc.GetString("eventrole-giverolemassage");
+            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+            _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage, default, false, session.Channel, Color.FromHex("#5e9cff"));
+        }
+    }
+
+    private void OnComponentRem(EntityUid uid, EventRoleComponent component, ComponentRemove args)
+    {
+        if (_mindSystem.TryGetMind(uid, out _, out var mind) && _player.TryGetSessionById(mind.UserId, out var session))
+        {
+            var message = Loc.GetString("eventrole-takerolemassage");
+            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+            _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage, default, false, session.Channel, Color.FromHex("#5e9cff"));
+        }
+    }
+}
