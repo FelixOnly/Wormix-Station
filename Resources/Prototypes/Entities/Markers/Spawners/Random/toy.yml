@@ -45,9 +45,9 @@
   components:
     - type: Sprite
       layers:
-      - state: red
-      - sprite: Objects/Fun/Plushies/bee.rsi
-        state: icon
+        - state: red
+        - sprite: Objects/Fun/Plushies/bee.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - FoamBlade
@@ -75,13 +75,22 @@
         - PlushieDiona
         - PlushieArachind
         - PlushieBingle # Goobstation
-#        - PlushieSamantha # Corvax Goob
-#        - PlushieJvne # Corvax Goob
-#        - PlushieFern # Corvax Goob
+        #        - PlushieSamantha # Corvax Goob
+        #        - PlushieJvne # Corvax Goob
+        #        - PlushieFern # Corvax Goob
         - PlushieAbductor # Goobstation
         # WD EDIT START
         - FaceHuggerToys
         # WD EDIT END
+        # Wormix start
+        - PlushieCatBlack
+        - PlushieCatGrey
+        - PlushieCatWhite
+        - PlushieCatOrange
+        - PlushieCatTabby
+        - PlushieCatSiames
+        - PlushieCatTuxedo
+        # Wormix end
       chance: 0.5
       offset: 0.2
 
@@ -132,56 +141,56 @@
           state: figurine_spawner
     - type: RandomSpawner
       rarePrototypes:
-      - ToyFigurineNukieElite
-      - ToyFigurineNukieCommander
-      - ToyFigurineCosmicCultist # DeltaV Figurine, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
+        - ToyFigurineNukieElite
+        - ToyFigurineNukieCommander
+        - ToyFigurineCosmicCultist # DeltaV Figurine, see Resources/Prototypes/_DV/Entities/Objects/Fun/toys.yml
       rareChance: 0.05
       prototypes:
-      - ToyFigurinePassenger
-      - ToyFigurineClown
-      - ToyFigurineMime
-      - ToyFigurineMusician
-      - ToyFigurineBoxer
-      - ToyFigurineCaptain
-      - ToyFigurineHeadOfSecurity
-      - ToyFigurineWarden
-      - ToyFigurineDetective
-      - ToyFigurineSecurity
-      - ToyFigurineLawyer
-      - ToyFigurineCargoTech
-      - ToyFigurineSalvage
-      - ToyFigurineQuartermaster
-      - ToyFigurineChiefEngineer
-      - ToyFigurineAtmosTech
-      - ToyFigurineEngineer
-      - ToyFigurineResearchDirector
-      - ToyFigurineScientist
-      - ToyFigurineChiefMedicalOfficer
-      - ToyFigurineChemist
-      - ToyFigurineParamedic
-      - ToyFigurineMedicalDoctor
-      - ToyFigurineHeadOfPersonnel
-      - ToyFigurineLibrarian
-      - ToyFigurineChaplain
-      - ToyFigurineChef
-      - ToyFigurineBartender
-      - ToyFigurineBotanist
-      - ToyFigurineJanitor
-      - ToyFigurineNukie
-      - ToyFigurineFootsoldier
-      - ToyFigurineWizardFake
-      - ToyFigurineSlime
-      - ToyFigurineGreytider
-      - ToyFigurineWizard
-      - ToyGriffin
-      - ToyOwlman
-      - ToySkeleton
-      - ToyFigurineQueen
-      - ToyFigurineSpaceDragon
-      - ToyFigurineRatKing
-      - ToyFigurineRatServant
-      - ToyFigurineMouse
-      - ToyFigurineHamlet
-      - ToyFigurineThief
+        - ToyFigurinePassenger
+        - ToyFigurineClown
+        - ToyFigurineMime
+        - ToyFigurineMusician
+        - ToyFigurineBoxer
+        - ToyFigurineCaptain
+        - ToyFigurineHeadOfSecurity
+        - ToyFigurineWarden
+        - ToyFigurineDetective
+        - ToyFigurineSecurity
+        - ToyFigurineLawyer
+        - ToyFigurineCargoTech
+        - ToyFigurineSalvage
+        - ToyFigurineQuartermaster
+        - ToyFigurineChiefEngineer
+        - ToyFigurineAtmosTech
+        - ToyFigurineEngineer
+        - ToyFigurineResearchDirector
+        - ToyFigurineScientist
+        - ToyFigurineChiefMedicalOfficer
+        - ToyFigurineChemist
+        - ToyFigurineParamedic
+        - ToyFigurineMedicalDoctor
+        - ToyFigurineHeadOfPersonnel
+        - ToyFigurineLibrarian
+        - ToyFigurineChaplain
+        - ToyFigurineChef
+        - ToyFigurineBartender
+        - ToyFigurineBotanist
+        - ToyFigurineJanitor
+        - ToyFigurineNukie
+        - ToyFigurineFootsoldier
+        - ToyFigurineWizardFake
+        - ToyFigurineSlime
+        - ToyFigurineGreytider
+        - ToyFigurineWizard
+        - ToyGriffin
+        - ToyOwlman
+        - ToySkeleton
+        - ToyFigurineQueen
+        - ToyFigurineSpaceDragon
+        - ToyFigurineRatKing
+        - ToyFigurineRatServant
+        - ToyFigurineMouse
+        - ToyFigurineHamlet
+        - ToyFigurineThief
       chance: 0.90
       offset: 0.2
