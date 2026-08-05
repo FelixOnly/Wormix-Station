@@ -300,6 +300,7 @@ public sealed partial class DetailExaminableWindow : FancyWindow
             url.StartsWith("https://steamcommunity.com/sharedfiles", StringComparison.OrdinalIgnoreCase) ||
             url.StartsWith("https://images.steamusercontent.com", StringComparison.OrdinalIgnoreCase) ||
             url.StartsWith("https://media.discordapp.net/attachments", StringComparison.OrdinalIgnoreCase) ||
+            url.StartsWith("https://discord.com/channels/", StringComparison.OrdinalIgnoreCase) || // Wormix edit
             url.StartsWith("https://cdn.discordapp.com/attachments", StringComparison.OrdinalIgnoreCase);
     }
 
