@@ -154,6 +154,6 @@ public sealed class CatEmoteSpamCountermeasureSystem : EntitySystem
     {
         if (_playerManager.TryGetSessionByEntity(uid, out var session)) // CorvaxGoob
             _chat.SendAdminAlert(Loc.GetString("emote-spam-smite-admin-announcement", ("player", session.Name)));
-        _thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures);
+        //_thunderstrike.Smite(uid, kill: killOverride ?? DrasticMeasures); // Wormix fix. Really is LRP suicide
     }
 }
