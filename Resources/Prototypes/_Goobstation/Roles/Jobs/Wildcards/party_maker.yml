@@ -17,7 +17,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHawaiBlack
     id: PartyMakerPDA
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Wormix
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesColorBlack
   storage:
@@ -29,6 +29,6 @@
   job: PartyMaker
   equipment:
     jumpsuit: ClothingUniformJumpsuitHawaiBlack
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Wormix
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesColorBlack

@@ -102,7 +102,7 @@
   equipment:
     shoes: ClothingShoesColorBlack
     id: ServiceWorkerPDA
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Wormix
   #storage:
     #back:
     #- Stuff

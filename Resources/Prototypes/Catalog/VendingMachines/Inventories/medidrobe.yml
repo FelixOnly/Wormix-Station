@@ -39,7 +39,7 @@
     ClothingShoesColorWhite: 4
     ClothingHandsGlovesLatex: 4
     ClothingHandsGlovesNitrile: 2
-    ClothingHeadsetMedical: 4
+    #ClothingHeadsetMedical: 4 # Wormix
     ClothingOuterWinterMed: 2
     ClothingOuterHospitalGown: 5
     UniformScrubsColorGreen: 4

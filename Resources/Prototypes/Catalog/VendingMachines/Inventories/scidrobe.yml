@@ -26,7 +26,7 @@
     ClothingOuterCoatRnd: 3
     ClothingShoesColorWhite: 3
     ClothingNeckTieSci: 3
-    ClothingHeadsetScience: 3
+    #ClothingHeadsetScience: 3 # Wormix
     ClothingMaskGas: 3
     ClothingOuterWinterSci: 2
     ClothingNeckScarfStripedPurple: 3

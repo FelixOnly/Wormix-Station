@@ -27,7 +27,7 @@
     ClothingUniformJumpsuitLibrarian: 3
     ClothingUniformJumpskirtLibrarian: 3
     ClothingShoesBootsLaceup: 2
-    ClothingHeadsetService: 2
+    #ClothingHeadsetService: 2 # Wormix
   contrabandInventory:
     ToyFigurineLibrarian: 1
   emaggedInventory: # Goobstation

@@ -20,8 +20,8 @@
 
 - type: startingGear
   id: RoboticistGear
-  equipment:
-    ears: ClothingHeadsetRobotics
+  #equipment:
+    #ears: ClothingHeadsetRobotics # Wormix
 #   eyes: ClothingEyesHudDiagnostic # CorvaxGoob-loadouts: replaced on a RoboticistGlasses loadout
 
 - type: chameleonOutfit
@@ -34,7 +34,7 @@
     neck: ClothingNeckTieSci
     outerClothing: ClothingOuterCoatRobo
     gloves: ClothingHandsGlovesRobohands
-    ear: ClothingHeadsetRobotics
+    #ear: ClothingHeadsetRobotics # Wormix
     jumpsuit: ClothingUniformJumpsuitRoboticist
     shoes: ClothingShoesColorBlack
     id: RoboticistPDA

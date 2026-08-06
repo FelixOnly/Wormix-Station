@@ -53,7 +53,7 @@
     ClothingHeadHatWitch1: 1
     ClothingOuterPlagueSuit: 1
     ClothingMaskPlague: 1
-    ClothingHeadsetService: 2
+    #ClothingHeadsetService: 2 # Wormix
     BoxCandle: 2
     BoxCandleSmall: 2
     Urn: 5

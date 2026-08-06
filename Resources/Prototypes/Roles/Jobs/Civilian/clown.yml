@@ -160,7 +160,7 @@
     pocket1: BikeHorn
     pocket2: ClownRecorder
     id: ClownPDA
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Wormix
   storage:
     back:
     - RubberStampClown

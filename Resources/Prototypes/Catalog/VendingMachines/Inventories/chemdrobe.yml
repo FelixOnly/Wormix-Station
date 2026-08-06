@@ -27,7 +27,7 @@
     HandLabeler: 3
     ClothingBeltMedical: 2
     ClothingHandsGlovesLatex: 2
-    ClothingHeadsetMedical: 2
+    #ClothingHeadsetMedical: 2 # Wormix
     ClothingOuterWinterChem: 2
   contrabandInventory:
     ToyFigurineChemist: 1

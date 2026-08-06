@@ -73,7 +73,7 @@
   equipment:
     shoes: ClothingShoesColorWhite
     id: ResearchAssistantPDA
-    ears: ClothingHeadsetScience
+    #ears: ClothingHeadsetScience # Wormix
     pocket2: BookScientistsGuidebook
   #storage:
     #back:

@@ -276,8 +276,8 @@
   table: !type:AllSelector
     children:
     - id: AccessConfigurator
-    - id: BoxEncryptionKeyPassenger
-    - id: BoxEncryptionKeyService
+    #- id: BoxEncryptionKeyPassenger # Wormix
+    #- id: BoxEncryptionKeyService # Wormix
     - id: BoxHeadset
     - id: BoxID
     - id: BoxPDA

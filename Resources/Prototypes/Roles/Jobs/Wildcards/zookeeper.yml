@@ -83,7 +83,7 @@
     #head: ClothingHeadSafari
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Wormix
   #storage:
     #back:
     #- Stuff

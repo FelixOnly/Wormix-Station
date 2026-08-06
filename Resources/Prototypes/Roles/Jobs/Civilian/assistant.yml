@@ -99,7 +99,7 @@
   id: PassengerGear
   equipment:
     id: PassengerPDA
-    ears: ClothingHeadsetGrey
+    #ears: ClothingHeadsetGrey # Wormix
   #storage:
     #back:
     #- Stuff

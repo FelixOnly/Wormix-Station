@@ -149,7 +149,7 @@
     shoes: ClothingShoesColorWhite
     id: MimePDA
     pocket1: CrayonMime
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Wormix
   storage:
     back:
     - RubberStampMime

@@ -29,7 +29,7 @@
   equipment:
 ## Goob comment out - jumpsuit: ClothingUniformJumpsuitShaftMiner
     id: MinerPDA
-    ears: ClothingHeadsetMining
+    #ears: ClothingHeadsetMining
   storage:
     back:
     - MiningVoucher
