@@ -1751,6 +1751,108 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
+        //Wormix start
+
+        #region Job Character Whitelists
+
+        public async Task<bool> AddJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        {
+
+            await using var db = await GetDb();
+            var exists = await db.DbContext.CharacterWhitelists
+                .Where(w => w.ProfileId == profile)
+                .Where(w => w.RoleIdAllow == jobAllow.Id)
+                .Where(w => w.RoleIdDeny == jobDeny.Id)
+                .AnyAsync();
+
+            if (exists)
+                return false;
+
+            var whitelist = new CharacterWhitelist
+            {
+                ProfileId = profile,
+                RoleIdAllow = jobAllow,
+                RoleIdDeny = jobDeny
+            };
+            db.DbContext.CharacterWhitelists.Add(whitelist);
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+
+
+        public async Task<List<string>> GetJobCharacterWhitelistAllowed(int profile, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.CharacterWhitelists
+                .Where(w => w.ProfileId == profile)
+                .Select(w => w.RoleIdAllow)
+                .ToListAsync(cancellationToken: cancel);
+        }
+
+        public async Task<List<string>> GetJobCharacterWhitelistDenied(int profile, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.CharacterWhitelists
+                .Where(w => w.ProfileId == profile)
+                .Select(w => w.RoleIdDeny)
+                .ToListAsync(cancellationToken: cancel);
+        }
+
+        public async Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.CharacterWhitelists
+                .Where(w => w.ProfileId == profile)
+                .Where(w => w.RoleIdAllow == job.Id)
+                .AnyAsync();
+        }
+
+        public async Task<bool> IsJobCharacterWhitelistDeny(int profile, ProtoId<JobPrototype> job)
+        {
+            await using var db = await GetDb();
+            return await db.DbContext.CharacterWhitelists
+                .Where(w => w.ProfileId == profile)
+                .Where(w => w.RoleIdDeny == job.Id)
+                .AnyAsync();
+        }
+
+        public async Task<bool> RemoveJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        {
+            await using var db = await GetDb();
+            var entry = await db.DbContext.CharacterWhitelists
+                .Where(w => w.ProfileId == profile)
+                .Where(w => w.RoleIdAllow == jobAllow.Id)
+                .Where(w => w.RoleIdDeny == jobDeny.Id)
+                .SingleOrDefaultAsync();
+
+            if (entry == null)
+                return false;
+
+            db.DbContext.CharacterWhitelists.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        #endregion
+
+        public async Task<List<Profile>> GetPlayerCharacters(Guid player)
+        {
+            await using var db = await GetDb();
+
+            var preference = db.DbContext.Preference.SingleOrDefault(x => x.UserId == player);
+
+            if(preference == null)
+                return new List<Profile>();
+
+            var characters = db.DbContext.Profile.Where(x => x.PreferenceId == preference.Id);
+
+            return characters.ToList();
+        }
+
+        //Wormix end
+
+
         #region Job Whitelists
 
         public async Task<bool> AddJobWhitelist(Guid player, ProtoId<JobPrototype> job)

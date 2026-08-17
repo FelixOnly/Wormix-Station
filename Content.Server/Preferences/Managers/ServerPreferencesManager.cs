@@ -38,6 +38,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Corvax.Interfaces.Shared;
 using Content.Server.Database;
+using Content.Server.Players;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Preferences;
@@ -69,6 +70,8 @@ namespace Content.Server.Preferences.Managers
         // Cache player prefs on the server so we don't need as much async hell related to them.
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
             new();
+
+        [Dependency] private readonly JobCharacterWhitelistManager _jobCharacterWhitelist = default!; // Wormix
 
         private ISawmill _sawmill = default!;
 
@@ -220,6 +223,10 @@ namespace Content.Server.Preferences.Managers
                 if (nextSlot != null)
                 {
                     await _db.DeleteSlotAndSetSelectedIndex(userId, slot, nextSlot.Value);
+
+                    // Wormix start
+                    _jobCharacterWhitelist.RemoveAllCharacterWhitelist(userId, slot);
+                    // Wormix end
                 }
                 else
                 {

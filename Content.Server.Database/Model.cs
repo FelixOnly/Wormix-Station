@@ -47,6 +47,9 @@ namespace Content.Server.Database
         public DbSet<AdminWatchlist> AdminWatchlists { get; set; } = null!;
         public DbSet<AdminMessage> AdminMessages { get; set; } = null!;
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
+
+        public DbSet<CharacterWhitelist> CharacterWhitelists { get; set; } = null!; // Wormix
+
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
@@ -274,6 +277,16 @@ namespace Content.Server.Database
                 .HasPrincipalKey(p => p.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            //Wormix start
+
+            modelBuilder.Entity<CharacterWhitelist>()
+                .HasOne(w => w.Profile)
+                .WithMany(p => p.JobWhitelists)
+                .HasForeignKey(w => w.ProfileId)
+                .HasPrincipalKey(p => p.Id)
+                .OnDelete(DeleteBehavior.Cascade);
+            //Wormix end
+
             // Changes for modern HWID integration
             modelBuilder.Entity<Player>()
                 .OwnsOne(p => p.LastSeenHWId)
@@ -372,6 +385,8 @@ namespace Content.Server.Database
 
         public int PreferenceId { get; set; }
         public Preference Preference { get; set; } = null!;
+
+        public List<CharacterWhitelist> JobWhitelists { get; set; } = null!; //Wormix
     }
 
     public class Job
@@ -966,6 +981,26 @@ namespace Content.Server.Database
         [Required]
         public string RoleId { get; set; } = default!;
     }
+
+    // Wormix start
+    /// <summary>
+    /// This will allow admins add characters to the list where players could play on roles that is usually not allow, like age or race
+    /// </summary>
+    [PrimaryKey(nameof(ProfileId), nameof(RoleIdAllow), nameof(RoleIdDeny))]
+    public class CharacterWhitelist
+    {
+        [Required, ForeignKey("Profile")]
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; } = default!;
+
+        [Required]
+        public string RoleIdAllow { get; set; } = default!;
+
+        [Required]
+        public string RoleIdDeny { get; set; } = default!;
+    }
+    // Wormix end
+
 
     /// <summary>
     /// Defines a template that admins can use to quickly fill out ban information.

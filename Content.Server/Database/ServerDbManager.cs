@@ -124,7 +124,8 @@ namespace Content.Server.Database
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
-        Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites);
+        Task SaveConstructionFavoritesAsync(NetUserId userId,
+            List<ProtoId<ConstructionPrototype>> constructionFavorites);
 
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
@@ -178,7 +179,7 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned=true,
+            bool includeUnbanned = true,
             BanType type = BanType.Server);
 
         Task<BanDef> AddBanAsync(BanDef ban);
@@ -254,6 +255,7 @@ namespace Content.Server.Database
         #endregion
 
         #region Admin Ranks
+
         Task<Admin?> GetAdminDataForAsync(NetUserId userId, CancellationToken cancel = default);
         Task<AdminRank?> GetAdminRankAsync(int id, CancellationToken cancel = default);
 
@@ -335,9 +337,32 @@ namespace Content.Server.Database
 
         #region Admin Notes
 
-        Task<int> AddAdminNote(int? roundId, Guid player, TimeSpan playtimeAtNote, string message, NoteSeverity severity, bool secret, Guid createdBy, DateTimeOffset createdAt, DateTimeOffset? expiryTime);
-        Task<int> AddAdminWatchlist(int? roundId, Guid player, TimeSpan playtimeAtNote, string message, Guid createdBy, DateTimeOffset createdAt, DateTimeOffset? expiryTime);
-        Task<int> AddAdminMessage(int? roundId, Guid player, TimeSpan playtimeAtNote, string message, Guid createdBy, DateTimeOffset createdAt, DateTimeOffset? expiryTime);
+        Task<int> AddAdminNote(int? roundId,
+            Guid player,
+            TimeSpan playtimeAtNote,
+            string message,
+            NoteSeverity severity,
+            bool secret,
+            Guid createdBy,
+            DateTimeOffset createdAt,
+            DateTimeOffset? expiryTime);
+
+        Task<int> AddAdminWatchlist(int? roundId,
+            Guid player,
+            TimeSpan playtimeAtNote,
+            string message,
+            Guid createdBy,
+            DateTimeOffset createdAt,
+            DateTimeOffset? expiryTime);
+
+        Task<int> AddAdminMessage(int? roundId,
+            Guid player,
+            TimeSpan playtimeAtNote,
+            string message,
+            Guid createdBy,
+            DateTimeOffset createdAt,
+            DateTimeOffset? expiryTime);
+
         Task<AdminNoteRecord?> GetAdminNote(int id);
         Task<AdminWatchlistRecord?> GetAdminWatchlist(int id);
         Task<AdminMessageRecord?> GetAdminMessage(int id);
@@ -346,9 +371,27 @@ namespace Content.Server.Database
         Task<List<IAdminRemarksRecord>> GetVisibleAdminNotes(Guid player);
         Task<List<AdminWatchlistRecord>> GetActiveWatchlists(Guid player);
         Task<List<AdminMessageRecord>> GetMessages(Guid player);
-        Task EditAdminNote(int id, string message, NoteSeverity severity, bool secret, Guid editedBy, DateTimeOffset editedAt, DateTimeOffset? expiryTime);
-        Task EditAdminWatchlist(int id, string message, Guid editedBy, DateTimeOffset editedAt, DateTimeOffset? expiryTime);
-        Task EditAdminMessage(int id, string message, Guid editedBy, DateTimeOffset editedAt, DateTimeOffset? expiryTime);
+
+        Task EditAdminNote(int id,
+            string message,
+            NoteSeverity severity,
+            bool secret,
+            Guid editedBy,
+            DateTimeOffset editedAt,
+            DateTimeOffset? expiryTime);
+
+        Task EditAdminWatchlist(int id,
+            string message,
+            Guid editedBy,
+            DateTimeOffset editedAt,
+            DateTimeOffset? expiryTime);
+
+        Task EditAdminMessage(int id,
+            string message,
+            Guid editedBy,
+            DateTimeOffset editedAt,
+            DateTimeOffset? expiryTime);
+
         Task DeleteAdminNote(int id, Guid deletedBy, DateTimeOffset deletedAt);
         Task DeleteAdminWatchlist(int id, Guid deletedBy, DateTimeOffset deletedAt);
         Task DeleteAdminMessage(int id, Guid deletedBy, DateTimeOffset deletedAt);
@@ -424,6 +467,28 @@ namespace Content.Server.Database
         Task SendNotification(DatabaseNotification notification);
 
         #endregion
+
+        // Wormix start
+
+        public Task AddJobCharacterWhitelist(int profile,
+            ProtoId<JobPrototype> jobAllow,
+            ProtoId<JobPrototype> jobDeny);
+
+        public Task<List<string>> GetJobCharacterWhitelistAllowed(int profile, CancellationToken cancel = default);
+
+        public Task<List<string>> GetJobCharacterWhitelistDenied(int profile, CancellationToken cancel = default);
+
+        public Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job);
+
+        public Task<bool> IsJobCharacterWhitelistDeny(int profile, ProtoId<JobPrototype> job);
+
+        public Task<bool> RemoveJobCharacterWhitelist(int profile,
+            ProtoId<JobPrototype> jobAllow,
+            ProtoId<JobPrototype> jobDeny);
+
+        public Task<List<Profile>> GetPlayerCharacters(Guid player, CancellationToken cancel = default);
+
+    // Wormix end
     }
 
     /// <summary>
@@ -1048,6 +1113,54 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
+
+
+        //Wormix start
+
+        public Task AddJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddJobCharacterWhitelist(profile, jobAllow, jobDeny));
+        }
+
+        public Task<List<string>> GetJobCharacterWhitelistAllowed(int profile, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetJobCharacterWhitelistAllowed(profile, cancel));
+        }
+
+        public Task<List<string>> GetJobCharacterWhitelistDenied(int profile, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetJobCharacterWhitelistDenied(profile, cancel));
+        }
+
+        public Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.IsJobCharacterWhitelistAllow(profile, job));
+        }
+
+        public Task<bool> IsJobCharacterWhitelistDeny(int profile, ProtoId<JobPrototype> job)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.IsJobCharacterWhitelistDeny(profile, job));
+        }
+
+        public Task<bool> RemoveJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveJobCharacterWhitelist(profile, jobAllow, jobDeny));
+        }
+
+        public Task<List<Profile>> GetPlayerCharacters(Guid player, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerCharacters(player));
+        }
+
+        //Wormix end
+
 
         public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
         {

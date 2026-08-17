@@ -170,6 +170,7 @@ using Robust.Shared.Utility;
 using Content.Server._CorvaxGoob.TTS;
 using Content.Server.Corvax.GuideGenerator;
 using System.IO;
+using Content.Server.Players;
 
 namespace Content.Server.Entry
 {
@@ -255,6 +256,7 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
+                IoCManager.Resolve<JobCharacterWhitelistManager>().Initialize();// Wormix
             }
         }
 

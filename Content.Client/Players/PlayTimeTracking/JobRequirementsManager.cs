@@ -83,6 +83,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using Content.Client.Lobby;
+using Content.Shared._Wormix.Players;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
@@ -108,10 +110,15 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
+    [Dependency] private readonly IClientPreferencesManager _preferences = default!; // Wormix
+
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<ProtoId<JobPrototype>> _jobBans = new();
     private readonly List<ProtoId<AntagPrototype>> _antagBans = new();
     private readonly List<string> _jobWhitelists = new();
+
+    private readonly List<CharacterWhitelistRole> _allow = new();
+    private readonly List<CharacterWhitelistRole> _deny = new();
 
     private ISawmill _sawmill = default!;
 
@@ -125,9 +132,52 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         _net.RegisterNetMessage<MsgRoleBans>(RxRoleBans);
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
         _net.RegisterNetMessage<MsgJobWhitelist>(RxJobWhitelist);
+        _net.RegisterNetMessage<MsgJobCharacterWhitelist>(RxJobCharacterWhitelist); // Wormix
 
         _client.RunLevelChanged += ClientOnRunLevelChanged;
     }
+
+    // Wormix start
+
+    private void RxJobCharacterWhitelist(MsgJobCharacterWhitelist message)
+    {
+        _allow.Clear();
+        _deny.Clear();
+
+        _allow.AddRange(message.Allow);
+        _deny.AddRange(message.Deny);
+
+        Updated?.Invoke();
+    }
+
+    public bool IsListAllowed(ProtoId<JobPrototype> job)
+    {
+        var selectedCharacter = _preferences?.Preferences?.SelectedCharacterIndex;
+
+        if (selectedCharacter == null)
+            return false;
+
+
+        if(_allow.Find((role => role.characterId == selectedCharacter && role.job == job)) != null)
+            return true;
+
+        return false;
+    }
+
+    public bool IsListDenied(ProtoId<JobPrototype> job)
+    {
+        var selectedCharacter = _preferences?.Preferences?.SelectedCharacterIndex;
+
+        if (selectedCharacter == null)
+            return false;
+
+        if(_deny.Find((role => role.characterId == selectedCharacter && role.job == job)) != null)
+            return true;
+
+        return false;
+    }
+
+    // Wormix end
 
     private void ClientOnRunLevelChanged(object? sender, RunLevelChangedEventArgs e)
     {
@@ -138,6 +188,9 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             _jobWhitelists.Clear();
             _jobBans.Clear();
             _antagBans.Clear();
+
+            _allow.Clear(); // Wormix
+            _deny.Clear(); // Wormix
         }
     }
 
@@ -227,9 +280,28 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return false;
         }
 
+        //Wormix start
+
+        // Запрещаем если не разрешено
+        if (IsListDenied(job))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("background-not-allow"));
+            return false;
+        }
+
+        // Разрешаем если разрешено
+        if (IsListAllowed(job))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("background-allow"));
+            return true;
+        }
+        //Wormix end
+
+
         // Check whitelist requirements
         if (!CheckWhitelist(job, out reason))
             return false;
+
 
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
