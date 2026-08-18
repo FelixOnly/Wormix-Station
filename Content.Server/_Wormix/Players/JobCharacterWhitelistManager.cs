@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._Wormix.Players;
 using Content.Shared.Players;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Network;
@@ -138,6 +139,11 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
         return await _db.GetJobCharacterWhitelistAllowed(characterId);
     }
 
+    private int GetCharacterIndexOfName(string name, IReadOnlyDictionary<int, ICharacterProfile> characterProfiles)
+    {
+        return characterProfiles.FirstOrDefault(pair => pair.Value.Name == name).Key;
+    }
+
     public async void SendJobCharacterWhitelist(ICommonSession player)
     {
 
@@ -150,13 +156,16 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
         var tempAllow = new List<CharacterWhitelistRole>();
         var tempDeny = new List<CharacterWhitelistRole>();
 
+
         for (int localCharacter = 0; localCharacter < playerPref.Characters.Count; localCharacter++)
         {
             foreach (var dbAllow in _allow)
             {
                 if (dbCharacters[localCharacter].Id == dbAllow.characterId)
                 {
-                    tempAllow.Add(new CharacterWhitelistRole(playerPref.Characters.Keys.ToArray()[localCharacter], dbAllow.job));
+                    tempAllow.Add(new CharacterWhitelistRole(
+                        GetCharacterIndexOfName(dbCharacters[localCharacter].CharacterName,playerPref.Characters),
+                        dbAllow.job));
                 }
 
             }
@@ -165,7 +174,10 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
             {
                 if (dbCharacters[localCharacter].Id == dbDeny.characterId)
                 {
-                    tempDeny.Add(new CharacterWhitelistRole(playerPref.Characters.Keys.ToArray()[localCharacter], dbDeny.job));
+
+                    tempDeny.Add(new CharacterWhitelistRole(
+                        GetCharacterIndexOfName(dbCharacters[localCharacter].CharacterName,playerPref.Characters),
+                        dbDeny.job));
                 }
             }
 
@@ -177,7 +189,7 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
             Deny = tempDeny
         };
 
-        // Отправляем игроку список, но айди относительно его списка
+        // Отправляем игроку список, но айди относительно его списка персонажей
         _net.ServerSendMessage(msg, player.Channel);
     }
 
