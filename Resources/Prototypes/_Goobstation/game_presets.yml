@@ -56,7 +56,7 @@
   showInVote: false
   rules:
     - CalmLing
-    - CalmTraitor
+   # - CalmTraitor
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
@@ -72,7 +72,7 @@
   showInVote: false
   rules:
     - Calmops
-    - CalmTraitor
+   # - CalmTraitor
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
@@ -103,7 +103,7 @@
   showInVote: false
   rules:
     - CalmRevs
-    - CalmTraitor
+   # - CalmTraitor
     - BasicStationEventScheduler
     - MeteorSwarmScheduler
 
@@ -133,7 +133,7 @@
   rules:
   - BlobGameMode
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
+  #- AntagStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
 
@@ -159,7 +159,7 @@
     - calmdynamic
   name: sleeper-title
   description: sleeper-description
-  showInVote: true
+  showInVote: false #true
   minPlayers: 5
   rules:
     - CalmDynamic
@@ -190,7 +190,7 @@
     - turbulence
   name: secretplus-low-title
   description: secretplus-low-description
-  showInVote: true
+  showInVote: false #true
   rules:
     - SecretPlusLow
 
@@ -202,7 +202,7 @@
     - entropy
   name: secretplus-mid-title
   description: secretplus-mid-description
-  showInVote: true
+  showInVote: false #true
   rules:
     - SecretPlusMid
 
@@ -227,7 +227,7 @@
     - survivalnew
   name: survivalplus-title
   description: survivalplus-description
-  showInVote: true
+  showInVote: false #true
   rules:
     - SecretPlusRampingMid
 
@@ -255,7 +255,7 @@
   showInVote: false
   rules:
   - OopsAllThieves
-  - TraitorSubGamemodesRule
+ # - TraitorSubGamemodesRule
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -270,6 +270,6 @@
   name: secretplus-lowpop-title
   description: secretplus-lowpop-description
   showInVote: true
-  maxPlayers: 40
+  maxPlayers: 400 #40
   rules:
     - SecretPlusLowpop
