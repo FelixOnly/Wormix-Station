@@ -35,9 +35,9 @@ loadout-group-virology-envirohelm = Экошлем вирусолога
 loadout-group-virology-envirosuit = Экокостюм вирусолога
 loadout-group-virology-envirogloves = Экоперчатки вирусолога
 # Cargo Technician
-loadout-group-cargo-technician-envirohelm = Экошлем грузчика
-loadout-group-cargo-technician-envirosuit = Экокостюм грузчика
-loadout-group-cargo-technician-envirogloves = Экоперчатки грузчика
+loadout-group-cargo-technician-envirohelm = Экошлем карго техника
+loadout-group-cargo-technician-envirosuit = Экокостюм карго техника
+loadout-group-cargo-technician-envirogloves = Экоперчатки карго техника
 # Quartermaster
 loadout-group-quartermaster-envirohelm = Экошлем квартирмейстера
 loadout-group-quartermaster-envirosuit = Экокостюм квартирмейстера
