@@ -1,1 +1,1 @@
-marking-ShadowkinGlowingEyes = Глаза Тенекина (свечение)
+marking-ShadowkinGlowingEyes = Глаза Шадовкина (свечение)
