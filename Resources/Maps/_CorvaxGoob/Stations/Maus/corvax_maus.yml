@@ -51980,14 +51980,6 @@ entities:
       parent: 6737
     - type: Physics
       canCollide: False
-- proto: ClothingNeckCloakCe
-  entities:
-  - uid: 19926
-    components:
-    - type: Transform
-      parent: 19921
-    - type: Physics
-      canCollide: False
 - proto: ClothingNeckCloakGay
   entities:
   - uid: 18246

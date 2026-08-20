@@ -30035,14 +30035,6 @@ entities:
     - type: Transform
       pos: 28.785774,28.185114
       parent: 2
-- proto: ClothingNeckCloakCe
-  entities:
-  - uid: 90
-    components:
-    - type: Transform
-      parent: 5438
-    - type: Physics
-      canCollide: False
 - proto: ClothingNeckCorvaxPin
   entities:
   - uid: 2943
@@ -58299,10 +58291,6 @@ entities:
           showEnts: False
           occludes: False
           ent: null
-        neck: !type:ContainerSlot
-          showEnts: False
-          occludes: False
-          ent: 90
         mask: !type:ContainerSlot
           showEnts: False
           occludes: False

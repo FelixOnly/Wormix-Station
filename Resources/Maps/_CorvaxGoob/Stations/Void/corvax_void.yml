@@ -64281,13 +64281,6 @@ entities:
     - type: Transform
       pos: 121.40266,129.47449
       parent: 1
-- proto: ClothingNeckMantleCE
-  entities:
-  - uid: 2081
-    components:
-    - type: Transform
-      pos: 48.530895,117.73253
-      parent: 1
 - proto: ClothingNeckMantleHOP
   entities:
   - uid: 10211

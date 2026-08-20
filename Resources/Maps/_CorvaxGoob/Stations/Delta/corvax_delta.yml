@@ -95345,13 +95345,6 @@ entities:
       parent: 22471
     - type: Physics
       canCollide: False
-- proto: ClothingNeckMantleCE
-  entities:
-  - uid: 35356
-    components:
-    - type: Transform
-      pos: -58.490314,5.5715113
-      parent: 13307
 - proto: ClothingNeckMantleCMO
   entities:
   - uid: 35354
