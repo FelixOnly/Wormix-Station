@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 FelixOnly <62942680+felixonly@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: Bible
+  name: Легенды об Мяу'Си
+  description: "Священное писание о богине Мяу'Си. написанное в нём было собрано из множества мифов что были потеряны или намеренно скрыты."
+  id: BibleMeow
+  components:
+  - type: Bible
+    sizzleSound: "/Audio/Nyanotrasen/Voice/Felinid/cat_hiss1.ogg"
+    healSound: "/Audio/Items/Toys/meow1.ogg"
+  - type: Sprite
+    sprite: _Wormix/Objects/Specific/Chapel/meowsi.rsi
+  - type: Item
+    sprite: _Wormix/Objects/Specific/Chapel/meowsi.rsi
+    
+    
+- type: selectableSet
+  id: MeowSet
+  name: Мяу'Си
+  description: "Принеси любовь и заботу в этот мир, уничтожив зло, как говорила богиня."
+  sprite:
+    sprite: _Wormix/Objects/Specific/Chapel/meowsi.rsi
+    state: icon
+  content:
+  - BibleMeow    
