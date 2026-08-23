@@ -91,7 +91,7 @@
   equipment:
     shoes: ClothingShoesColorWhite
     id: MedicalInternPDA
-    #ears: ClothingHeadsetMedical # Wormix
+    ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
     pocket2: BookMedicalReferenceBook
   #storage:

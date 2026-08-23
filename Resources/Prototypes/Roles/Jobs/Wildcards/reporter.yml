@@ -75,7 +75,7 @@
   equipment:
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
-    #ears: ClothingHeadsetService # Wormix
+    ears: ClothingHeadsetService
   storage: # DeltaV: Give reporters tape recording equipment
     back:
     - TapeRecorder

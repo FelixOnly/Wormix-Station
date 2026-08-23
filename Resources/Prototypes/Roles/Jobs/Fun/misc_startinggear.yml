@@ -128,7 +128,7 @@
     gloves: ClothingHandsGlovesFingerless
     shoes: ClothingShoesBootsJack
     id: PassengerPDA
-    #ears: ClothingHeadsetGrey
+    ears: ClothingHeadsetGrey
   storage:
     back:
       - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
@@ -215,7 +215,7 @@
   id: MobMonkeyGear
   equipment:
     head: ClothingHeadHatTophat
-    #ears: ClothingHeadsetService # Wormix
+    ears: ClothingHeadsetService
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
     id: PunPunIDCard
 

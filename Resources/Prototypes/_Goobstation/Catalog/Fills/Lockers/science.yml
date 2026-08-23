@@ -11,7 +11,7 @@
   - type: StorageFill
     contents:
     - id: ClothingHandsGlovesLatex
-    #- id: ClothingHeadsetScience # Wormix
+    - id: ClothingHeadsetScience
     - id: ClothingMaskSterile
     - id: ClothingOuterVestTank
     - id: ClothingBeltChemBagXenobiology

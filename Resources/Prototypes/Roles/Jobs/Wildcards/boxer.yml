@@ -78,7 +78,7 @@
   id: BoxerGear
   equipment:
     id: BoxerPDA
-    #ears: ClothingHeadsetService # Wormix
+    ears: ClothingHeadsetService
     shoes: ClothingShoesColorRed
     belt: ClothingBeltChampion
   #storage:

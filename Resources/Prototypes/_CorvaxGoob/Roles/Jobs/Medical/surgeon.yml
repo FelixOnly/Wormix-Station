@@ -27,7 +27,7 @@
 - type: startingGear
   id: SurgeonGear
   equipment:
-    #ears: ClothingHeadsetMedical # Wormix
+    ears: ClothingHeadsetMedical
     belt: ClothingBeltSurgicalBoardFilled
     shoes: ClothingShoesColorWhite
     id: SurgeonPDA
@@ -40,7 +40,7 @@
     head: ClothingHeadHatBeretMedic
     eyes: ClothingEyesHudMedical
     mask: ClothingMaskBreath
-    #ears: ClothingHeadsetMedical # Wormix
+    ears: ClothingHeadsetMedical
     outerClothing: ClothingOuterCoatLab
     gloves: ClothingHandsGlovesNitrile
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor

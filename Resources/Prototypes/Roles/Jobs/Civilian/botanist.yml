@@ -91,7 +91,7 @@
   equipment:
     shoes: ClothingShoesColorBrown
     id: BotanistPDA
-    #ears: ClothingHeadsetService # Wormix
+    ears: ClothingHeadsetService
     belt: ClothingBeltPlantFilled
   #storage:
     #back:

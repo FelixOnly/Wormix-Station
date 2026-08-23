@@ -123,7 +123,7 @@
   equipment:
     shoes: ClothingShoesLeather
     id: PsychologistPDA
-    #ears: ClothingHeadsetMedical # Wormix
+    ears: ClothingHeadsetMedical
   storage:
     back:
     - RubberStampPsychologist

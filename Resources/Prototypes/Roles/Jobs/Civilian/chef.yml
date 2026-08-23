@@ -116,7 +116,7 @@
   equipment:
     shoes: ClothingShoesColorBlack
     id: ChefPDA
-    #ears: ClothingHeadsetService # Wormix
+    ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
   #storage:
     #back:

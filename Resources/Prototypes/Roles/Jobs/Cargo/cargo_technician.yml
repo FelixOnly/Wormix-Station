@@ -102,7 +102,7 @@
   id: CargoTechGear
   equipment:
     id: CargoPDA
-    #ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
   #storage:
     #back:

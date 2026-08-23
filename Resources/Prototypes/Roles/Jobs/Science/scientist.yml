@@ -89,8 +89,8 @@
 
 - type: startingGear
   id: ScientistGear
-  #equipment:
-    #ears: ClothingHeadsetScience # Wormix
+  equipment:
+    ears: ClothingHeadsetScience
   #storage:
     #back:
     #- Stuff

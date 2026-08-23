@@ -97,7 +97,7 @@
   equipment:
     id: SalvagePDA
 ## Goob comment out - jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
-    #ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetCargo
   storage: # DeltaV: Add mining voucher
     back:
     - MiningVoucher

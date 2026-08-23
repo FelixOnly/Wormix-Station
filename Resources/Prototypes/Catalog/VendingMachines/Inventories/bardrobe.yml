@@ -29,7 +29,7 @@
     ClothingHeadHatTophat: 2
     ClothingEyesHudBeer: 2
     ClothingEyesEyepatchHudBeer: 2
-    #ClothingHeadsetService: 2 # Wormix
+    ClothingHeadsetService: 2
     ClothingOuterApronBar: 2
     ClothingOuterWinterBar: 2
     ClothingUniformJumpsuitBartender: 2
