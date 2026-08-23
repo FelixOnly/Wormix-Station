@@ -184,9 +184,9 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCargo 
+      #- EncryptionKeyCargo # Wormix
       - EncryptionKeyCommand
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
 
 - type: entity
   parent: [ ClothingHeadset, BaseCentcommContraband ]
@@ -229,7 +229,7 @@
     containers:
       key_slots:
       - EncryptionKeyEngineering
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
@@ -246,7 +246,7 @@
       key_slots:
       - EncryptionKeyEngineering
       - EncryptionKeyCommand
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
 
 - type: entity
   parent: ClothingHeadset
@@ -258,7 +258,7 @@
     containers:
       key_slots:
       - EncryptionKeyMedical
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
   - type: Clothing
@@ -275,7 +275,7 @@
       key_slots:
       - EncryptionKeyMedical 
       - EncryptionKeyCommand
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
 
 - type: entity
   parent: ClothingHeadset
@@ -287,7 +287,7 @@
     containers:
       key_slots:
       - EncryptionKeyScience 
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
@@ -303,7 +303,7 @@
     containers:
       key_slots:
       - EncryptionKeyMedicalScience
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medicalscience.rsi
   - type: Clothing
@@ -319,7 +319,7 @@
     containers:
       key_slots:
       - EncryptionKeyRobo
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/robotics.rsi
   - type: Clothing
@@ -336,7 +336,7 @@
       key_slots:
       - EncryptionKeyScience
       - EncryptionKeyCommand
-      - EncryptionKeyCommon
+      #- EncryptionKeyCommon # Wormix
 
 - type: entity
   parent: [ClothingHeadset, BaseSecurityLawyerContraband]
@@ -348,7 +348,7 @@
     containers:
       key_slots:
       - EncryptionKeySecurity
-      - EncryptionKeyCommon 
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
@@ -365,7 +365,7 @@
       key_slots:
       - EncryptionKeyMedical
       - EncryptionKeySecurity
-      - EncryptionKeyCommon
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/brigmedic.rsi
   - type: Clothing
@@ -381,7 +381,7 @@
     containers:
       key_slots:
       - EncryptionKeyService
-      - EncryptionKeyCommon
+      #- EncryptionKeyCommon # Wormix
   - type: Sprite
     sprite: Clothing/Ears/Headsets/service.rsi
   - type: Clothing
