@@ -916,9 +916,9 @@ public sealed class FaxSystem : EntitySystem
                     foreach (var stamp in documentStamps)
                     {
                         if(stamp.StampedName.StartsWith("stamp-component-stamped-name"))
-                            stampsList += $"{Loc.GetString(stamp.StampedName)} ";
+                            stampsList += $"{Loc.GetString(stamp.StampedName)}\n";
                         else
-                            stampsList += $"{stamp.StampedName}(подпись) ";
+                            stampsList += $"{stamp.StampedName}(подпись)\n";
                     }
                 }
             }
