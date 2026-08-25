@@ -1799,6 +1799,20 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .ToListAsync(cancellationToken: cancel);
         }
 
+        public async Task<string> FindPlayerByCharacter(int characterId, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            var profile = db.DbContext.Profile.FirstOrDefault(x => x.Id == characterId)!;
+
+            var preference = db.DbContext.Preference.FirstOrDefault(x => x.Id == profile.PreferenceId)!;
+
+            var player = db.DbContext.Player.FirstOrDefault(x => x.UserId == preference.UserId)!;
+
+            return player.LastSeenUserName;
+        }
+
+
         public async Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job)
         {
             await using var db = await GetDb();

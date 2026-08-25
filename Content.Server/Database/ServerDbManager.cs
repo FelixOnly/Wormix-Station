@@ -481,6 +481,7 @@ namespace Content.Server.Database
         public Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job);
 
         public Task<bool> IsJobCharacterWhitelistDeny(int profile, ProtoId<JobPrototype> job);
+        public Task<string> FindPlayerByCharacter(int profile, CancellationToken cancel = default);
 
         public Task<bool> RemoveJobCharacterWhitelist(int profile,
             ProtoId<JobPrototype> jobAllow,
@@ -1133,6 +1134,12 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetJobCharacterWhitelistDenied(profile, cancel));
+        }
+
+        public Task<string> FindPlayerByCharacter(int profile, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.FindPlayerByCharacter(profile, cancel));
         }
 
         public Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job)

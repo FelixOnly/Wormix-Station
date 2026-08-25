@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿// SPDX-FileCopyrightText: 2026 FelixOnly <62942680+felixonly@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Server.Players;
@@ -19,32 +23,28 @@ public sealed class CharacterAddJobAllowCommand : LocalizedCommands
     [Dependency] private readonly JobCharacterWhitelistManager _manager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-
 
     public override string Command => "addcharacterjoballow";
     public override string Description => Loc.GetString("cmd-addcharacterallow-desc");
 
     public override string Help => Loc.GetString("cmd-addcharacterallow-help");
 
-    //player
     //character
     //job
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 3)
+        if (args.Length != 2)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific",
-                ("properAmount", 3),
+                ("properAmount", 2),
                 ("currentAmount", args.Length)));
             shell.WriteLine(Help);
             return;
         }
 
-        var player = args[0].Trim();
-        var characterId = int.Parse(args[1]);
-        var job = new ProtoId<JobPrototype>(args[2].Trim());
+        var characterId = int.Parse(args[0]);
+        var job = new ProtoId<JobPrototype>(args[1].Trim());
         if (!_prototypes.TryIndex(job, out var jobPrototype))
         {
             shell.WriteError(Loc.GetString("cmd-job-does-not-exist", ("job", job.Id)));
@@ -52,7 +52,10 @@ public sealed class CharacterAddJobAllowCommand : LocalizedCommands
             return;
         }
 
-        var data = await _playerLocator.LookupIdByNameAsync(player);
+        var getPlayer = await _manager.FindPlayerByCharacter(characterId);
+
+        var data = await _playerLocator.LookupIdByNameAsync(getPlayer);
+
         if (data != null)
         {
             var guid = data.UserId;
@@ -63,19 +66,13 @@ public sealed class CharacterAddJobAllowCommand : LocalizedCommands
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-characterjob-player-not-found", ("player", player)));
+        shell.WriteError(Loc.GetString("cmd-characterjob-player-not-found", ("player", getPlayer)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-jobwhitelist-hint-player"));
-        }
 
-        if (args.Length == 3)
+        if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
                 _prototypes.EnumeratePrototypes<JobPrototype>().Select(p => p.ID),
@@ -93,7 +90,6 @@ public sealed class CharacterAddJobDenyCommand : LocalizedCommands
     [Dependency] private readonly JobCharacterWhitelistManager _manager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
 
 
     public override string Command => "addcharacterjobdeny";
@@ -101,24 +97,22 @@ public sealed class CharacterAddJobDenyCommand : LocalizedCommands
 
     public override string Help => Loc.GetString("cmd-addcharacterdeny-help");
 
-    //player
     //character
     //job
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 3)
+        if (args.Length != 2)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific",
-                ("properAmount", 3),
+                ("properAmount", 2),
                 ("currentAmount", args.Length)));
             shell.WriteLine(Help);
             return;
         }
 
-        var player = args[0].Trim();
-        var characterId = int.Parse(args[1]);
-        var job = new ProtoId<JobPrototype>(args[2].Trim());
+        var characterId = int.Parse(args[0]);
+        var job = new ProtoId<JobPrototype>(args[1].Trim());
         if (!_prototypes.TryIndex(job, out var jobPrototype))
         {
             shell.WriteError(Loc.GetString("cmd-jobwhitelist-job-does-not-exist", ("job", job.Id)));
@@ -126,35 +120,25 @@ public sealed class CharacterAddJobDenyCommand : LocalizedCommands
             return;
         }
 
-        // Сделать чтобы он показывал не айдишники а имена персонажей
+        var getPlayer = await _manager.FindPlayerByCharacter(characterId);
 
-        var data = await _playerLocator.LookupIdByNameAsync(player);
+        var data = await _playerLocator.LookupIdByNameAsync(getPlayer);
         if (data != null)
         {
             var guid = data.UserId;
 
             _manager.AddCharacterWhitelist(guid, characterId, new ProtoId<JobPrototype>("TAssistant"), job);
 
-            shell.WriteLine(Loc.GetString("cmd-jobwhitelistadd-added",
-                ("player", player),
-                ("jobId", job.Id),
-                ("jobName", jobPrototype.LocalizedName)));
+            shell.WriteLine(Loc.GetString("cmd-characterjobadded-success"));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-jobwhitelist-player-not-found", ("player", player)));
+        shell.WriteError(Loc.GetString("cmd-jobwhitelist-player-not-found", ("player", getPlayer)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-jobwhitelist-hint-player"));
-        }
-
-        if (args.Length == 3)
+        if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
                 _prototypes.EnumeratePrototypes<JobPrototype>().Select(p => p.ID),
@@ -174,7 +158,6 @@ public sealed class CharacterRemoveJobAllowCommand : LocalizedCommands
     [Dependency] private readonly JobCharacterWhitelistManager _manager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
 
 
     public override string Command => "remcharacterjoballow";
@@ -182,24 +165,22 @@ public sealed class CharacterRemoveJobAllowCommand : LocalizedCommands
 
     public override string Help => Loc.GetString("cmd-remcharacterjoballow-help");
 
-    //player
     //character
     //job
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 3)
+        if (args.Length != 2)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific",
-                ("properAmount", 3),
+                ("properAmount", 2),
                 ("currentAmount", args.Length)));
             shell.WriteLine(Help);
             return;
         }
 
-        var player = args[0].Trim();
-        var characterId = int.Parse(args[1]);
-        var job = new ProtoId<JobPrototype>(args[2].Trim());
+        var characterId = int.Parse(args[0]);
+        var job = new ProtoId<JobPrototype>(args[1].Trim());
         if (!_prototypes.TryIndex(job, out var jobPrototype))
         {
             shell.WriteError(Loc.GetString("cmd-jobwhitelist-job-does-not-exist", ("job", job.Id)));
@@ -207,35 +188,26 @@ public sealed class CharacterRemoveJobAllowCommand : LocalizedCommands
             return;
         }
 
-        // Сделать чтобы он показывал не айдишники а имена персонажей
+        var getPlayer = await _manager.FindPlayerByCharacter(characterId);
 
-        var data = await _playerLocator.LookupIdByNameAsync(player);
+        var data = await _playerLocator.LookupIdByNameAsync(getPlayer);
         if (data != null)
         {
             var guid = data.UserId;
 
             _manager.RemoveWhitelist(guid, characterId, job, new ProtoId<JobPrototype>("TAssistant"));
 
-            shell.WriteLine(Loc.GetString("cmd-jobwhitelistadd-added",
-                ("player", player),
-                ("jobId", job.Id),
-                ("jobName", jobPrototype.LocalizedName)));
+            shell.WriteLine(Loc.GetString("cmd-characterjobremoved-success"));
+
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-jobwhitelist-player-not-found", ("player", player)));
+        shell.WriteError(Loc.GetString("cmd-jobwhitelist-player-not-found", ("player", getPlayer)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-jobwhitelist-hint-player"));
-        }
-
-        if (args.Length == 3)
+        if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
                 _prototypes.EnumeratePrototypes<JobPrototype>().Select(p => p.ID),
@@ -253,7 +225,6 @@ public sealed class CharacterRemoveJobDenyCommand : LocalizedCommands
     [Dependency] private readonly JobCharacterWhitelistManager _manager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
 
 
     public override string Command => "remcharacterjobdeny";
@@ -261,24 +232,22 @@ public sealed class CharacterRemoveJobDenyCommand : LocalizedCommands
 
     public override string Help => Loc.GetString("cmd-remcharacterjobdeny-help");
 
-    //player
     //character
     //job
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (args.Length != 3)
+        if (args.Length != 2)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number-need-specific",
-                ("properAmount", 3),
+                ("properAmount", 2),
                 ("currentAmount", args.Length)));
             shell.WriteLine(Help);
             return;
         }
 
-        var player = args[0].Trim();
-        var characterId = int.Parse(args[1]);
-        var job = new ProtoId<JobPrototype>(args[2].Trim());
+        var characterId = int.Parse(args[0]);
+        var job = new ProtoId<JobPrototype>(args[1].Trim());
         if (!_prototypes.TryIndex(job, out var jobPrototype))
         {
             shell.WriteError(Loc.GetString("cmd-jobwhitelist-job-does-not-exist", ("job", job.Id)));
@@ -286,35 +255,26 @@ public sealed class CharacterRemoveJobDenyCommand : LocalizedCommands
             return;
         }
 
-        // Сделать чтобы он показывал не айдишники а имена персонажей
+        var getPlayer = await _manager.FindPlayerByCharacter(characterId);
 
-        var data = await _playerLocator.LookupIdByNameAsync(player);
+        var data = await _playerLocator.LookupIdByNameAsync(getPlayer);
         if (data != null)
         {
             var guid = data.UserId;
 
             _manager.RemoveWhitelist(guid, characterId, new ProtoId<JobPrototype>("TAssistant"), job);
 
-            shell.WriteLine(Loc.GetString("cmd-jobwhitelistadd-added",
-                ("player", player),
-                ("jobId", job.Id),
-                ("jobName", jobPrototype.LocalizedName)));
+            shell.WriteLine(Loc.GetString("cmd-characterjobremoved-success"));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-jobwhitelist-player-not-found", ("player", player)));
+        shell.WriteError(Loc.GetString("cmd-jobwhitelist-player-not-found", ("player", getPlayer)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        if (args.Length == 1)
-        {
-            return CompletionResult.FromHintOptions(
-                _players.Sessions.Select(s => s.Name),
-                Loc.GetString("cmd-jobwhitelist-hint-player"));
-        }
 
-        if (args.Length == 3)
+        if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
                 _prototypes.EnumeratePrototypes<JobPrototype>().Select(p => p.ID),

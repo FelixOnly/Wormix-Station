@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿// SPDX-FileCopyrightText: 2026 FelixOnly <62942680+felixonly@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -98,6 +102,11 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
 
         if (_player.TryGetSessionById(player, out var session))
             SendJobCharacterWhitelist(session);
+    }
+
+    public async Task<string> FindPlayerByCharacter(int character)
+    {
+        return await _db.FindPlayerByCharacter(character, CancellationToken.None);
     }
 
     public async void RemoveWhitelist(NetUserId player, int characterId, ProtoId<JobPrototype> allow, ProtoId<JobPrototype> deny)
