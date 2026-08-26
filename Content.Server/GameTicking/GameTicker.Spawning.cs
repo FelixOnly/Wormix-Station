@@ -124,6 +124,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly AdminSystem _admin = default!;
         [Dependency] private readonly SkillsSystem _skills = default!; // CorvaxGoob-Skills
 
+
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
 
@@ -220,7 +221,7 @@ namespace Content.Server.GameTicking
                 force));
         }
 
-        private void SpawnPlayer(ICommonSession player,
+        private async void SpawnPlayer(ICommonSession player, // Wormix
             EntityUid station,
             string? jobId = null,
             bool lateJoin = true,
@@ -231,6 +232,11 @@ namespace Content.Server.GameTicking
             var jobBans = _banManager.GetJobBans(player.UserId);
             if (jobBans == null || jobId != null && jobBans.Contains(jobId)) //TODO: use IsRoleBanned directly?
                 return;
+
+            // Wormix
+            if (jobId != null && await IsJobDenied(player, jobId))
+                return;
+            // Wormix
 
             if (jobId != null)
             {
@@ -244,7 +250,7 @@ namespace Content.Server.GameTicking
             SpawnPlayer(player, character, station, jobId, lateJoin, silent);
         }
 
-        private void SpawnPlayer(ICommonSession player,
+        private async void SpawnPlayer(ICommonSession player,
             HumanoidCharacterProfile character,
             EntityUid station,
             string? jobId = null,
@@ -341,6 +347,11 @@ namespace Content.Server.GameTicking
             var jobBans = _banManager.GetJobBans(player.UserId);
             if (jobBans != null)
                 restrictedRoles.UnionWith(jobBans);
+
+            // Wormix
+            if (jobId != null && await IsJobDenied(player, jobId))
+                return;
+            // Wormix
 
             // Pick best job best on prefs.
             jobId ??= _stationJobs.PickBestAvailableJobWithPriority(station,

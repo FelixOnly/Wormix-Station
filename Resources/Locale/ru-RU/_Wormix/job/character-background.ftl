@@ -5,19 +5,19 @@ background-allow = Согласно вашей квенте вашему пер�
 
 # Добавление
 
-cmd-addcharacterallow-help = ИГРОК АЙДИ ПЕРСОНАЖА РАБОТА
+cmd-addcharacterallow-help = АЙДИ ПЕРСОНАЖА РАБОТА
 cmd-addcharacterallow-desc = Добавляет игрока персонажа в список который позволяет ему работать указанную роль
 
-cmd-addcharacterdeny-help = ИГРОК АЙДИ ПЕРСОНАЖА РАБОТА
+cmd-addcharacterdeny-help = АЙДИ ПЕРСОНАЖА РАБОТА
 cmd-addcharacterdeny-desc = Добавляет игрока персонажа в список который не позволяет ему работать на указанной роли
 
 
 
 # Удаление
-cmd-remcharacterjoballow-help = ИГРОК АЙДИ ПЕРСОНАЖА РАБОТА
+cmd-remcharacterjoballow-help = АЙДИ ПЕРСОНАЖА РАБОТА
 cmd-remcharacterjoballow-desc = Убирает игрока персонажа со списка который позволяет ему работать указанной роли
 
-cmd-remcharacterjobdeny-help = ИГРОК АЙДИ ПЕРСОНАЖА РАБОТА
+cmd-remcharacterjobdeny-help = АЙДИ ПЕРСОНАЖА РАБОТА
 cmd-remcharacterjobdeny-desc = Убирает игрока персонажа со списка который не позволяет ему работать указанной роли
 
 

@@ -109,6 +109,21 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
         return await _db.FindPlayerByCharacter(character, CancellationToken.None);
     }
 
+    public async Task<int> FindIdCharacterByName(ICommonSession player, string name)
+    {
+        var characters = await _db.GetPlayerCharacters(player.UserId, CancellationToken.None);
+
+        foreach (var character in characters)
+        {
+            if (character.CharacterName == name)
+            {
+                return character.Id;
+            }
+        }
+
+        return -1;
+    }
+
     public async void RemoveWhitelist(NetUserId player, int characterId, ProtoId<JobPrototype> allow, ProtoId<JobPrototype> deny)
     {
         _allow.Remove(new CharacterWhitelistRole(characterId, allow.Id));
@@ -137,6 +152,8 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
         if (_player.TryGetSessionById(new NetUserId(player), out var session))
             SendJobCharacterWhitelist(session);
     }
+
+
 
     public async Task<List<string>> GetAllCharacterDenies(int characterId)
     {
