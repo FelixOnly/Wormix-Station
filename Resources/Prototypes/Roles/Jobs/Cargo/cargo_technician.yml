@@ -81,6 +81,8 @@
   requirements: # Wormix edit
     - !type:OverallPlaytimeRequirement
       time: 10800 #3 hrs
+    - !type:MaturityRequirement
+      minAge: 18
   supervisors: job-supervisors-qm
   #goobcoins: 20 #Goob content Corvax-Goob-coins
   skills: # CorvaxGoob-Skills

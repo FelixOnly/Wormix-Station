@@ -136,6 +136,8 @@
   requirements: # Wormix edit
     - !type:OverallPlaytimeRequirement
       time: 10800 #3 hrs
+    - !type:MaturityRequirement
+      minAge: 28
     - !type:SpeciesRequirement # CorvaxGoob-Species
       inverted: true
       species:

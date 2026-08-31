@@ -74,6 +74,8 @@
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
   requirements: # Wormix edit
+    - !type:MaturityRequirement
+      minAge: 21
     - !type:OverallPlaytimeRequirement
       time: 10800 #3 hrs
   icon: "JobIconShaftMiner"

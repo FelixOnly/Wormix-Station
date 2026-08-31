@@ -57,6 +57,8 @@
   requirements: # Wormix edit
     - !type:OverallPlaytimeRequirement
       time: 10800 #3 hrs
+    - !type:MaturityRequirement
+      minAge: 18
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science

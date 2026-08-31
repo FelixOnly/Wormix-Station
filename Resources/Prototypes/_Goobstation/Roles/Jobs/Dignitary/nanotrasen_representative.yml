@@ -100,8 +100,8 @@
   playTimeTracker: JobNanotrasenRepresentative
   whitelisted: true #Wormix edit
   requirements:
-    - !type:AgeRequirement
-      requiredAge: 21
+    - !type:MaturityRequirement
+      minAge: 35
     - !type:SpeciesRequirement # CorvaxGoob-Species
       inverted: true
       species:
