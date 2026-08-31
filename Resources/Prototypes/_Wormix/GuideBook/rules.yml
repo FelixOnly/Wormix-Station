@@ -40,3 +40,9 @@
   id: WormixRule4
   name: guide-entry-server-rules-rule-4
   text: "/ServerInfo/_Wormix/Guidebook/ServerRules/Rule4.xml"
+  
+- type: guideEntry
+  id: WormixRule5
+  name: guide-entry-server-rules-rule-5
+  text: "/ServerInfo/_Wormix/Guidebook/ServerRules/Rule5.xml"
+
