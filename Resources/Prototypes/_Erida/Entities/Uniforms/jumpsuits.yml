@@ -1,0 +1,35 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEnglishRed
+  suffix: Эрида
+  name: red english costume
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Uniforms/Jumpsuit/redenglishcostume.rsi
+    - type: Clothing
+      sprite: _Erida/Clothing/Uniforms/Jumpsuit/redenglishcostume.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEnglishBlue
+  suffix: Эрида
+  name: blue english costume
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Uniforms/Jumpsuit/blueenglishcostume.rsi
+    - type: Clothing
+      sprite: _Erida/Clothing/Uniforms/Jumpsuit/blueenglishcostume.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEnglishViolet
+  suffix: Эрида
+  name: violet english costume
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Uniforms/Jumpsuit/violetenglishcostume.rsi
+    - type: Clothing
+      sprite: _Erida/Clothing/Uniforms/Jumpsuit/violetenglishcostume.rsi

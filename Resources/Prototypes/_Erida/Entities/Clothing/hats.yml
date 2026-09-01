@@ -1,0 +1,47 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadEnglishHatBlue
+  name: blue english hat
+  suffix: Эрида
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Head/Hats/blueenglishhat.rsi
+    - type: Clothing
+      sprite: _Erida/Clothing/Head/Hats/blueenglishhat.rsi
+    - type: Tag
+      tags:
+        - ClothMade
+        - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadEnglishHatViolet
+  name: violet english hat
+  suffix: Эрида
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Head/Hats/violetenglishhat.rsi
+    - type: Clothing
+      sprite: _Erida/Clothing/Head/Hats/violetenglishhat.rsi
+    - type: Tag
+      tags:
+        - ClothMade
+        - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadEnglishHatRed
+  name: red english hat
+  suffix: Эрида
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Head/Hats/redenglishhat.rsi
+    - type: Clothing
+      sprite: _Erida/Clothing/Head/Hats/redenglishhat.rsi
+    - type: Tag
+      tags:
+        - ClothMade
+        - WhitelistChameleon

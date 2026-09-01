@@ -1,0 +1,264 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitmaidblack
+  name: Черный Костюм Горничной
+  description: По всей видимости это классический костюм французской горничной.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/maid_black.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/maid_black.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitmaidblue
+  name: Синий Костюм Горничной
+  description: Он такой же как и черный, но синий, не обижайте его владельца ;)
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/maid_blue.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/maid_blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitmaidpink
+  name: Розовый Костюм Горничной
+  description: Он такой же как и черный, но розовый, не обижайте его владельца ;)
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/maid_pink.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/maid_pink.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSuitSssp
+  name: Спортивный костюм.
+  description: Может сегодня повезёт и пообщаемся с капитаном достойно.
+  suffix: Бакмен, ОПЗ
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/tracksuit.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/tracksuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformVamp
+  name: Деловая жилетка вампира
+  description: Весьма стильно для данного рода занятий
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/vampsuit.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/vampsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRichard # Backmen
+  name: Бомбер Ричарда
+  description: Вы чувствуете себя чем-то диким!
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/jecket.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/jecket.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitbiker # Backmen
+  name: Байкерская жилетка
+  description: Вы чувствуете себя чем-то диким!
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/biker.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/biker.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPants # Backmen
+  name: боевые штаны
+  description: Чувствуешь себя крутым? Ну что ж, тогда это для тебя!
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/pants.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/pants.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitVergil # Backmen
+  name: костюм Вергилия
+  description: А я без тебя никогда не умру.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/vergil.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/vergil.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitJeester # Backmen
+  name: костюм Джестера
+  description: Младший единокровный брат Короля и дядя Принца.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/jeester.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/jeester.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitdirF # Backmen
+  name: Униформа ViF
+  description: Униформа сотрудника компании ViF.
+  suffix: Бакмен, ОПЗ
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/dirF.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/dirF.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWorkerViF # Backmen
+  name: Униформа ViF
+  description: Униформа сотрудника компании ViF.
+  suffix: Бакмен, ОПЗ
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/worker.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/worker.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCamo # Backmen
+  name: Камуфляжная униформа
+  description: Военная милитаристическая форма.
+  suffix: Бакмен, ОПЗ
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/camo.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/camo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCamoB # Backmen
+  name: Камуфляжная униформа городская
+  description: Военная милитаристическая форма, в чёрном цвете.
+  suffix: Бакмен, ОПЗ
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/camo_b.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/camo_b.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: AgentUniformOneSuit
+  name: Полосатый деловой костюм
+  suffix: Бакмен
+  description: Дорогой костюм распространенный в дорогих местах.
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/avdpoloska.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/avdpoloska.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: AgentUniformTwoSuit
+  name: Деловая жилетка
+  suffix: Бакмен
+  description: Дорогой костюм распространенный в дорогих местах.
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/avdvictoriavest.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/avdvictoriavest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitExplorer
+  name: explorer's uniform
+  description: A rugged set of overalls for trekking across the stars.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/explorer.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/explorer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterExplorerCoat
+  name: explorer's labcoat
+  description: Looks like it's seen its fair share of dusty trails.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Coats/explorer_coat.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Coats/explorer_coat.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTShirtKhakiPants
+  name: drab t-shirt and khaki pants
+  description: Some drab but functional clothing.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/tshirt_khaki.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/tshirt_khaki.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAlxLaiho
+  name: Чёрная футболка и зелёные карго
+  description: Вы чувствуете себя чем-то диким!
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/alxlaiho.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/alxlaiho.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPsychologistCrimson
+  name: малиновый костюм психолога
+  description: Что вы знаете о нулях и хроносе?
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/psycrimson.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/psycrimson.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNull
+  name: Порванный халат
+  description: Халат у которого порван рукав, но для костюма на хэллоуин
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/null.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Uniforms/jumpsuit/null.rsi

@@ -1,0 +1,49 @@
+- type: entity
+  parent: ClothingNeckBase
+  suffix: Эрида
+  id: ClothingNeckCloakBlackCloak
+  name: black church cloak
+  description: Black robe, hides secrets?
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Neck/Cloaks/black.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  suffix: Эрида
+  id: ClothingNeckCloakTgmcwhiteCloak
+  name: white cloak
+  description: white formal cloak
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Neck/Cloaks/tgmcwhite.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakEnglishBlue
+  suffix: Эрида
+  name: blue english cape
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Neck/Cloaks/blueenglishcape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakEnglishViolet
+  suffix: Эрида
+  name: violet english cape
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Neck/Cloaks/violetenglishcape.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakEnglishRed
+  suffix: Эрида
+  name: red english cape
+  description:
+  components:
+    - type: Sprite
+      sprite: _Erida/Clothing/Neck/Cloaks/redenglishcape.rsi

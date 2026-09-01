@@ -166,6 +166,76 @@
     ClothingNeckPonchoSmallPurple: 3 # Monolith
     ClothingNeckPonchoSmallBlack: 3 # Monolith
     ClothingNeckPonchoSmallWhite: 3 # Monolith
+    # Wormix-Start
+    ClothingHeadEnglishHatBlue: 2
+    ClothingHeadEnglishHatViolet: 2
+    ClothingHeadEnglishHatRed: 2
+    ClothingNeckCloakTgmcwhiteCloak: 1
+    ClothingNeckCloakEnglishBlue: 2
+    ClothingNeckCloakEnglishViolet: 2
+    ClothingNeckCloakEnglishRed: 2
+    ClothingUniformJumpsuitEnglishRed: 2
+    ClothingUniformJumpsuitEnglishBlue: 2
+    ClothingUniformJumpsuitEnglishViolet: 2
+    ClothingUniformJumpskirtYukataAquamarine: 1
+    ClothingUniformJumpskirtYukataBlack: 1
+    ClothingUniformJumpskirtYukataBlue: 1
+    ClothingUniformJumpskirtYukataGreen: 1
+    ClothingUniformJumpskirtYukataLightblue: 1
+    ClothingUniformJumpskirtYukataOrange: 1
+    ClothingUniformJumpskirtYukataPink: 1
+    ClothingUniformJumpskirtYukataRed: 1
+    ClothingUniformJumpskirtYukataViolet: 1
+    ClothingUniformJumpskirtYukataYellow: 1
+    ClothingUniformJumpskirtKimonoMiku: 1
+    UniformSchoolgirlRed: 1
+    UniformSchoolgirlBlack: 1
+    UniformSchoolgirlBlue: 1
+    UniformSchoolgirlCyan: 1
+    UniformSchoolgirlGreen: 1
+    UniformSchoolgirlOrange: 1
+    UniformSchoolgirlPink: 1
+    UniformSchoolgirlPurple: 1
+    UniformSchoolgirlDusk: 1
+    UniformSchoolgirlBlazerTan: 1
+    ClothingCostumeArcDress: 1
+    ClothingKimonoBlue: 1
+    ClothingKimonoPink: 1
+    ClothingKimonoPurple: 1
+    ClothingKimonoSky: 1
+    ClothingKimonoGreen: 1
+    ClothingUniformMartialGi: 2
+    ClothingJumpsuitDressBlack: 2
+    ClothingJumpsuitDressRed: 2
+    ClothingJumpsuitDress: 2
+    ClothingJumpsuitDressTutu: 1
+    ClothingJumpsuitCivilianJuteDress: 5
+    ClothingUniformJumpsuitmaidblack: 1
+    ClothingUniformJumpsuitmaidblue: 1
+    ClothingUniformJumpsuitmaidpink: 1
+    ClothingUniformJumpsuitSuitSssp: 1
+    ClothingUniformVamp: 1
+    ClothingUniformJumpsuitRichard: 2
+    ClothingUniformJumpsuitbiker: 2
+    ClothingUniformJumpsuitPants: 3
+    ClothingUniformJumpsuitVergil: 2
+    ClothingUniformJumpsuitJeester: 2
+    ClothingUniformJumpsuitdirF: 2
+    ClothingUniformJumpsuitWorkerViF: 2
+    ClothingUniformJumpsuitCamo: 1
+    ClothingUniformJumpsuitCamoB: 1
+    AgentUniformOneSuit: 1
+    AgentUniformTwoSuit: 1
+    ClothingSkirtEGovGrey: 2
+    ClothingUniformJumpsuitExplorer: 2
+    ClothingOuterExplorerCoat: 2
+    ClothingUniformTShirtKhakiPants: 1
+    ClothingUniformJumpsuitAlxLaiho: 2
+    ClothingUniformJumpsuitPsychologistCrimson: 2
+    ClothingUniformJumpsuitNull: 2
+    ClothingNeckCloakBlackCloak: 1
+    ClothingShoesBootsBerrci: 5
+    # Wormix-End
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2

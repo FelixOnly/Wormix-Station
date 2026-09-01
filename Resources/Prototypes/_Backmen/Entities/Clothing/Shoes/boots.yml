@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsBerrci
+  name: Шнурованные берцы
+  description: Удобная обувь с шнурками.
+  suffix: Бакмен
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Shoes/Boots/berrci.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Shoes/Boots/berrci.rsi
+    - type: FootstepModifier # Corvax-Sounds
+      footstepSoundCollection:
+        collection: FootstepBoots
