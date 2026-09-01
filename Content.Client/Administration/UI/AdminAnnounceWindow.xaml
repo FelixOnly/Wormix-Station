@@ -96,13 +96,13 @@ SPDX-License-Identifier: MIT
                         TextAlign="Center"
                         HorizontalExpand="True"
                         MinWidth="200"
-                        SetHeight="26"
+                        SetHeight="35"
                         SizeFlagsStretchRatio="0.9"/>
                 <OptionButton Name="AnnounceMethod"
                               Access="Public"
                               HorizontalExpand="True"
                               MinWidth="220"
-                              SetHeight="26"
+                              SetHeight="35"
                               SizeFlagsStretchRatio="1.1"/>
             </BoxContainer>
             <PanelContainer SetHeight="1" />
