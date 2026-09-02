@@ -69,6 +69,7 @@
             Passenger: [ -1, -1 ]
             #RadioHost: [ 1, 1 ]
             # silicon
+            StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
         - type: StationGoal
           goals:
