@@ -21,13 +21,15 @@
   - type: Tag
     tags:
     - Sidearm
-  - type: Gun
-    selectedMode: SemiAuto
-    fireRate: 0 # Good luck firing it
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  # Wormix start
+  #- type: Gun
+  #  selectedMode: SemiAuto
+  #  fireRate: 0 # Good luck firing it
+  #  availableModes:
+  #  - SemiAuto
+  #  soundGunshot:
+  #    path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  # Wormix end
   - type: UseDelay
     delay: 0.66
   - type: ContainerContainer
