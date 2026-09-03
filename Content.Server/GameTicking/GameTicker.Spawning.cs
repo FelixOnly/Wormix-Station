@@ -236,6 +236,9 @@ namespace Content.Server.GameTicking
             // Wormix
             if (jobId != null && await IsJobDenied(player, jobId))
                 return;
+
+            if (jobId != null && await IsJobAllow(player, jobId))
+                SpawnPlayer(player, character, station, jobId, lateJoin, silent);
             // Wormix
 
             if (jobId != null)
@@ -339,6 +342,11 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            // Wormix
+            if (jobId != null && await IsJobDenied(player, jobId))
+                return;
+            // Wormix
+
             // Figure out job restrictions
             var restrictedRoles = new HashSet<ProtoId<JobPrototype>>();
             var ev = new GetDisallowedJobsEvent(player, restrictedRoles);
@@ -348,10 +356,7 @@ namespace Content.Server.GameTicking
             if (jobBans != null)
                 restrictedRoles.UnionWith(jobBans);
 
-            // Wormix
-            if (jobId != null && await IsJobDenied(player, jobId))
-                return;
-            // Wormix
+
 
             // Pick best job best on prefs.
             jobId ??= _stationJobs.PickBestAvailableJobWithPriority(station,
