@@ -148574,7 +148574,7 @@ entities:
     - type: Transform
       pos: 27.409616,-74.35787
       parent: 2
-- proto: ClothingHeadHatBeretHoS
+- proto: ClothingHeadHatBeretFrench
   entities:
   - uid: 20666
     components:

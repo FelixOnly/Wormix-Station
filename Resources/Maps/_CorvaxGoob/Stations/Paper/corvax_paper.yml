@@ -51984,7 +51984,7 @@ entities:
     - type: Transform
       pos: 40.486477,62.434555
       parent: 2
-- proto: ClothingHeadHatBeretHoS
+- proto: ClothingHeadHatBeretFrench
   entities:
   - uid: 6797
     components:
