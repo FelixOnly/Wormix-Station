@@ -98,11 +98,11 @@
   description: all-at-once-description
   showInVote: false
   rules:
-    - Nukeops
-    - Traitor
+   # - Nukeops
+   # - Traitor
     - Revolutionary
     - Zombie
-    - Thief
+   # - Thief
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
@@ -125,10 +125,10 @@
   showInVote: false #Please god dont do this
   rules:
     - Nukeops
-    - Traitor
+   # - Traitor
     - Revolutionary
     - Zombie
-    - Thief
+   # - Thief
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
@@ -150,7 +150,7 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: false #2boring2vote
+  showInVote: true #2boring2vote
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -164,7 +164,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  showInVote: true #4boring4vote
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
@@ -227,7 +227,7 @@
   showInVote: false
   rules:
   - DummyNonAntagChance
-  - Traitor
+  # - Traitor
   - SubGamemodesRule
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
@@ -242,7 +242,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false #true
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
