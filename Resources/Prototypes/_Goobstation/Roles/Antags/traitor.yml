@@ -3,16 +3,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-
 - type: antag
   id: CorporateAgent
   name: roles-antag-corporate-agent-name
   antagonist: true
-  setPreference: true
+  setPreference: false
   objective: roles-antag-corporate-agent-description
-  guides: [ CorporateAgents ]
+  guides: [CorporateAgents]
   requirements:
-  - !type:SpeciesRequirement # CorvaxGoob-Species
-    inverted: true
-    species:
-    - Abductor
+    - !type:SpeciesRequirement # CorvaxGoob-Species
+      inverted: true
+      species:
+        - Abductor
