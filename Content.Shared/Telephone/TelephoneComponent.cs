@@ -21,13 +21,13 @@ public sealed partial class TelephoneComponent : Component
     /// Sets how long the telephone will ring before it automatically hangs up
     /// </summary>
     [DataField]
-    public float RingingTimeout = 30;
+    public float RingingTimeout = 120;
 
     /// <summary>
     /// Sets how long the telephone can remain idle in-call before it automatically hangs up
     /// </summary>
     [DataField]
-    public float IdlingTimeout = 60;
+    public float IdlingTimeout = 600;
 
     /// <summary>
     /// Sets how long the telephone will stay in the hanging up state before return to idle
@@ -86,7 +86,7 @@ public sealed partial class TelephoneComponent : Component
     /// The range at which the telephone picks up voices
     /// </summary>
     [DataField]
-    public float ListeningRange = 2;
+    public float ListeningRange = 5;
 
     /// <summary>
     /// This telephone should not appear on public telephone directories
