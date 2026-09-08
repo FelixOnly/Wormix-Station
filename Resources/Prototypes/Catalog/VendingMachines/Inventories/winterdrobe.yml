@@ -24,6 +24,52 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
+    #Wormix-Start
+    #лицевые шарфы
+    ADTClothingNeckFacescarfBlack: 3
+    ADTClothingNeckFacescarfBlue: 3
+    ADTClothingNeckFacescarfGreen: 3
+    ADTClothingNeckFacescarfGrey: 3
+    ADTClothingNeckFacescarfOrange: 3
+    ADTClothingNeckFacescarfPurple: 3
+    ADTClothingNeckFacescarfRed: 3
+    ADTClothingNeckFacescarfWhite: 3
+    #водолазки
+    ADTClothingUniformJumpsuitTurtleneckAquamarine: 3
+    ADTClothingUniformJumpskirtTurtleneckAquamarine: 3
+    ADTClothingUniformJumpsuitTurtleneckWhite: 3
+    ADTClothingUniformJumpskirtTurtleneckWhite: 3
+    ADTClothingUniformJumpsuitTurtleneckAzure: 3
+    ADTClothingUniformJumpskirtTurtleneckAzure: 3
+    ADTClothingUniformJumpsuitTurtleneckYellow: 3
+    ADTClothingUniformJumpskirtTurtleneckYellow: 3
+    ADTClothingUniformJumpsuitTurtleneckGreen: 3
+    ADTClothingUniformJumpskirtTurtleneckGreen: 3
+    ADTClothingUniformJumpsuitTurtleneckBrown: 3
+    ADTClothingUniformJumpskirtTurtleneckBrown: 3
+    ADTClothingUniformJumpsuitTurtleneckRed: 3
+    ADTClothingUniformJumpskirtTurtleneckRed: 3
+    ADTClothingUniformJumpsuitTurtleneckOrange: 3
+    ADTClothingUniformJumpskirtTurtleneckOrange: 3
+    ADTClothingUniformJumpsuitTurtleneckPink: 3
+    ADTClothingUniformJumpskirtTurtleneckPink: 3
+    ADTClothingUniformJumpsuitTurtleneckGrey: 3
+    ADTClothingUniformJumpskirtTurtleneckGrey: 3
+    ADTClothingUniformJumpsuitTurtleneckBlue: 3
+    ADTClothingUniformJumpskirtTurtleneckBlue: 3
+    ADTClothingUniformJumpsuitTurtleneckPurple: 3
+    ADTClothingUniformJumpskirtTurtleneckPurple: 3
+    ADTClothingUniformJumpsuitTurtleneckBlack: 3
+    ADTClothingUniformJumpskirtTurtleneckBlack: 3
+    ADTClothingUniformJumpsuitTurtleneckDarkBlue: 3
+    ADTClothingUniformJumpskirtTurtleneckDarkBlue: 3
+    ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless: 3
+    ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless: 3
+    ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless: 3
+    ADTClothingUniformJumpsuitTurtleneckBlackSleeveless: 3
+    ADTClothingUniformJumpskirtTurtleneckBlackSleeveless: 3
+   
+    #Wormix-End
     ClothingOuterCoatGentle: 3 #goob start
     ClothingOuterCoatJensen: 3
     ClothingOuterCoatTrench: 4
