@@ -27,6 +27,7 @@ using Content.Server.Antag.Components;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
+using Content.Shared._Wormix.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -78,7 +79,12 @@ public sealed partial class StationJobsSystem
     /// as there may end up being more round-start slots than available slots, which can cause weird behavior.
     /// A warning to all who enter ye cursed lands: This function is long and mildly incomprehensible. Best used without touching.
     /// </remarks>
-    public Dictionary<NetUserId, (ProtoId<JobPrototype>?, EntityUid)> AssignJobs(Dictionary<NetUserId, HumanoidCharacterProfile> profiles, IReadOnlyList<EntityUid> stations, bool useRoundStartJobs = true)
+    public Dictionary<NetUserId, (ProtoId<JobPrototype>?, EntityUid)> AssignJobs(
+        Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
+        IReadOnlyList<EntityUid> stations,
+        List<CharacterWhitelistRoleWithUser> CharactersAllow, // Wormix
+        List<CharacterWhitelistRoleWithUser> CharactersDenie, // Wormix
+        bool useRoundStartJobs = true)
     {
         DebugTools.Assert(stations.Count > 0);
 
@@ -133,7 +139,7 @@ public sealed partial class StationJobsSystem
                 if (profiles.Count == 0)
                     goto endFunc;
 
-                var candidates = GetPlayersJobCandidates(weight, selectedPriority, profiles);
+                var candidates = GetPlayersJobCandidates(weight, selectedPriority, profiles, CharactersAllow, CharactersDenie);
 
                 var optionsRemaining = 0;
 
@@ -365,7 +371,11 @@ public sealed partial class StationJobsSystem
     /// <param name="selectedPriority">Priority to find, if any.</param>
     /// <param name="profiles">Profiles to look in.</param>
     /// <returns>Players and a list of their matching jobs.</returns>
-    private Dictionary<NetUserId, List<string>> GetPlayersJobCandidates(int? weight, JobPriority? selectedPriority, Dictionary<NetUserId, HumanoidCharacterProfile> profiles)
+    private Dictionary<NetUserId, List<string>> GetPlayersJobCandidates(int? weight,
+        JobPriority? selectedPriority,
+        Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
+        List<CharacterWhitelistRoleWithUser> CharactersAllow, // Wormix
+        List<CharacterWhitelistRoleWithUser> CharactersDeny) // Wormix
     {
         var outputDict = new Dictionary<NetUserId, List<string>>(profiles.Count);
         var antagBlacklists = _antag.GetPreSelectedAntagSessionsWithBlacklist(); //GOOBSTATION
@@ -376,7 +386,7 @@ public sealed partial class StationJobsSystem
             var roleBans = _banManager.GetJobBans(player);
             var antagBlocked = _antag.GetPreSelectedAntagSessions();
             var profileJobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
-            var ev = new StationJobsGetCandidatesEvent(player, profileJobs);
+            var ev = new StationJobsGetCandidatesEvent(player, profileJobs, CharactersAllow, CharactersDeny);
             RaiseLocalEvent(ref ev);
 
             List<string>? availableJobs = null;

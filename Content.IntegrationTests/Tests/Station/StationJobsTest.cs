@@ -17,9 +17,11 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Castle.Components.DictionaryAdapter;
 using Content.Server.Maps;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._Wormix.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.GameObjects;
@@ -135,7 +137,7 @@ public sealed class StationJobsTest
 
             var start = new Stopwatch();
             start.Start();
-            var assigned = stationJobs.AssignJobs(fakePlayers, stations);
+            var assigned = stationJobs.AssignJobs(fakePlayers, stations, new List<CharacterWhitelistRoleWithUser>(), new EditableList<CharacterWhitelistRoleWithUser>());
             Assert.That(assigned, Is.Not.Empty);
             var time = start.Elapsed.TotalMilliseconds;
             logmill.Info($"Took {time} ms to distribute {TotalPlayers} players.");

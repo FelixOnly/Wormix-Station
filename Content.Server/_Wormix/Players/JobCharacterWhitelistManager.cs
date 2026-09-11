@@ -153,8 +153,6 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
             SendJobCharacterWhitelist(session);
     }
 
-
-
     public async Task<List<string>> GetAllCharacterDenies(int characterId)
     {
         return await _db.GetJobCharacterWhitelistDenied(characterId);

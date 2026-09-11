@@ -114,6 +114,8 @@ using Robust.Shared.Utility;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using System.Threading.Tasks;
+using Content.Shared._Wormix.Players;
 
 namespace Content.Server.GameTicking
 {
@@ -149,7 +151,7 @@ namespace Content.Server.GameTicking
             return spawnableStations;
         }
 
-        private void SpawnPlayers(List<ICommonSession> readyPlayers,
+        private async void SpawnPlayers(List<ICommonSession> readyPlayers,
             Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
             bool force)
         {
@@ -178,9 +180,29 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            var spawnableStations = GetSpawnableStations();
-            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations);
+            // Wormix start
+            List<CharacterWhitelistRoleWithUser> ProfilesAllow = new List<CharacterWhitelistRoleWithUser>();
+            List<CharacterWhitelistRoleWithUser> ProfilesDeny = new List<CharacterWhitelistRoleWithUser>();
 
+            foreach (var profile in profiles)
+            {
+                var id = await _whitelistManager.FindIdCharacterByName(_playerManager.GetSessionById(profile.Key), profile.Value.Name);
+
+                foreach (var allow in await _whitelistManager.GetAllCharacterAllowed(id))
+                {
+                    ProfilesAllow.Add(new CharacterWhitelistRoleWithUser(profile.Key, allow));
+                }
+
+                foreach (var deny in await _whitelistManager.GetAllCharacterDenies(id))
+                {
+                    ProfilesDeny.Add(new CharacterWhitelistRoleWithUser(profile.Key, deny));
+                }
+            }
+
+
+
+            var spawnableStations = GetSpawnableStations();
+            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations, ProfilesAllow, ProfilesDeny);
             _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, spawnableStations);
 
             // Calculate extended access for stations.
