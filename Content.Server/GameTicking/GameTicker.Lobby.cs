@@ -54,16 +54,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared.GameTicking;
+using System.Text;
+using Content.Server._Orion.Time;
 using Content.Server.Station.Components;
+using Content.Shared._Orion.Time;
+using Content.Shared.GameTicking;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using System.Text;
 
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
+        [Dependency] private readonly TimeSystem _timeSystem = default!; // Orion
+
         [ViewVariables]
         private readonly Dictionary<NetUserId, PlayerGameStatus> _playerGameStatuses = new();
 
@@ -130,6 +134,7 @@ namespace Content.Server.GameTicking
 
             var gmTitle = Loc.GetString(preset.ModeTitle);
             var desc = Loc.GetString(preset.Description);
+
             var infoText = RunLevel == GameRunLevel.PreRoundLobby
                     ? "game-ticker-get-info-preround-text"
                     : "game-ticker-get-info-text";
@@ -144,7 +149,8 @@ namespace Content.Server.GameTicking
                 ("readyCount", readyCount),
                 ("mapName", stationNames.ToString()),
                 ("gmTitle", gmTitle),
-                ("desc", desc));
+                ("desc", desc),
+                ("stationDate", _timeSystem.GetStationDate().ToString("dd.MM.yyyy"))); // Orion
         }
 
         private TickerConnectionStatusEvent GetConnectionStatusMsg()

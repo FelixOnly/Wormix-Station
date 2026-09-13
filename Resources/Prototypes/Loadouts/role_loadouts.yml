@@ -135,6 +135,13 @@
   - CaptainEnvirohelm
   - CaptainEnvirosuit
   - CaptainEnvirogloves
+  - CaptainGloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -156,6 +163,12 @@
   - HoPEnvirohelm
   - HoPEnvirosuit
   - HoPEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Silicons
 - type: roleLoadout
@@ -190,6 +203,12 @@
   - AssistantEnvirohelm
   - AssistantEnvirosuit
   - AssistantEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobBartender
@@ -209,6 +228,12 @@
   - BartenderEnvirohelm
   - BartenderEnvirosuit
   - BartenderEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobServiceWorker
@@ -226,6 +251,12 @@
   - ServiceWorkerEnvirohelm
   - ServiceWorkerEnvirosuit
   - ServiceWorkerEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobChef
@@ -246,6 +277,12 @@
   - ChefEnvirohelm
   - ChefEnvirosuit
   - ChefEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobLibrarian
@@ -263,6 +300,12 @@
   - LibrarianEnvirohelm
   - LibrarianEnvirosuit
   - LibrarianEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobLawyer
@@ -281,6 +324,12 @@
   - LawyerEnvirohelm
   - LawyerEnvirosuit
   - LawyerEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobChaplain
@@ -302,6 +351,12 @@
   - ChaplainEnvirohelm
   - ChaplainEnvirosuit
   - ChaplainEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobJanitor
@@ -323,6 +378,12 @@
   - JanitorEnvirohelm
   - JanitorEnvirosuit
   - JanitorEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobBotanist
@@ -342,6 +403,12 @@
   - BotanistEnvirohelm
   - BotanistEnvirosuit
   - BotanistEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobClown
@@ -362,6 +429,12 @@
   - ClownEnvirohelm
   - ClownEnvirosuit
   - ClownEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobMime
@@ -384,6 +457,12 @@
   - MimeEnvirohelm
   - MimeEnvirosuit
   - MimeEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobMusician
@@ -395,6 +474,7 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - Glasses
   - Survival
   - Trinkets
   - Instruments
@@ -404,6 +484,12 @@
   - MusicianEnvirohelm
   - MusicianEnvirosuit
   - MusicianEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Cargo
 - type: roleLoadout
@@ -426,6 +512,12 @@
   - QuartermasterEnvirohelm
   - QuartermasterEnvirosuit
   - QuartermasterEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -446,6 +538,12 @@
   - CargoTechnicianEnvirohelm
   - CargoTechnicianEnvirosuit
   - CargoTechnicianEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobSalvageSpecialist
@@ -466,6 +564,12 @@
   - SalvageEnvirohelm
   - SalvageEnvirosuit
   - SalvageEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Engineering
 - type: roleLoadout
@@ -487,6 +591,12 @@
   - ChiefEngineerEnvirohelm
   - ChiefEngineerEnvirosuit
   - ChiefEngineerEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -503,6 +613,12 @@
   - TechnicalAssistantEnvirohelm
   - TechnicalAssistantEnvirosuit
   - TechnicalAssistantEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobStationEngineer
@@ -524,6 +640,12 @@
   - StationEngineerEnvirohelm
   - StationEngineerEnvirosuit
   - StationEngineerEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
@@ -544,6 +666,12 @@
   - AtmosEnvirohelm
   - AtmosEnvirosuit
   - AtmosEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Science
 - type: roleLoadout
@@ -567,6 +695,12 @@
   - ResearchDirectorEnvirosuit
   - ResearchDirectorEnvirohelm
   - ResearchDirectorEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobScientist
@@ -590,6 +724,12 @@
   - ScientistEnvirohelm
   - ScientistEnvirosuit
   - ScientistEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobResearchAssistant
@@ -607,6 +747,12 @@
   - ResearchAssistantEnvirohelm
   - ResearchAssistantEnvirosuit
   - ResearchAssistantEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Security
 - type: roleLoadout
@@ -631,6 +777,12 @@
   - HeadofSecurityEnvirohelm
   - HeadofSecurityEnvirosuit
   - HeadofSecurityEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobWarden
@@ -653,6 +805,12 @@
   - WardenEnvirohelm
   - WardenEnvirosuit
   - WardenEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -676,6 +834,12 @@
   - SecurityOfficerEnvirohelm
   - SecurityOfficerEnvirosuit
   - SecurityOfficerEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobDetective
@@ -697,6 +861,12 @@
   - DetectiveEnvirohelm
   - DetectiveEnvirosuit
   - DetectiveEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -715,6 +885,12 @@
   - SecurityCadetEnvirohelm
   - SecurityCadetEnvirosuit
   - SecurityCadetEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Medical
 - type: roleLoadout
@@ -724,7 +900,7 @@
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
-  - ChiefMedicalOfficerGlasses # CorvaxGoob-loadouts: MedicalEyewear > ChiefMedicalOfficerGlasses 
+  - ChiefMedicalOfficerGlasses # CorvaxGoob-loadouts: MedicalEyewear > ChiefMedicalOfficerGlasses
   - ChiefMedicalOfficerJumpsuit
   - MedicalGloves
   - MedicalBackpack
@@ -739,6 +915,12 @@
   - ChiefMedicalOfficerEnvirohelm
   - ChiefMedicalOfficerEnvirosuit
   - ChiefMedicalOfficerEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -762,6 +944,12 @@
   - MedicalDoctorEnvirohelm
   - MedicalDoctorEnvirosuit
   - MedicalDoctorEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -779,6 +967,12 @@
   - MedicalInternEnvirohelm
   - MedicalInternEnvirosuit
   - MedicalInternEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobChemist
@@ -800,6 +994,12 @@
   - ChemistEnvirohelm
   - ChemistEnvirosuit
   - ChemistEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobParamedic
@@ -822,6 +1022,12 @@
   - ParamedicEnvirohelm
   - ParamedicEnvirosuit
   - ParamedicEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # Wildcards
 - type: roleLoadout
@@ -841,6 +1047,12 @@
   - ZookeeperEnvirohelm
   - ZookeeperEnvirosuit
   - ZookeeperEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobReporter
@@ -859,6 +1071,12 @@
   - ReporterEnvirohelm
   - ReporterEnvirosuit
   - ReporterEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobPsychologist
@@ -876,6 +1094,12 @@
   - PsychologistEnvirohelm
   - PsychologistEnvirosuit
   - PsychologistEnvirogloves
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 - type: roleLoadout
   id: JobBoxer
@@ -893,6 +1117,12 @@
   # Goobstation - EE Plasmeme Change.
   - BoxerEnvirohelm
   - BoxerEnvirosuit
+  # Orion-Start
+  - Undershirt
+  - Underwear
+  - Socks
+  - Wrists
+  # Orion-End
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
