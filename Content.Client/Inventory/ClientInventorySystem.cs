@@ -159,17 +159,17 @@ namespace Content.Client.Inventory
             base.Shutdown();
         }
 
-        protected override void OnInit(EntityUid uid, InventoryComponent component, ComponentInit args)
+        protected override void OnInit(Entity<InventoryComponent> ent, ref ComponentInit args)
         {
-            base.OnInit(uid, component, args);
-            _clothingVisualsSystem.InitClothing(uid, component);
+            base.OnInit(ent, ref args);
+            _clothingVisualsSystem.InitClothing(ent, ent.Comp);
 
-            if (!TryComp(uid, out InventorySlotsComponent? inventorySlots))
+            if (!TryComp(ent, out InventorySlotsComponent? inventorySlots))
                 return;
 
-            foreach (var slot in component.Slots)
+            foreach (var slot in ent.Comp.Slots)
             {
-                TryAddSlotDef(uid, inventorySlots, slot);
+                TryAddSlotDef(ent, inventorySlots, slot);
             }
         }
 

@@ -228,7 +228,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
         }
 
         var maxWidth = clothing.Max(p => p.Value.ButtonOffset.X) + 1;
-        var maxIndex = clothing.Select(p => GetIndex(p.Value.ButtonOffset, maxWidth)).Max(); // Orion-Edit: maxWidth
+        var maxIndex = clothing.Select(p => GetIndex(p.Value.ButtonOffset)).Max(); // Orion-Edit: maxWidth
 
         _inventoryHotbar.MaxColumns = maxWidth;
         _inventoryHotbar.Columns = maxWidth;
@@ -236,7 +236,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
         for (var i = 0; i <= maxIndex; i++)
         {
             var index = i;
-            if (clothing.FirstOrNull(p => GetIndex(p.Value.ButtonOffset, maxWidth) == index) is { } pair) // Orion-Edit: maxWidth
+            if (clothing.FirstOrNull(p => GetIndex(p.Value.ButtonOffset) == index) is { } pair)
             {
                 if (_inventoryHotbar.TryGetButton(pair.Key, out var slot))
                     slot.SetPositionLast();
@@ -248,6 +248,10 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
                     MinSize = new Vector2(64, 64),
                 });
             }
+        }
+        int GetIndex(Vector2i position)
+        {
+            return position.Y * maxWidth + position.X;
         }
     }
 
@@ -270,7 +274,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             }
 
             var maxWidth = extraSlots.Max(p => p.Value.ButtonOffset.X) + 1;
-            var maxIndex = extraSlots.Select(p => GetIndex(p.Value.ButtonOffset, maxWidth)).Max();
+            var maxIndex = extraSlots.Select(p => GetIndex(p.Value.ButtonOffset)).Max();
 
             _extraHotbar.MaxColumns = maxWidth;
             _extraHotbar.Columns = maxWidth;
@@ -278,7 +282,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
             for (var i = 0; i <= maxIndex; i++)
             {
                 var index = i;
-                if (extraSlots.FirstOrNull(p => GetIndex(p.Value.ButtonOffset, maxWidth) == index) is { } pair)
+                if (extraSlots.FirstOrNull(p => GetIndex(p.Value.ButtonOffset) == index) is { } pair)
                 {
                     if (_extraHotbar.TryGetButton(pair.Key, out var slot))
                         slot.SetPositionLast();
@@ -291,14 +295,17 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
                     });
                 }
             }
+
+            int GetIndex(Vector2i position)
+            {
+                return position.Y * maxWidth + position.X;
+            }
         }
         else
         {
             _extraHotbar.ClearButtons();
         }
     }
-
-    private int GetIndex(Vector2i position, int maxWidth) => position.Y * maxWidth + position.X;
 
     public void RegisterExtraButton(SlotButton? button)
     {
@@ -332,10 +339,6 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
 
         inventoryGui.ToggleExtraHotbarVisibility();
         UpdateExtraHotbar(_playerInventory);
-        int GetIndex(Vector2i position)
-        {
-            return position.Y * maxWidth + position.X;
-        }
     }
     // Orion-End
 

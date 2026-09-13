@@ -1,0 +1,59 @@
+﻿- type: entity
+  parent: VendingMachine
+  id: LPPBrasMat
+  name: Bras machine
+  description: a machine that decorates the appearance of customers and makes them beautiful!
+  suffix: Unlocked
+  components:
+  - type: VendingMachine
+    pack: BrasVendingMachineServitorInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _Erida/Structures/Machines/VendingMachines/bras.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#e0f1ff"
+
+- type: entity
+  parent: VendingMachine
+  id: LPPUnderpantsMat
+  name: Underpants machine
+  description: a machine that decorates the appearance of customers and makes them beautiful!
+  suffix: Unlocked
+  components:
+  - type: VendingMachine
+    pack: UnderwearVendingMachineServitorInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    ejectState: eject-unshaded
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Sprite
+    sprite: _Erida/Structures/Machines/VendingMachines/underpants.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#e0f1ff"

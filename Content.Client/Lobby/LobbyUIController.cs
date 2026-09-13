@@ -454,10 +454,19 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
                 // Orion-Start
                 if (clothingMode == ClothingDisplayMode.ShowUnderwearOnly)
                 {
-                    if (!_prototypeManager.TryIndex(loadoutProto.StartingGear, out var gear))
-                        continue;
+                    IEquipmentLoadout? equipGear = null;
 
-                    if (gear is not IEquipmentLoadout equipGear)
+                    if (_prototypeManager.TryIndex(loadoutProto.StartingGear, out var gear) &&
+                        gear is IEquipmentLoadout gearAsEquip)
+                    {
+                        equipGear = gearAsEquip;
+                    }
+                    else if (loadoutProto is IEquipmentLoadout protoAsEquip)
+                    {
+                        equipGear = protoAsEquip;
+                    }
+
+                    if (equipGear == null)
                         continue;
 
                     foreach (var slotName in UnderwearSlots)

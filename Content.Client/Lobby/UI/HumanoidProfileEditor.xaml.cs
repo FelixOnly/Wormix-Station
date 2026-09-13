@@ -159,6 +159,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Client._Orion.Lobby.UI;
+using Content.Client._Orion.RichText;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
@@ -196,13 +197,19 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 using Content.Goobstation.Common.CCVar; // Goob Station - Barks
-using Content.Goobstation.Common.Barks; // Goob Station - Barks
+using Content.Goobstation.Common.Barks;
+using Content.Shared._Orion.RichText;
+using Content.Shared.ADT.CCVar;
+using Content.Shared.SD; // Goob Station - Barks
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]
     public sealed partial class HumanoidProfileEditor : BoxContainer
     {
         [Dependency] private readonly DocumentParsingManager _parsingMan = default!; // Orion
+
+        private OptionButton _erpStatus = null!; // SD-ERP-Status
+        private ClothingDisplayMode _clothingDisplayMode;
 
         private readonly IClientPreferencesManager _preferencesManager;
         private readonly IConfigurationManager _cfgManager;
@@ -285,8 +292,6 @@ namespace Content.Client.Lobby.UI
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
         private ISawmill _sawmill;
-
-        private SpeciesWindow? _speciesWindow;  // Orion
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -660,8 +665,6 @@ namespace Content.Client.Lobby.UI
             #endregion Markings
 
             RefreshFlavorText();
-
-            RefreshVoiceTab(); // CorvaxGoob-TTS
 
             #region Dummy
 
@@ -1298,7 +1301,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null || !_prototypeManager.HasIndex(Profile.Species))
                 return;
 
-            PreviewDummy = _controller.LoadProfileEntity(Profile, JobOverride, ShowClothes.Pressed);
+            PreviewDummy = _controller.LoadProfileEntity(Profile, JobOverride, _clothingDisplayMode); // Orion-Edit: Clothing display mode
             SpriteView.SetEntity(PreviewDummy);
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, Profile.Name);
 
@@ -1342,7 +1345,6 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
-            UpdateTTSVoicesControls(); // CorvaxGoob-TTS
             UpdateBarkVoicesControls(); // ADT Barks
             // CorvaxGoob-Revert : DB conflicts
             // UpdateBarkVoice(); // Goob Station - Barks
@@ -1902,7 +1904,6 @@ namespace Content.Client.Lobby.UI
             }
 
             UpdateGenderControls();
-            UpdateTTSVoicesControls(); // CorvaxGoob-TTS
             Markings.SetSex(newSex);
             ReloadPreview();
         }
