@@ -212,6 +212,9 @@
     - DoorBumpOpener
     - AnomalyHost
     - VulpEmotes
+  #Wormix - Tail Wagging
+  - type: Wagging
+  #Wormix - Tail Wagging
 
 - type: entity
   save: false

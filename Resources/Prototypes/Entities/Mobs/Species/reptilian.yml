@@ -203,7 +203,6 @@
       301: 0.9
       295: 0.8
       285: 0.7
-  - type: Wagging
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
@@ -265,6 +264,9 @@
     - DoorBumpOpener
     - AnomalyHost
     - ReptilianEmotes
+  #Wormix - Tail Wagging
+  - type: Wagging
+  #Wormix - Tail Wagging
 
 - type: entity
   parent: BaseSpeciesDummy

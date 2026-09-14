@@ -718,7 +718,7 @@
   id: ADTVulpTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp
@@ -729,7 +729,7 @@
   id: ADTVulpTailTip
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp
@@ -762,7 +762,7 @@
   id: ADTVulpTailAlt
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_alt
@@ -773,7 +773,7 @@
   id: ADTVulpTailAltTip
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: vulp_alt
@@ -784,7 +784,7 @@
   id: ADTVulpTailLong
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: long
@@ -795,7 +795,7 @@
   id: ADTVulpTailFox
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox
@@ -806,7 +806,7 @@
   id: ADTVulpTailFoxTip
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: _ADT/Mobs/Customization/Vulpkanin/_DV/tail_markings.rsi
       state: fox
