@@ -1,0 +1,166 @@
+# канцелярия
+- type: loadout
+  id: BoxFolderClipboard
+  storage:
+    back:
+    - BoxFolderClipboard
+  groupBy: "bureaucracy"
+
+- type: loadout
+  id: LuxuryPen
+  storage:
+    back:
+    - LuxuryPen
+  groupBy: "bureaucracy"
+
+# кружки
+- type: loadout
+  id: DrinkMug
+  storage:
+    back:
+    - DrinkMug
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugGreen
+  storage:
+    back:
+    - DrinkMugGreen
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugRed
+  storage:
+    back:
+    - DrinkMugRed
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugBlue
+  storage:
+    back:
+    - DrinkMugBlue
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugBlack
+  storage:
+    back:
+    - DrinkMugBlack
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugMoebius
+  storage:
+    back:
+    - DrinkMugMoebius
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugOne
+  storage:
+    back:
+    - DrinkMugOne
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugHeart
+  storage:
+    back:
+    - DrinkMugHeart
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugDog
+  storage:
+    back:
+    - DrinkMugDog
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugRainbow
+  storage:
+    back:
+    - DrinkMugRainbow
+  groupBy: "mugs"
+
+- type: loadout
+  id: DrinkMugMetal
+  storage:
+    back:
+    - DrinkMugMetal
+  groupBy: "mugs"
+
+# бутылки TODO: сделать группировку при добавлении новых бутылок
+- type: loadout
+  id: DrinkVacuumFlask
+  storage:
+    back:
+    - DrinkVacuumFlask
+#  groupBy: "bottles"
+
+# спортивный инвентарь
+- type: loadout
+  id: Whistle
+  storage:
+    back:
+    - Whistle
+
+- type: loadout
+  id: Basketball
+  storage:
+    back:
+    - Basketball
+  groupBy: "sports"
+
+- type: loadout
+  id: Football
+  storage:
+    back:
+    - Football
+  groupBy: "sports"
+
+- type: loadout
+  id: TennisBall
+  storage:
+    back:
+    - TennisBall
+  groupBy: "sports"
+
+- type: loadout
+  id: boomerang
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 3600 # 1hr
+  storage:
+    back:
+    - boomerang
+  groupBy: "sports"
+
+- type: loadout
+  id: ClothingBackpackDuffelTennisGame
+  inhand: #выдача в руку, иначе сумка падает на пол
+  - ClothingBackpackDuffelTennisGame
+  groupBy: "sports"
+
+# остальное
+- type: loadout
+  id: Matchbox
+  storage:
+    back:
+    - Matchbox
+  groupBy: "smokeables"
+
+- type: loadout
+  id: PhotoCamera
+  storage:
+    back:
+    - PhotoCamera
+  
+- type: loadout
+  id: BarberScissors
+  storage:
+    back:
+    - BarberScissors

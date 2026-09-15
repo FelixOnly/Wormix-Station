@@ -1,30 +1,15 @@
-// SPDX-FileCopyrightText: 2024 ArchPigeon <bookmaster3@gmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Actions;
-using Content.Server.Humanoid;
+using Content.Shared.Actions;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Mobs;
 using Content.Shared.Toggleable;
-using Content.Shared.Wagging;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Wagging;
+namespace Content.Shared.Wagging;
 
-/// <summary>
-/// Adds an action to toggle wagging animation for tails markings that supporting this
-/// </summary>
 public sealed class WaggingSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
@@ -40,6 +25,7 @@ public sealed class WaggingSystem : EntitySystem
     private void OnWaggingMapInit(EntityUid uid, WaggingComponent component, MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.ActionEntity, component.Action, uid);
+        Dirty(uid, component);
     }
 
     private void OnWaggingShutdown(EntityUid uid, WaggingComponent component, ComponentShutdown args)
@@ -47,12 +33,15 @@ public sealed class WaggingSystem : EntitySystem
         _actions.RemoveAction(uid, component.ActionEntity);
     }
 
-    private void OnWaggingToggle(EntityUid uid, WaggingComponent component, ref ToggleActionEvent args)
+    private void OnWaggingToggle(EntityUid uid, WaggingComponent component, ToggleActionEvent args)
     {
         if (args.Handled)
             return;
 
-        TryToggleWagging(uid, wagging: component);
+        if (!TryToggleWagging(uid, wagging: component))
+            return;
+
+        args.Handled = true;
     }
 
     private void OnMobStateChanged(EntityUid uid, WaggingComponent component, MobStateChangedEvent args)
@@ -73,10 +62,14 @@ public sealed class WaggingSystem : EntitySystem
             return false;
 
         wagging.Wagging = !wagging.Wagging;
+        Dirty(uid, wagging);
 
-        for (var idx = 0; idx < markings.Count; idx++) // Animate all possible tails
+        var changed = false;
+
+        for (var idx = 0; idx < markings.Count; idx++)
         {
-            var currentMarkingId = markings[idx].MarkingId;
+            var currentMarking = markings[idx];
+            var currentMarkingId = currentMarking.MarkingId;
             string newMarkingId;
 
             if (wagging.Wagging)
@@ -102,9 +95,15 @@ public sealed class WaggingSystem : EntitySystem
                 continue;
             }
 
-            _humanoidAppearance.SetMarkingId(uid, MarkingCategories.Tail, idx, newMarkingId,
-                humanoid: humanoid);
+            markings[idx] = new Marking(newMarkingId, currentMarking.MarkingColors)
+            {
+                Forced = currentMarking.Forced,
+            };
+            changed = true;
         }
+
+        if (changed)
+            Dirty(uid, humanoid);
 
         return true;
     }

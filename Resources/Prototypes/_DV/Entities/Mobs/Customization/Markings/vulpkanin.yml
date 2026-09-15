@@ -288,11 +288,11 @@
   bodyPart: Tail
   markingCategory: Tail
   #sponsorOnly: true # Wormix edit # CorvaxGoob-Sponsors
-  speciesRestriction: [Vulpkanin, Human]
+  speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
       state: vulp
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
       state: vulp-fade
 
 - type: marking
@@ -301,32 +301,32 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
       state: vulp
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
       state: vulp-tip
 
 - type: marking
-  id: VulpTailWag
+  id: VulpTailAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag-tip #fade
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
+      state: vulp-wagging
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
+      state: vulp-wagging-tip #fade
 
 - type: marking
-  id: VulpTailWagTip
+  id: VulpTailTipAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag
-    - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
-      state: vulp_wag-tip
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
+      state: vulp-wagging
+    - sprite: _Wormix/Mobs/Customization/Vulpkanin/tail_markings.rsi #Wormix Retexture
+      state: vulp-wagging-tip
 
 - type: marking
   id: VulpTailAlt
@@ -384,10 +384,10 @@
       state: fox-tip
 
 - type: marking
-  id: VulpTailFoxWag
+  id: VulpTailFoxAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox_wag
@@ -395,10 +395,10 @@
       state: fox_wag-fade
 
 - type: marking
-  id: VulpTailFoxWagTip
+  id: VulpTailFoxTipAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox_wag
@@ -415,10 +415,10 @@
       state: bushfluff
 
 - type: marking
-  id: VulpTailBushyWag
+  id: VulpTailBushyAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: bushfluff_wag
@@ -433,19 +433,19 @@
       state: coyote
 
 - type: marking
-  id: VulpTailCoyoteWag
+  id: VulpTailCoyoteAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote_wag
 
 - type: marking
-  id: VulpTailCorgiWag
+  id: VulpTailCorgiAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: corgi_wag
@@ -518,10 +518,10 @@
       state: fluffy
 
 - type: marking
-  id: VulpTailDalmatianWag
+  id: VulpTailDalmatianAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: []
   sprites:
     - sprite: _DV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: dalmatian_wag
