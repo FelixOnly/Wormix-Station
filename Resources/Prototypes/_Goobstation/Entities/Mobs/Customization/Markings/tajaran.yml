@@ -17,7 +17,7 @@
     state: tail
 
 - type: marking
-  id: TajaranTailAnim
+  id: TajaranTailAnimated # WormixWagging
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Tajaran]
