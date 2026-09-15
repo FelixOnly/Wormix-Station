@@ -163,6 +163,24 @@ Entries:
       time: '2026-09-09T00:00:00.0000000+00:00'
       changes:
       - { message: "Трусы, Верхняя одежда, носки и дополнительное ухо для гарнитуры возращены.", type: Add }
+    - author: RedSpyy
+      id: 21
+      time: '2026-09-14T00:00:00.0000000+00:00'
+      url: https://github.com/FelixOnly/Wormix-Station/pull/14
+      changes:
+      - { message: "Обновлён раздел безделушек в лодауте.", type: Add }
+    - author: GleckBruh
+      id: 22
+      time: '2026-09-15T00:00:00.0000000+00:00'
+      changes:
+      - { message: "Добавлена функция для маркингов - Хвостов: Виляние.", type: Add }
+    - author: Sablerti
+      id: 23
+      time: '2026-09-15T00:00:00.0000000+00:00'
+      changes:
+      - { message: "Теперь больше возможных режимов игры доступно для голосования.", type: Fix }
+      - { message: "Увеличено время для того чтобы съесть кредиты.", type: Fix }
+      - { message: "Исправлена цена для беретов и одеял.", type: Fix }
 
 
 
