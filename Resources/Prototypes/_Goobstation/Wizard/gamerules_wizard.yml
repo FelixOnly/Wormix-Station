@@ -207,6 +207,6 @@
     - Wizard
     - SleepersOnWizardDeath
     - BasicStationEventScheduler
-    - SpaceTrafficControlEventScheduler
+    #- SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - SubGamemodesRule
