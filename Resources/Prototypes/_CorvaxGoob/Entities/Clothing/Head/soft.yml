@@ -4,6 +4,8 @@
   name: warden cap
   description: Еhe perfect cap for aspiring wardens.
   components:
+  - type: StaticPrice
+    price: -90 # Wormix
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/Head/Hats/Soft/wardsoft.rsi
   - type: Clothing

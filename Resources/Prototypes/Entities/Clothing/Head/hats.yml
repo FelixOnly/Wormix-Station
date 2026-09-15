@@ -439,6 +439,8 @@
   name: brigmedical beret
   description: A white beret for brigmedics.
   components:
+  - type: StaticPrice
+    price: -90 # Wormix
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
   - type: Clothing

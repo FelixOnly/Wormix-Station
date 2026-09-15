@@ -26,6 +26,8 @@
   parent: [ClothingHeadBase] 
   id: ClothingHeadHatArmored
   components:
+  - type: StaticPrice
+    price: -90 # Wormix
   - type: Armor
     coverage:
     - Head

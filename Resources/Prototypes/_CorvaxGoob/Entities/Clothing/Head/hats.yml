@@ -56,6 +56,8 @@
   name: white cap cap
   description: Stylish white cap cap.
   components:
+  - type: StaticPrice
+    price: -90 # Wormix
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/Head/Hats/white_capcap.rsi
   - type: Clothing
@@ -85,6 +87,8 @@
   name: sheriff cap
   description: Stylish sheriff cap.
   components:
+  - type: StaticPrice
+    price: -90 # Wormix
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/Head/Hats/sheriff_capcap.rsi
   - type: Clothing
@@ -218,6 +222,8 @@
   name: head of security cap
   description: The robust standard-issue cap of the Head of Security. For showing the officers who's in charge.
   components:
+    - type: StaticPrice
+      price: -90 # Wormix
     - type: Sprite
       sprite: _CorvaxGoob/Clothing/Head/Hats/hoshat.rsi
     - type: Clothing
@@ -270,6 +276,8 @@
   name: security medic beret
   description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
   components:
+    - type: StaticPrice
+      price: -90 # Wormix
     - type: Sprite
       sprite: _CorvaxGoob/Clothing/Head/Hats/beret_security_medic.rsi
     - type: Clothing
@@ -322,6 +330,8 @@
   name: pilot beret
   description: Black beret with a silver badge.
   components:
+  - type: StaticPrice
+    price: -90 # Wormix
   - type: Sprite
     sprite: _CorvaxGoob/Clothing/Head/Hats/beret_pilot.rsi
   - type: Clothing
