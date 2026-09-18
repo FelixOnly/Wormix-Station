@@ -470,22 +470,18 @@ namespace Content.Server.Database
 
         // Wormix start
 
-        public Task AddJobCharacterWhitelist(int profile,
-            ProtoId<JobPrototype> jobAllow,
-            ProtoId<JobPrototype> jobDeny);
+        public Task AddJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobId, bool isRestricted, CancellationToken cancel = default );
 
         public Task<List<string>> GetJobCharacterWhitelistAllowed(int profile, CancellationToken cancel = default);
 
         public Task<List<string>> GetJobCharacterWhitelistDenied(int profile, CancellationToken cancel = default);
+        public Task<List<CharacterWhitelist>> GetJobCharacterWhitelistAll(int profile, CancellationToken cancel = default);
 
         public Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job);
-
         public Task<bool> IsJobCharacterWhitelistDeny(int profile, ProtoId<JobPrototype> job);
         public Task<string> FindPlayerByCharacter(int profile, CancellationToken cancel = default);
 
-        public Task<bool> RemoveJobCharacterWhitelist(int profile,
-            ProtoId<JobPrototype> jobAllow,
-            ProtoId<JobPrototype> jobDeny);
+        public Task<bool> RemoveJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobId, CancellationToken cancel = default);
 
         public Task<List<Profile>> GetPlayerCharacters(Guid player, CancellationToken cancel = default);
 
@@ -1118,10 +1114,10 @@ namespace Content.Server.Database
 
         //Wormix start
 
-        public Task AddJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        public Task AddJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobId, bool isRestricted, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddJobCharacterWhitelist(profile, jobAllow, jobDeny));
+            return RunDbCommand(() => _db.AddJobCharacterWhitelist(profile, jobId, isRestricted, cancel));
         }
 
         public Task<List<string>> GetJobCharacterWhitelistAllowed(int profile, CancellationToken cancel = default)
@@ -1134,6 +1130,12 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetJobCharacterWhitelistDenied(profile, cancel));
+        }
+
+        public Task<List<CharacterWhitelist>> GetJobCharacterWhitelistAll(int profile, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetJobCharacterWhitelistAll(profile, cancel));
         }
 
         public Task<string> FindPlayerByCharacter(int profile, CancellationToken cancel = default)
@@ -1154,10 +1156,10 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.IsJobCharacterWhitelistDeny(profile, job));
         }
 
-        public Task<bool> RemoveJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        public Task<bool> RemoveJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobId, CancellationToken cancel = default)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.RemoveJobCharacterWhitelist(profile, jobAllow, jobDeny));
+            return RunDbCommand(() => _db.RemoveJobCharacterWhitelist(profile, jobId, cancel));
         }
 
         public Task<List<Profile>> GetPlayerCharacters(Guid player, CancellationToken cancel = default)

@@ -5,7 +5,6 @@
 using JetBrains.Annotations;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Preferences;
-using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;

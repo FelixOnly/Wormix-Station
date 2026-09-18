@@ -83,7 +83,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using System.Threading.Tasks;
+using Content.Server._Wormix.Players;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
@@ -263,7 +263,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     private void OnStationJobsGetCandidates(ref StationJobsGetCandidatesEvent ev)
     {
-        RemoveDisallowedJobs(ev.Player, ev.Jobs, ev.CharactersAllow, ev.CharactersDeny);
+        RemoveDisallowedJobs(ev.Player, ev.Jobs, ev.ProfilesRestrictions);
     }
 
     private void OnIsRoleAllowed(ref IsRoleAllowedEvent ev)
@@ -398,8 +398,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     public void RemoveDisallowedJobs(
         NetUserId userId,
         List<ProtoId<JobPrototype>> jobs,
-        List<CharacterWhitelistRoleWithUser> CharactersAllow, // Wormix
-        List<CharacterWhitelistRoleWithUser> CharactersDeny) // Wormix
+        List<CharacterWhitelistRoleWithUser> ProfilesRestrictions) // Wormix
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return;
@@ -413,32 +412,31 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         }
 
         // Wormix start
-        var playerAllow = CharactersAllow
+        var playerRestrictions = ProfilesRestrictions
             .Where(x => x.player == userId)
-            .Select(x => x.job)
             .ToList();
 
-
-        var playerDeny = CharactersDeny
-            .Where(x => x.player == userId)
-            .Select(x => x.job)
-            .ToList();
 
 
         for (var i = 0; i < jobs.Count; i++)
         {
 
-             if (playerDeny.Contains(jobs[i].Id))
-             {
-                 jobs.RemoveSwap(i);
-                 i--;
-                 continue;
-             }
+            var isRestricted = playerRestrictions.Find(x => x.job == jobs[i].Id);
 
-             if (playerAllow.Contains(jobs[i].Id))
-             {
-                 continue;
-             }
+            if (isRestricted != null)
+            {
+                switch (isRestricted.isRestricted)
+                {
+                    case true:
+                        jobs.RemoveSwap(i);
+                        i--;
+                        continue;
+
+                    case false:
+                        continue;
+                }
+            }
+
             // Wormix end
 
             if (_prototypes.TryIndex(jobs[i], out var job)

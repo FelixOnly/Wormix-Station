@@ -1,0 +1,36 @@
+﻿<!--
+SPDX-FileCopyrightText: 2026 FelixOnly <FelixOnly@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<ui:PlayersCharactersListWindow
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._Wormix.Administration.CharacterWhitelist.UI"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    SetSize="600 400">
+
+    <PanelContainer StyleClasses="BackgroundDark">
+        <ScrollContainer>
+
+            <BoxContainer Name="CharactersList" Access="Public" Orientation="Vertical">
+                <BoxContainer
+                    Orientation="Horizontal"
+                    HorizontalExpand="True"
+                    SeparationOverride="4">
+                    <Label Text="АЙДИ"
+                           SizeFlagsStretchRatio="1"
+                           HorizontalExpand="True"/>
+                    <cc:VSeparator/>
+                    <Label Text="ИМЯ"
+                           SizeFlagsStretchRatio="6"
+                           HorizontalExpand="True"/>
+                </BoxContainer>
+
+
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+
+
+</ui:PlayersCharactersListWindow>

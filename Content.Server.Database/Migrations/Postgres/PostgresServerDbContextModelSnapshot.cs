@@ -798,15 +798,15 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("profile_id");
 
-                    b.Property<string>("RoleIdAllow")
-                        .HasColumnType("text")
-                        .HasColumnName("role_id_allow");
+                    b.Property<bool>("IsRestricted")
+                        .HasColumnType("boolean")
+                        .HasColumnName("is_restricted");
 
-                    b.Property<string>("RoleIdDeny")
+                    b.Property<string>("RoleId")
                         .HasColumnType("text")
-                        .HasColumnName("role_id_deny");
+                        .HasColumnName("role_id");
 
-                    b.HasKey("ProfileId", "RoleIdAllow", "RoleIdDeny")
+                    b.HasKey("ProfileId", "IsRestricted", "RoleId")
                         .HasName("PK_character_whitelists");
 
                     b.ToTable("character_whitelists", (string)null);

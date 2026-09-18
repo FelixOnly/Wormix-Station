@@ -30,6 +30,7 @@
 
 using System.Threading.Tasks;
 using Content.Corvax.Interfaces.Server;
+using Content.Server._Wormix.Players;
 using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -224,11 +225,11 @@ namespace Content.Server.GameTicking
 
             var characterId = await _whitelistManager.FindIdCharacterByName(p, character.Name);
 
-            var denies = await _whitelistManager.GetAllCharacterDenies(characterId);
+            var restrictions = _whitelistManager.GetAllCharacterRestrictions(characterId);
 
-            foreach (var deny in denies)
+            foreach (var restriction in restrictions)
             {
-                if (deny == jobName)
+                if (restriction.job == jobName && restriction.isRestricted)
                 {
                     return true;
                 }
@@ -243,11 +244,11 @@ namespace Content.Server.GameTicking
 
             var characterId = await _whitelistManager.FindIdCharacterByName(p, character.Name);
 
-            var allowed = await _whitelistManager.GetAllCharacterAllowed(characterId);
+            var restrictions = _whitelistManager.GetAllCharacterRestrictions(characterId);
 
-            foreach (var allow in allowed)
+            foreach (var restriction in restrictions)
             {
-                if (allow == jobName)
+                if (restriction.job == jobName && !restriction.isRestricted)
                 {
                     return true;
                 }

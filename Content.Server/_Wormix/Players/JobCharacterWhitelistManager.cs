@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._Wormix.Players;
-using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -15,7 +14,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Players;
+namespace Content.Server._Wormix.Players;
 
 public sealed class JobCharacterWhitelistManager: IPostInjectInit
 {
@@ -24,8 +23,8 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
 
-    private readonly List<CharacterWhitelistRole> _allow = new();
-    private readonly List<CharacterWhitelistRole> _deny = new();
+    private readonly List<CharacterWhitelistRole> _charactersWhitelist = new();
+
 
     public void Initialize()
     {
@@ -44,17 +43,11 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
 
         foreach (var character in playerCharacters)
         {
-            var characterAllowed = await _db.GetJobCharacterWhitelistAllowed(character.Id);
-            var characterDenied = await _db.GetJobCharacterWhitelistDenied(character.Id);
+            var charactersRestrictions = await _db.GetJobCharacterWhitelistAll(character.Id, CancellationToken.None);
 
-            foreach (var job in characterAllowed)
+            foreach (var restriction in charactersRestrictions)
             {
-                _allow.Add(new CharacterWhitelistRole(character.Id, job));
-            }
-
-            foreach (var job in characterDenied)
-            {
-                _deny.Add(new CharacterWhitelistRole(character.Id, job));
+                _charactersWhitelist.Add(new CharacterWhitelistRole(character.Id, restriction.RoleId, restriction.IsRestricted));
             }
         }
 
@@ -72,33 +65,49 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
 
         foreach (var character in playerCharacters)
         {
-            foreach (var allowCharacter in _allow.ToList())
+            foreach (var restriction in _charactersWhitelist)
             {
-                if (allowCharacter.characterId == character.Id)
+                if (restriction.characterId == character.Id)
                 {
-                    _allow.Remove(allowCharacter);
-                }
-            }
-
-            foreach (var denyCharacter in _deny.ToList())
-            {
-                if (denyCharacter.characterId == character.Id)
-                {
-                    _deny.Remove(denyCharacter);
+                    _charactersWhitelist.Remove(restriction);
                 }
             }
         }
     }
 
-
-    public async void AddCharacterWhitelist(NetUserId player, int character, ProtoId<JobPrototype> allow, ProtoId<JobPrototype> deny)
+    public async Task<string> GetCharacterName(int characterId)
     {
-        _allow.Add(new CharacterWhitelistRole(character, allow.Id));
-        _deny.Add(new CharacterWhitelistRole(character, deny.Id));
+
+        var username = await _db.FindPlayerByCharacter(characterId);
+
+        _player.TryGetPlayerDataByUsername(username, out var data);
+
+        if (data != null)
+        {
+            var playerCharacters = await _db.GetPlayerCharacters(data.UserId, CancellationToken.None);
+
+            return playerCharacters.Find(x => x.Id == characterId)!.CharacterName;
+        }
+
+        return string.Empty;
+    }
+
+
+    public async void AddCharacterWhitelist(NetUserId player, int character, ProtoId<JobPrototype> jobId, bool isRestricted)
+    {
+
+        var lastRestriction = _charactersWhitelist.Find(x => x.characterId == character && x.job == jobId.Id);
+
+        if (lastRestriction is not null)
+        {
+            RemoveWhitelist(player, character, jobId);
+        }
+
+        _charactersWhitelist.Add(new CharacterWhitelistRole(character, jobId, isRestricted));
 
         // Добавить сообщение в логах
 
-        await _db.AddJobCharacterWhitelist(character, allow, deny);
+        await _db.AddJobCharacterWhitelist(character, jobId, isRestricted);
 
         if (_player.TryGetSessionById(player, out var session))
             SendJobCharacterWhitelist(session);
@@ -124,14 +133,13 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
         return -1;
     }
 
-    public async void RemoveWhitelist(NetUserId player, int characterId, ProtoId<JobPrototype> allow, ProtoId<JobPrototype> deny)
+    public async void RemoveWhitelist(NetUserId player, int characterId, ProtoId<JobPrototype> jobId)
     {
-        _allow.Remove(new CharacterWhitelistRole(characterId, allow.Id));
-        _deny.Remove(new CharacterWhitelistRole(characterId, deny.Id));
+        _charactersWhitelist.RemoveAll(x => x.characterId == characterId && x.job == jobId);
 
         // Добавить сообщение в логах
 
-        await _db.RemoveJobCharacterWhitelist(characterId, allow, deny);
+        await _db.RemoveJobCharacterWhitelist(characterId, jobId);
 
         if (_player.TryGetSessionById(new NetUserId(player), out var session))
             SendJobCharacterWhitelist(session);
@@ -139,28 +147,18 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
 
     public void RemoveAllCharacterWhitelist(NetUserId player, int characterId)
     {
-        foreach (var allow in _allow)
+        foreach (var character in _charactersWhitelist)
         {
-            RemoveWhitelist(player, characterId, allow.job, allow.job);
-        }
-
-        foreach (var deny in _deny)
-        {
-            RemoveWhitelist(player, characterId, deny.job, deny.job);
+            RemoveWhitelist(player, character.characterId, character.job);
         }
 
         if (_player.TryGetSessionById(new NetUserId(player), out var session))
             SendJobCharacterWhitelist(session);
     }
 
-    public async Task<List<string>> GetAllCharacterDenies(int characterId)
+    public List<CharacterWhitelistRole> GetAllCharacterRestrictions(int characterId)
     {
-        return await _db.GetJobCharacterWhitelistDenied(characterId);
-    }
-
-    public async Task<List<string>> GetAllCharacterAllowed(int characterId)
-    {
-        return await _db.GetJobCharacterWhitelistAllowed(characterId);
+        return _charactersWhitelist.Where(x => x.characterId == characterId).ToList();
     }
 
     private int GetCharacterIndexOfName(string name, IReadOnlyDictionary<int, ICharacterProfile> characterProfiles)
@@ -177,40 +175,28 @@ public sealed class JobCharacterWhitelistManager: IPostInjectInit
         if(playerPref is null)
             return;
 
-        var tempAllow = new List<CharacterWhitelistRole>();
-        var tempDeny = new List<CharacterWhitelistRole>();
+        var tempRestrictions = new List<CharacterWhitelistRole>();
 
 
         for (int localCharacter = 0; localCharacter < playerPref.Characters.Count; localCharacter++)
         {
-            foreach (var dbAllow in _allow)
+
+            foreach (var dbRestrictions in _charactersWhitelist)
             {
-                if (dbCharacters[localCharacter].Id == dbAllow.characterId)
+                if (dbCharacters[localCharacter].Id == dbRestrictions.characterId)
                 {
-                    tempAllow.Add(new CharacterWhitelistRole(
+                    tempRestrictions.Add(new CharacterWhitelistRole(
                         GetCharacterIndexOfName(dbCharacters[localCharacter].CharacterName,playerPref.Characters),
-                        dbAllow.job));
+                        dbRestrictions.job,
+                        dbRestrictions.isRestricted));
                 }
 
             }
-
-            foreach (var dbDeny in _deny)
-            {
-                if (dbCharacters[localCharacter].Id == dbDeny.characterId)
-                {
-
-                    tempDeny.Add(new CharacterWhitelistRole(
-                        GetCharacterIndexOfName(dbCharacters[localCharacter].CharacterName,playerPref.Characters),
-                        dbDeny.job));
-                }
-            }
-
         }
 
         var msg = new MsgJobCharacterWhitelist
         {
-            Allow = tempAllow,
-            Deny = tempDeny
+            CharactersWhitelist = tempRestrictions,
         };
 
         // Отправляем игроку список, но айди относительно его списка персонажей

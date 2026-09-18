@@ -1,0 +1,29 @@
+﻿
+
+<BoxContainer
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Orientation="Horizontal"
+    HorizontalExpand="True"
+    SeparationOverride="4">
+    <Label Name="CharId"
+           Access="Public"
+           SizeFlagsStretchRatio="6"
+           HorizontalExpand="False"
+           SetWidth="100"
+           VerticalExpand="True"/>
+    <cc:VSeparator/>
+    <Label Name="CharName"
+           Access="Public"
+           SizeFlagsStretchRatio="2"
+           HorizontalExpand="True"
+           ClipText="True"/>
+    <cc:VSeparator/>
+    <Button
+        Name="CharButton"
+        Text="Открыть"
+        Access="Public"
+        SizeFlagsStretchRatio="2"
+        HorizontalExpand="True"
+        ClipText="True"/>
+</BoxContainer>

@@ -986,7 +986,7 @@ namespace Content.Server.Database
     /// <summary>
     /// This will allow admins add characters to the list where players could play on roles that is usually not allow, like age or race
     /// </summary>
-    [PrimaryKey(nameof(ProfileId), nameof(RoleIdAllow), nameof(RoleIdDeny))]
+    [PrimaryKey(nameof(ProfileId), nameof(IsRestricted), nameof(RoleId))]
     public class CharacterWhitelist
     {
         [Required, ForeignKey("Profile")]
@@ -994,10 +994,10 @@ namespace Content.Server.Database
         public Profile Profile { get; set; } = default!;
 
         [Required]
-        public string RoleIdAllow { get; set; } = default!;
+        public bool IsRestricted { get; set; }
 
         [Required]
-        public string RoleIdDeny { get; set; } = default!;
+        public string RoleId { get; set; } = default!;
     }
     // Wormix end
 

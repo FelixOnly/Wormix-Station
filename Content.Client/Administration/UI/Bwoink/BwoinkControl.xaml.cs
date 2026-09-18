@@ -268,6 +268,13 @@ namespace Content.Client.Administration.UI.Bwoink
                 return bch.LastMessage.CompareTo(ach.LastMessage);
             };
 
+            // Wormix start
+            Characters.OnPressed += _ =>
+            {
+                if (_currentPlayer is not null)
+                    _console.ExecuteCommand($"playercharacterspanel \"{_currentPlayer.Username}\"");
+            };
+            // Wormix end
 
             Bans.OnPressed += _ =>
             {
@@ -342,6 +349,9 @@ namespace Content.Client.Administration.UI.Bwoink
 
             Bans.Visible = _adminManager.HasFlag(AdminFlags.Ban);
             Bans.Disabled = !Bans.Visible || disabled;
+
+            Characters.Visible = _adminManager.HasFlag(AdminFlags.Ban); // Wormix
+            Characters.Disabled = !Characters.Visible || disabled; // Wormix
 
             Notes.Visible = _adminManager.HasFlag(AdminFlags.ViewNotes);
             Notes.Disabled = !Notes.Visible || disabled;
