@@ -40,7 +40,7 @@
 
 - type: font
   id: BoxRound
-  path: /Fonts/Boxfont-round/Boxfont Round.ttf
+  path: /Fonts/EpilepsySans/EpilepsySans.ttf # WORMIX EDIT
 
 - type: font
   id: AnimalSilence

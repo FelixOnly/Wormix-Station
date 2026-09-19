@@ -183,7 +183,7 @@
       path: /Audio/Ambience/Objects/vending_machine_hum.ogg
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/empty.rsi
-    snapCardinals: false
+    snapCardinals: true
   - type: Physics
     bodyType: Static
   - type: Transform
@@ -225,7 +225,7 @@
   - type: UserInterface
     interfaces:
       enum.VendingMachineUiKey.Key:
-        type: VendingMachineBoundUserInterface
+        type: VendingMachineKeypadBoundUserInterface # Funky change
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: WiresPanel
@@ -284,14 +284,6 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
-  - type: LanguageSpeaker # Einstein Engines - Languages
-  - type: LanguageKnowledge # Einstein Engines - Languages
-    speaks:
-    - TauCetiBasic
-    - RobotTalk
-    understands:
-    - TauCetiBasic
-    - RobotTalk
 
 - type: entity
   id: VendingMachineWallmount
@@ -813,8 +805,6 @@
   components:
   - type: VendingMachine
     pack: SpaceUpInventory
-    offState: off
-    normalState: normal-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/spaceup.rsi
     layers:
@@ -1685,7 +1675,6 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    noRot: true
     sprite: Structures/Machines/VendingMachines/robotics.rsi
     layers:
     - state: "off"
@@ -1726,7 +1715,6 @@
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
-    noRot: true
     sprite: Structures/Machines/VendingMachines/youtool.rsi
     layers:
     - state: "off"
@@ -1769,7 +1757,6 @@
   - type: SpeakOnUIClosed
     pack: GoodCleanFunGoodbyes
   - type: Sprite
-    noRot: true
     sprite: Structures/Machines/VendingMachines/games.rsi
     layers:
     - state: "off"
