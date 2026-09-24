@@ -1,0 +1,18 @@
+# Department
+# 0 - Comm
+# 1 - Sec
+# 2 - Med
+# 3 - RND
+# 4 - Cargo
+# 5 - Eng
+# 6 - Service
+
+- type: departmentGoal
+  id: teaDay
+  text: department-goal-tea
+  department: 6
+  
+- type: departmentGoal
+  id: dinnerDay
+  text: department-goal-dinner
+  department: 6
