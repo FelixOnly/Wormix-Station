@@ -70,17 +70,6 @@
             RadioHost: [ 1, 1 ]
             # silicon
             Borg: [ 1, 1 ]
-        - type: DepartmentGoal
-          goals:
-          #SEC
-          - secInstruction
-          - secContraband
-          #MED
-          - virusCheck
-          - immuneCreate
-          #SERVICE
-          - dinnerDay
-          - teaDay
         - type: StationCargoShuttle
           path: /Maps/_Wormix/Stations/Silly/Shuttles/corvax_cargo_silly.yml
         - type: StationBlobConfig

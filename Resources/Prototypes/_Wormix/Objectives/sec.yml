@@ -14,5 +14,15 @@
 
 - type: departmentGoal
   id: secContraband
-  text: department-goal-instruction--contraband
+  text: department-goal-instruction-contraband
+  department: 1
+  
+- type: departmentGoal
+  id: secDnaCheck
+  text: department-goal-planned-dna-check
+  department: 1
+  
+- type: departmentGoal
+  id: secPlannedFrisk
+  text: department-goal-planned-frisk
   department: 1

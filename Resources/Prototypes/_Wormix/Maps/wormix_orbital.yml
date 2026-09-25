@@ -71,16 +71,5 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
-        - type: DepartmentGoal
-          goals:
-          #SEC
-          - secInstruction
-          - secContraband
-          #MED
-          - virusCheck
-          - immuneCreate
-          #SERVICE
-          - dinnerDay
-          - teaDay
         # - type: StationCargoShuttle
           # path: /Maps/_CorvaxGoob/Stations/Silly/Shuttles/corvax_cargo_silly.yml

@@ -16,3 +16,13 @@
   id: dinnerDay
   text: department-goal-dinner
   department: 6
+
+- type: departmentGoal
+  id: petDay
+  text: department-goal-petphoto
+  department: 6
+  
+- type: departmentGoal
+  id: talentShow
+  text: department-goal-talent-show
+  department: 6

@@ -1,5 +1,10 @@
-﻿using System.Linq;
+﻿// SPDX-FileCopyrightText: 2026 FelixOnly <62942680+felixonly@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.Fax;
+using Content.Server.GameTicking;
 using Content.Server.Station.Systems;
 using Content.Shared._CorvaxGoob.CCCVars;
 using Content.Shared.Fax.Components;
@@ -19,6 +24,7 @@ public sealed class DepartmentGoalPaperSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
 
     public override void Initialize()
     {
@@ -30,7 +36,14 @@ public sealed class DepartmentGoalPaperSystem : EntitySystem
         if (!_cfg.GetCVar(CCCVars.StationGoal))
             return;
 
-        var playerCount = _playerManager.PlayerCount;
+
+        var ticker = _entity.System<GameTicker>();
+        bool isGreenshift = false;
+
+        if (ticker?.CurrentPreset?.ID == "Greenshift")
+            isGreenshift = true;
+
+
 
         var query = EntityQueryEnumerator<DepartmentGoalComponent>();
         while (query.MoveNext(out var uid, out var station))
@@ -57,6 +70,11 @@ public sealed class DepartmentGoalPaperSystem : EntitySystem
                     tempGoals.Where(x => x.Department == 2).ToList());
                 selGoal.Add(medGoal);
 
+                // Cargo
+                var cargoGoal = _random.Pick(
+                    tempGoals.Where(x => x.Department == 4).ToList());
+                selGoal.Add(cargoGoal);
+
                 // SERVICE
                 var servGoal = _random.Pick(
                     tempGoals.Where(x => x.Department == 6).ToList());
@@ -69,11 +87,52 @@ public sealed class DepartmentGoalPaperSystem : EntitySystem
             if (selGoal.Count == 0)
                 return;
 
+            if (isGreenshift)
+            {
+                if (SendStationTransit(uid))
+                {
+                    Log.Info($"Goal has been sent to station {MetaData(uid).EntityName}");
+                }
+                return;
+            }
+
             if (SendStationGoal(uid, selGoal))
             {
                 Log.Info($"Goal has been sent to station {MetaData(uid).EntityName}");
             }
         }
+    }
+
+    public bool SendStationTransit(EntityUid ent)
+    {
+        var printout = new FaxPrintout(
+            Loc.GetString("department-goal-greenshift", ("station", MetaData(ent).EntityName)),
+            Loc.GetString("station-goal-fax-paper-name"),
+            null,
+            null,
+            "paper_stamp-centcom",
+            [
+                new()
+                {
+                    StampedName = Loc.GetString("stamp-component-stamped-name-centcom"),
+                    StampedColor = Color.FromHex("#006600")
+                }
+            ]
+        );
+
+        var wasSent = false;
+        var query = EntityQueryEnumerator<FaxMachineComponent>();
+        while (query.MoveNext(out var faxUid, out var fax))
+        {
+            if (!fax.ReceiveAllStationGoals && !(fax.ReceiveStationGoal && _station.GetOwningStation(faxUid) == ent))
+                continue;
+
+            _fax.Receive(faxUid, printout, null, fax);
+
+            wasSent |= fax.ReceiveStationGoal;
+        }
+
+        return wasSent;
     }
 
     /// <summary>
@@ -92,9 +151,9 @@ public sealed class DepartmentGoalPaperSystem : EntitySystem
             goalText += Loc.GetString(departGoal.Text);
         }
 
-        goalText += "\n\n\n\n\n";
+        goalText += "\n\n";
         goalText += Loc.GetString("department-goal-end");
-        goalText += "\n";
+        goalText += "\n\n\n\n\n\n\n";
 
         var printout = new FaxPrintout(
             goalText,

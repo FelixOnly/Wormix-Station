@@ -7,9 +7,15 @@
       #SEC
       - secInstruction
       - secContraband
+      - secDnaCheck
+      - secPlannedFrisk
       #MED
       - virusCheck
       - immuneCreate
+      #CARGO
+      - plushieLizard
       #SERVICE
+      - petDay
       - dinnerDay
+      - talentShow
       - teaDay
