@@ -1,0 +1,18 @@
+# Department
+# 0 - Comm
+# 1 - Sec
+# 2 - Med
+# 3 - RND
+# 4 - Cargo
+# 5 - Eng
+# 6 - Service
+
+- type: departmentGoal
+  id: fireLesson
+  text: department-goal-fire-lesson
+  department: 5
+
+- type: departmentGoal
+  id: airlostLesson
+  text: department-goal-airlost-lesson
+  department: 5

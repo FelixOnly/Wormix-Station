@@ -16,3 +16,18 @@
   id: immuneCreate
   text: department-goal-immune-create
   department: 2
+
+- type: departmentGoal
+  id: hivLesson
+  text: department-goal-hiv-lesson
+  department: 2
+
+- type: departmentGoal
+  id: medDocumentsUpdate
+  text: department-goal-documents-update
+  department: 2
+
+- type: departmentGoal
+  id: aidLesson
+  text: department-goal-first-aid-lesson
+  department: 2

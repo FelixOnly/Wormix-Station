@@ -75,6 +75,11 @@ public sealed class DepartmentGoalPaperSystem : EntitySystem
                     tempGoals.Where(x => x.Department == 4).ToList());
                 selGoal.Add(cargoGoal);
 
+                // Eng
+                var engGoal = _random.Pick(
+                    tempGoals.Where(x => x.Department == 5).ToList());
+                selGoal.Add(engGoal);
+
                 // SERVICE
                 var servGoal = _random.Pick(
                     tempGoals.Where(x => x.Department == 6).ToList());

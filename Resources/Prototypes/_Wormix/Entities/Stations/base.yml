@@ -12,8 +12,14 @@
       #MED
       - virusCheck
       - immuneCreate
+      - hivLesson
+      - medDocumentsUpdate
+      - aidLesson
       #CARGO
       - plushieLizard
+      #ENG
+      - fireLesson
+      - airlostLesson
       #SERVICE
       - petDay
       - dinnerDay
