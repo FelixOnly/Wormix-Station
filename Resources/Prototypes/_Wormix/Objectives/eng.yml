@@ -16,3 +16,8 @@
   id: airlostLesson
   text: department-goal-airlost-lesson
   department: 5
+
+- type: departmentGoal
+  id: smokeSpace
+  text: department-goal-smoke-space
+  department: 5
