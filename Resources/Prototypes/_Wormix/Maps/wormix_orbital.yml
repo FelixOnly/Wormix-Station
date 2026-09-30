@@ -71,19 +71,5 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
-        - type: StationGoal
-          goals:
-          - Singularity
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          - SecurityTraining
-          - Theatre
-          - Botany
-          - Bunker
-          - BluespaceHarvest
         # - type: StationCargoShuttle
           # path: /Maps/_CorvaxGoob/Stations/Silly/Shuttles/corvax_cargo_silly.yml

@@ -135,8 +135,8 @@
         ruins: !type:GridSpawnGroup
           hide: true
           nameGrid: true
-          minCount: 1
-          maxCount: 2
+          minCount: 4
+          maxCount: 4
           stationGrid: false
           paths:
           # Corvax-Goob-Mapping-start

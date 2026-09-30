@@ -9,7 +9,7 @@ strippable-component-cannot-drop-message = { CAPITALIZE($owner) } не може�
 strippable-component-alert-owner = { CAPITALIZE($user) } снимает с вас { $item }!
 strippable-component-alert-owner-hidden = Вы чувствуете, как кто-то копается в вашем { $slot }!
 strippable-component-alert-owner-insert = { CAPITALIZE($user) } надевает на вас { $item }!
-strippable-component-alert-owner-insert-hand = { CAPITALIZE($user) } вкладывает { $item } в вашу руку!
+strippable-component-alert-owner-insert-hand = { CAPITALIZE($user) } вкладывает { $item } в вашу руку! Нажмите на него чтобы принять.
 # generic warning for when a user interacts with your equipped items.
 strippable-component-alert-owner-interact = { CAPITALIZE($user) } возится с вашим { $item }!
 # StripVerb

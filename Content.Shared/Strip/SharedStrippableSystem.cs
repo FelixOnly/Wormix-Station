@@ -81,6 +81,7 @@ using System.Linq;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Orion.Ghosts;
 using Content.Shared.Administration.Logs;
+using Content.Shared._Starfall.Offering; // _Starfall: Offering System
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
@@ -490,6 +491,11 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (!CanStripInsertHand(user, target, held, handName))
             return;
 
+        // _Starfall Start: Offering System
+        var attempt = new StripHandInsertAttemptEvent(user.Owner, target.Owner, held, handName);
+        RaiseLocalEvent(ref attempt);
+        // _Starfall: End
+
         var (time, stealth) = GetStripTimeModifiers(user, target, null, targetStrippable.HandStripDelay);
 
         if (!stealth)
@@ -599,6 +605,13 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         if (!CanStripRemoveHand(user, target, item, handName))
             return;
+
+        // _Starfall Start: Offering System
+        var attempt = new StripHandRemoveAttemptEvent(user.Owner, target.Owner, item, handName);
+        RaiseLocalEvent(item, ref attempt);
+        if (attempt.Handled)
+            return;
+        // _Starfall End
 
         var (time, stealth) = GetStripTimeModifiers(user, target, null, targetStrippable.HandStripDelay);
 

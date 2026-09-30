@@ -141,6 +141,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.ADT.SpeechBarks;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.Fax;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
@@ -1755,15 +1756,19 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #region Job Character Whitelists
 
-        public async Task<bool> AddJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        public async Task<bool> AddJobCharacterWhitelist(
+            int profile,
+            ProtoId<JobPrototype> jobId,
+            bool isRestricted,
+            CancellationToken cancel)
         {
+            await using var db = await GetDb(cancel);
 
-            await using var db = await GetDb();
             var exists = await db.DbContext.CharacterWhitelists
-                .Where(w => w.ProfileId == profile)
-                .Where(w => w.RoleIdAllow == jobAllow.Id)
-                .Where(w => w.RoleIdDeny == jobDeny.Id)
-                .AnyAsync();
+                .AnyAsync(
+                    w => w.ProfileId == profile
+                         && w.RoleId == jobId.Id,
+                    cancel);
 
             if (exists)
                 return false;
@@ -1771,11 +1776,13 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var whitelist = new CharacterWhitelist
             {
                 ProfileId = profile,
-                RoleIdAllow = jobAllow,
-                RoleIdDeny = jobDeny
+                RoleId = jobId.Id,
+                IsRestricted = isRestricted,
             };
+
             db.DbContext.CharacterWhitelists.Add(whitelist);
-            await db.DbContext.SaveChangesAsync();
+            await db.DbContext.SaveChangesAsync(cancel);
+
             return true;
         }
 
@@ -1784,19 +1791,33 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         public async Task<List<string>> GetJobCharacterWhitelistAllowed(int profile, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
+
             return await db.DbContext.CharacterWhitelists
-                .Where(w => w.ProfileId == profile)
-                .Select(w => w.RoleIdAllow)
-                .ToListAsync(cancellationToken: cancel);
+                .AsNoTracking()
+                .Where(w => w.ProfileId == profile && !w.IsRestricted)
+                .Select(w => w.RoleId)
+                .ToListAsync(cancel);
         }
 
         public async Task<List<string>> GetJobCharacterWhitelistDenied(int profile, CancellationToken cancel)
         {
             await using var db = await GetDb(cancel);
+
             return await db.DbContext.CharacterWhitelists
+                .AsNoTracking()
+                .Where(w => w.ProfileId == profile && w.IsRestricted)
+                .Select(w => w.RoleId)
+                .ToListAsync(cancel);
+        }
+
+        public async Task<List<CharacterWhitelist>> GetJobCharacterWhitelistAll(int profile, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.CharacterWhitelists
+                .AsNoTracking()
                 .Where(w => w.ProfileId == profile)
-                .Select(w => w.RoleIdDeny)
-                .ToListAsync(cancellationToken: cancel);
+                .ToListAsync(cancel);
         }
 
         public async Task<string> FindPlayerByCharacter(int characterId, CancellationToken cancel)
@@ -1816,35 +1837,42 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         public async Task<bool> IsJobCharacterWhitelistAllow(int profile, ProtoId<JobPrototype> job)
         {
             await using var db = await GetDb();
-            return await db.DbContext.CharacterWhitelists
-                .Where(w => w.ProfileId == profile)
-                .Where(w => w.RoleIdAllow == job.Id)
-                .AnyAsync();
+
+            var isRestricted = await db.DbContext.CharacterWhitelists
+                .AnyAsync(w => w.ProfileId == profile && w.RoleId == job.Id);
+
+            return !isRestricted;
         }
 
         public async Task<bool> IsJobCharacterWhitelistDeny(int profile, ProtoId<JobPrototype> job)
         {
             await using var db = await GetDb();
-            return await db.DbContext.CharacterWhitelists
-                .Where(w => w.ProfileId == profile)
-                .Where(w => w.RoleIdDeny == job.Id)
-                .AnyAsync();
+
+            var isRestricted = await db.DbContext.CharacterWhitelists
+                .AnyAsync(w => w.ProfileId == profile && w.RoleId == job.Id);
+
+            return isRestricted;
         }
 
-        public async Task<bool> RemoveJobCharacterWhitelist(int profile, ProtoId<JobPrototype> jobAllow, ProtoId<JobPrototype> jobDeny)
+        public async Task<bool> RemoveJobCharacterWhitelist(
+            int profile,
+            ProtoId<JobPrototype> jobId,
+            CancellationToken cancel)
         {
-            await using var db = await GetDb();
+            await using var db = await GetDb(cancel);
+
             var entry = await db.DbContext.CharacterWhitelists
-                .Where(w => w.ProfileId == profile)
-                .Where(w => w.RoleIdAllow == jobAllow.Id)
-                .Where(w => w.RoleIdDeny == jobDeny.Id)
-                .SingleOrDefaultAsync();
+                .SingleOrDefaultAsync(
+                    w => w.ProfileId == profile
+                         && w.RoleId == jobId.Id,
+                    cancel);
 
             if (entry == null)
                 return false;
 
             db.DbContext.CharacterWhitelists.Remove(entry);
-            await db.DbContext.SaveChangesAsync();
+            await db.DbContext.SaveChangesAsync(cancel);
+
             return true;
         }
 

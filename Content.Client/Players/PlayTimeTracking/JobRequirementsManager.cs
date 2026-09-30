@@ -117,8 +117,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     private readonly List<ProtoId<AntagPrototype>> _antagBans = new();
     private readonly List<string> _jobWhitelists = new();
 
-    private readonly List<CharacterWhitelistRole> _allow = new();
-    private readonly List<CharacterWhitelistRole> _deny = new();
+    private readonly List<CharacterWhitelistRole> _restrictions = new();
 
     private ISawmill _sawmill = default!;
 
@@ -141,11 +140,9 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
 
     private void RxJobCharacterWhitelist(MsgJobCharacterWhitelist message)
     {
-        _allow.Clear();
-        _deny.Clear();
+        _restrictions.Clear();
 
-        _allow.AddRange(message.Allow);
-        _deny.AddRange(message.Deny);
+        _restrictions.AddRange(message.CharactersWhitelist);
 
         Updated?.Invoke();
     }
@@ -158,7 +155,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return false;
 
 
-        if(_allow.Find((role => role.characterId == selectedCharacter && role.job == job)) != null)
+        if(_restrictions.Find((role => role.characterId == selectedCharacter && role.job == job && !role.isRestricted)) != null)
             return true;
 
         return false;
@@ -171,7 +168,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (selectedCharacter == null)
             return false;
 
-        if(_deny.Find((role => role.characterId == selectedCharacter && role.job == job)) != null)
+        if(_restrictions.Find((role => role.characterId == selectedCharacter && role.job == job && role.isRestricted)) != null)
             return true;
 
         return false;
@@ -189,8 +186,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             _jobBans.Clear();
             _antagBans.Clear();
 
-            _allow.Clear(); // Wormix
-            _deny.Clear(); // Wormix
+            _restrictions.Clear(); // Wormix
         }
     }
 

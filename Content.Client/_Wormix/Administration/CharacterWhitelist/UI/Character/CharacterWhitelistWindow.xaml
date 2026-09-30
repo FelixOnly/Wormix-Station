@@ -1,0 +1,22 @@
+﻿<ui:CharacterWhitelistWindow
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._Wormix.Administration.CharacterWhitelist.UI.Character"
+    SetSize="800 400"
+    Resizable="true">
+
+    <PanelContainer StyleClasses="BackgroundDark">
+
+        <ScrollContainer>
+            <BoxContainer
+                Name="RolesList"
+                Access="Public"
+                Orientation="Vertical"
+                HorizontalAlignment="Stretch"
+                SeparationOverride="5">
+
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+
+
+</ui:CharacterWhitelistWindow>

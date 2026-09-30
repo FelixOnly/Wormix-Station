@@ -752,15 +752,15 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("profile_id");
 
-                    b.Property<string>("RoleIdAllow")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("role_id_allow");
+                    b.Property<bool>("IsRestricted")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("is_restricted");
 
-                    b.Property<string>("RoleIdDeny")
+                    b.Property<string>("RoleId")
                         .HasColumnType("TEXT")
-                        .HasColumnName("role_id_deny");
+                        .HasColumnName("role_id");
 
-                    b.HasKey("ProfileId", "RoleIdAllow", "RoleIdDeny")
+                    b.HasKey("ProfileId", "IsRestricted", "RoleId")
                         .HasName("PK_character_whitelists");
 
                     b.ToTable("character_whitelists", (string)null);

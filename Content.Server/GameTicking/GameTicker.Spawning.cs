@@ -181,28 +181,23 @@ namespace Content.Server.GameTicking
             }
 
             // Wormix start
-            List<CharacterWhitelistRoleWithUser> ProfilesAllow = new List<CharacterWhitelistRoleWithUser>();
-            List<CharacterWhitelistRoleWithUser> ProfilesDeny = new List<CharacterWhitelistRoleWithUser>();
+
+            List<CharacterWhitelistRoleWithUser> profilesRestrictions = new List<CharacterWhitelistRoleWithUser>();
 
             foreach (var profile in profiles)
             {
                 var id = await _whitelistManager.FindIdCharacterByName(_playerManager.GetSessionById(profile.Key), profile.Value.Name);
 
-                foreach (var allow in await _whitelistManager.GetAllCharacterAllowed(id))
+                foreach (var restriction in _whitelistManager.GetAllCharacterRestrictions(id))
                 {
-                    ProfilesAllow.Add(new CharacterWhitelistRoleWithUser(profile.Key, allow));
-                }
-
-                foreach (var deny in await _whitelistManager.GetAllCharacterDenies(id))
-                {
-                    ProfilesDeny.Add(new CharacterWhitelistRoleWithUser(profile.Key, deny));
+                    profilesRestrictions.Add(new CharacterWhitelistRoleWithUser(profile.Key, restriction.job, restriction.isRestricted));
                 }
             }
 
 
 
             var spawnableStations = GetSpawnableStations();
-            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations, ProfilesAllow, ProfilesDeny);
+            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations, profilesRestrictions);
             _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, spawnableStations);
 
             // Calculate extended access for stations.

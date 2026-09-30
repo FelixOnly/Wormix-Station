@@ -444,6 +444,8 @@
     - Harpy
     - Plasmaman # EE
     # Goobstation end
+  - type: GlobalAntagonist # Europa
+    antagonistPrototype: globalAntagonistNinja
   - type: AntagObjectives
     objectives:
     - StealResearchObjective

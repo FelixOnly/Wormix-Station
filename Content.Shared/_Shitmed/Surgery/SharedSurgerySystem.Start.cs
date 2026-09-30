@@ -32,12 +32,10 @@ public abstract partial class SharedSurgerySystem
         if (!IsLyingDown(target, user))
             return;
 
-        if (_noSelfOperate && user == target
-            // CorvaxGoob-start: SelfOperate who has SelfSurgery skill
-            && !_skills.HasSkill(user, Skills.SelfSurgery))
+        // Wormix self operate fix
+        if (_noSelfOperate && user == target )
         {
             _popup.PopupEntity(Loc.GetString("surgery-error-self-surgery"), user, user); // Client -> Entity
-            // CorvaxGoob-end
             return;
         }
 

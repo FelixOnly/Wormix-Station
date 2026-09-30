@@ -1,0 +1,9 @@
+- files: ["EpilepsySans.ttf"]
+  license: "Custom"
+  copyright: "(c) 2005 Kreative Software Created by Rebecca Bettencourt with FontForge 1"
+  source: "https://fonts-online.ru/fonts/epilepsy-sans/"
+
+- files: ["EpilepsySansBold.ttf"]
+  license: "Custom"
+  copyright: "(c) 2005 Kreative Software Created by Rebecca Bettencourt with FontForge 1"
+  source: "https://fonts-online.ru/fonts/epilepsy-sans/"

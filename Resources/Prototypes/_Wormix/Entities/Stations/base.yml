@@ -1,0 +1,27 @@
+- type: entity
+  id: BaseStationGoal
+  abstract: true
+  components:
+    - type: DepartmentGoal
+      goals:
+      #SEC
+      - secInstruction
+      - secContraband
+      - secDnaCheck
+      - secPlannedFrisk
+      #MED
+      - virusCheck
+      - immuneCreate
+      - hivLesson
+      - medDocumentsUpdate
+      - aidLesson
+      #CARGO
+      - plushieLizard
+      #ENG
+      - fireLesson
+      - airlostLesson
+      #SERVICE
+      - petDay
+      - dinnerDay
+      - talentShow
+      - teaDay
