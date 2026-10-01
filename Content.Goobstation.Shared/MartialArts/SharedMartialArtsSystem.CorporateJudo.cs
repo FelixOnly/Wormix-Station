@@ -142,9 +142,19 @@ public partial class SharedMartialArtsSystem
             status);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
+
+        float mul = 1;
         // Wormix EDIT Start
-        ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime, MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed);
-        ApplyMultiplier(ent, args.DamageMultiplier, 0f, args.AttackSpeedMultiplierTime, MartialArtModifierType.Damage | MartialArtModifierType.Unarmed);
+        if(TryComp<MartialArtModifiersComponent>(ent, out var modifiers))
+        {
+            (mul, _) = GetMultiplierModifier(new Entity<MartialArtModifiersComponent>(ent, modifiers), MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed, false);
+        }
+
+        if (mul > 1 / args.AttackSpeedMultiplier)
+        {
+            ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime, MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed);
+            ApplyMultiplier(ent, args.DamageMultiplier, 0f, args.AttackSpeedMultiplierTime, MartialArtModifierType.Damage | MartialArtModifierType.Unarmed);
+        }
         // Wormix EDIT End
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);

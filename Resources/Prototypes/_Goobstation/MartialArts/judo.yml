@@ -58,9 +58,6 @@
   - Harm
   event: !type:JudoEyePokePerformedEvent
   extraDamage: 5
-  attackSpeedMultiplier: 0.5 # Wormix Edit Start
-  damageMultiplier: 0.1 
-  attackSpeedMultiplierTime: 2 # Wormix Edit End
 
 - type: combo
   id: JudoThrow
