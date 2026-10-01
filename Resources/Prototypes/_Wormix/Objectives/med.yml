@@ -31,3 +31,8 @@
   id: aidLesson
   text: department-goal-first-aid-lesson
   department: 2
+
+- type: departmentGoal
+  id: psyCheck
+  text: department-goal-psychologist-check
+  department: 2
