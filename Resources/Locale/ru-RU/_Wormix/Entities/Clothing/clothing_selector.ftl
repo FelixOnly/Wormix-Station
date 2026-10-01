@@ -1,0 +1,12 @@
+ent-UndeterminedClothingTurtleneck = автопокрасчик водолазки
+    .desc = Устройство, любезно окрашивающее вашу одежду в любимые цвета. К сожалению одноразовое.
+ent-UndeterminedClothingTurtleneckSkirt = автопокрасчик водолазки с юбкой
+    .desc = { ent-UndeterminedClothingTurtleneck.desc }
+ent-UndeterminedClothingScarf = автопокрасчик шарфа
+    .desc = { ent-UndeterminedClothingTurtleneck.desc }
+ent-UndeterminedClothingFacescarf = автопокрасчик лицевого шарфа
+    .desc = { ent-UndeterminedClothingTurtleneck.desc }
+ent-UndeterminedClothingScarfLong = автопокрасчик длинного шарфа
+    .desc = { ent-UndeterminedClothingTurtleneck.desc }
+ent-UndeterminedClothingWinterCoat = автопокрасчик зимней куртки
+    .desc = { ent-UndeterminedClothingTurtleneck.desc }
