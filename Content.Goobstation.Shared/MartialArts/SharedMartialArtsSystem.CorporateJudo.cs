@@ -302,9 +302,7 @@ public partial class SharedMartialArtsSystem
             || !(TryComp(target, out StaminaComponent? stamina) && stamina.Critical)
             || !TryComp<TargetingComponent>(ent, out var targeting)
             || targeting.Target
-                is not TargetBodyPart.LeftArm
-                and not TargetBodyPart.LeftHand
-                and not TargetBodyPart.RightArm
+                is not TargetBodyPart.LeftHand
                 and not TargetBodyPart.RightHand)
             return;
 
