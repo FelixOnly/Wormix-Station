@@ -21,8 +21,23 @@
   - JudoArmbar
   - JudoDiscombobulate # Due to supercode this needs to be below Armbar, otherwise it takes priority
   - JudoWheelThrow
+  - JudoDisarming # Wormix Edit
   - JudoEyePoke # Same here, must be below WheelThrow
   #- JudoGoldenBlast
+
+# Wormix Edit Start
+- type: combo
+  id: JudoDisarming
+  name: Disarming
+  martialArtsForm: CorporateJudo
+  attacks:
+  - Grab
+  - Grab
+  - Harm
+  - Disarm
+  event: !type:JudoDisarmingPerformedEvent
+  extraDamage: 80
+# Wormix Edit End
 
 - type: combo
   id: JudoDiscombobulate
@@ -32,6 +47,7 @@
   - Disarm
   - Grab
   event: !type:JudoDiscombobulatePerformedEvent
+  staminaDamage: 10 # Wormix Edit
 
 - type: combo
   id: JudoEyePoke
@@ -42,6 +58,9 @@
   - Harm
   event: !type:JudoEyePokePerformedEvent
   extraDamage: 5
+  attackSpeedMultiplier: 0.5 # Wormix Edit Start
+  damageMultiplier: 0.1 
+  attackSpeedMultiplierTime: 2 # Wormix Edit End
 
 - type: combo
   id: JudoThrow
@@ -51,9 +70,9 @@
   - Grab
   - Disarm
   event: !type:JudoThrowPerformedEvent
-  paralyzeTime: 4
+  paralyzeTime: 5 # Wormix Edit
   staminaDamage: 5
-  dropItems: false
+  dropItems: true # Wormix Edit
   canDoWhileProne: false
 
 - type: combo

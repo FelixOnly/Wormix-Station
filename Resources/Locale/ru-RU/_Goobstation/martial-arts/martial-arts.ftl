@@ -89,6 +89,7 @@ martial-arts-combo-JudoEyePoke = ударом пальцами в глаза
 martial-arts-combo-JudoThrow = броском дзюдо
 martial-arts-combo-JudoArmbar = захватом руки рычагом
 martial-arts-combo-JudoWheelThrow = колесом
+martial-arts-combo-JudoDisarming = обезоручивание
 # Ninjutsu
 martial-arts-combo-BiteTheDust = канув в пыли
 martial-arts-combo-DirtyKill = грязным убийством
