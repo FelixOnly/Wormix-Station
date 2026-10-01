@@ -82,6 +82,12 @@ public sealed partial class GrabIntentSystem
         if (!TryComp<PullerComponent>(uid, out var puller))
             return;
 
+        // Wormix EDIT Start
+        if (puller.Pulling == null)
+            return;
+
+        // Wormix EDIT End
+
         if (TryComp<HeldSpeedModifierComponent>(puller.Pulling, out var itemHeldSpeed))
         {
             var (walkMod, sprintMod) =
@@ -230,7 +236,7 @@ public sealed partial class GrabIntentSystem
         var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
         var attackRateEv = new GetMeleeAttackRateEvent(pullerUid, meleeWeaponComponent.AttackRate, 1, pullerUid);
         RaiseLocalEvent(pullerUid, ref attackRateEv);
-        meleeWeaponComponent.NextAttack = grabIntentComp.StageChangeCooldown * attackRateEv.Multipliers + max;
+        meleeWeaponComponent.NextAttack = grabIntentComp.StageChangeCooldown / MathF.Max(attackRateEv.Multipliers, 0.05f) + max;
         Dirty(pullerUid, meleeWeaponComponent);
 
         var beforeEvent = new BeforeHarmfulActionEvent(pullerUid, HarmfulActionType.Grab);
