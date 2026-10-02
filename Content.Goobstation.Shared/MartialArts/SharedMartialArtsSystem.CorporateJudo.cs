@@ -18,6 +18,8 @@ using Content.Goobstation.Maths.FixedPoint; // Wormix EDIT
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Targeting; // Wormix EDIT
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
@@ -320,6 +322,10 @@ public partial class SharedMartialArtsSystem
         var targetLimb = _body.GetBodyChildrenOfType(target, partType, symmetry: symmetry).FirstOrDefault();
 
         var targetEntity = targetLimb.Id != default ? targetLimb.Id : target;
+
+        if (!TryComp<WoundableComponent>(targetLimb.Id, out var woundable)
+            || woundable.WoundableIntegrity <= 0)
+            return;
 
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", proto.ExtraDamage);

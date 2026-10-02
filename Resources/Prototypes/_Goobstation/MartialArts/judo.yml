@@ -36,7 +36,7 @@
   - Harm
   - Disarm
   event: !type:JudoDisarmingPerformedEvent
-  extraDamage: 60
+  extraDamage: 100
 # Wormix Edit End
 
 - type: combo
