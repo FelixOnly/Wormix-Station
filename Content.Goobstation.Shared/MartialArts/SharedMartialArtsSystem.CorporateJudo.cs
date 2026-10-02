@@ -311,7 +311,7 @@ public partial class SharedMartialArtsSystem
             || !TryComp<PullableComponent>(target, out var pullable)
             || !TryComp<ArmbarredComponent>(target, out var armbarred)
             || armbarred.Puller != ent.Owner
-            || !(TryComp(target, out StaminaComponent? stamina) && stamina.Critical)
+            || !(TryComp(target, out StaminaComponent? stamina)/* && stamina.Critical*/)
             || !TryComp<TargetingComponent>(ent, out var targeting)
             || targeting.Target
                 is not TargetBodyPart.LeftHand
@@ -328,14 +328,22 @@ public partial class SharedMartialArtsSystem
             return;
 
         var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", proto.ExtraDamage);
+        damage.DamageDict.Add("Blunt", proto.ExtraDamage / 3f);
 
         _damageable.TryChangeDamage(targetEntity, damage, ignoreResistances: false, origin: ent, canMiss: false);
-        _pulling.TryStopPull(target, pullable, ent, true);
 
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Effects/bone_crack.ogg"), target);
-        ComboPopup(ent, target, proto.ID);
-        ent.Comp.LastAttacks.Clear();
+        if (_wound.TryInduceWound(targetLimb.Id, "Blunt", proto.ExtraDamage, out var woundInduced))
+        {
+            var bone = woundable.Bone.ContainedEntities.FirstOrDefault();
+            if (bone != default)
+                _trauma.ApplyBoneTrauma(woundable.Bone.ContainedEntities.FirstOrDefault(), (targetLimb.Id, woundable), (woundInduced.Value.Owner, EnsureComp<TraumaInflicterComponent>(woundInduced.Value.Owner)), proto.ExtraDamage);
+
+            _pulling.TryStopPull(target, pullable, ent, true);
+
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Effects/bone_crack.ogg"), target);
+            ComboPopup(ent, target, proto.ID);
+            ent.Comp.LastAttacks.Clear();
+        }
     }
     // Wormix EDIT End
 
