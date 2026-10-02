@@ -324,7 +324,7 @@ public partial class SharedMartialArtsSystem
         var damage = new DamageSpecifier();
         damage.DamageDict.Add("Blunt", proto.ExtraDamage);
 
-        _damageable.TryChangeDamage(targetEntity, damage, ignoreResistances: false, origin: ent);
+        _damageable.TryChangeDamage(targetEntity, damage, ignoreResistances: false, origin: ent, canMiss: false);
         _pulling.TryStopPull(target, pullable, ent, true);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Effects/bone_crack.ogg"), target);
