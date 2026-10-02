@@ -1,0 +1,9 @@
+- type: loadout
+  id: ADTClothingUnderwearTopBraLace
+  equipment:
+    undershirt: ADTClothingUnderwearTopBraLace
+
+- type: loadout
+  id: ADTClothingUnderwearTopBraLaceRed
+  equipment:
+    undershirt: ADTClothingUnderwearTopBraLaceRed

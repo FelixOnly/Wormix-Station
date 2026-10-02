@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ADTClothingNeckDarkGreyCloak
+  name: dark grey cloak
+  description: Even a greytide deserve his cloak.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Neck/Cloaks/darkgrey_cloak.rsi #спрайты от floppo4ka
+  - type: StaticPrice
+    price: 5

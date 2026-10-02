@@ -16,6 +16,7 @@
     ClothingHeadHatOutlawHat: 3
     ClothingHeadHatSyndie: 5
     ClothingMaskNeckGaiter: 5
+    ADTMaskCoif: 4 # Wormix-Edit
     ClothingOuterWinterSyndie: 5
     ClothingHeadHatSyndieMAA: 3
     ClothingOuterWinterSyndieCap: 3
@@ -27,6 +28,12 @@
     ClothingUniformJumpsuitCasualSyndicate: 5 # Goobstation
     ClothingNeckScarfStripedSyndieGreen: 2
     ClothingNeckScarfStripedSyndieRed: 2
+    ADTClothingUnderwearSocksThighSyndieGreen: 2 # Wormix-Edit
+    ADTClothingUnderwearSocksKneeSyndieGreen: 2 # Wormix-Edit
+    ADTClothingUnderwearSocksSyndieGreen: 2 # Wormix-Edit
+    ADTClothingUnderwearSocksThighSyndieRed: 2 # Wormix-Edit
+    ADTClothingUnderwearSocksKneeSyndieRed: 2 # Wormix-Edit
+    ADTClothingUnderwearSocksSyndieRed: 2 # Wormix-Edit
     ClothingShoesBootsWinterSyndicate: 2
   contrabandInventory:
     ToyFigurineFootsoldier: 1

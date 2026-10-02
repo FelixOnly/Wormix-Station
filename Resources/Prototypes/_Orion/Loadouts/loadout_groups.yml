@@ -13,6 +13,8 @@
   - BraCommie
   - BraHalterneck
   - BraHarley
+  - ADTClothingUnderwearTopBraLace # Wormix-Edit
+  - ADTClothingUnderwearTopBraLaceRed # Wormix-Edit
   - BraKinky
   - BraLizared
   - BraNeko
@@ -98,7 +100,9 @@
   maxLimit: 1
   loadouts:
   - UnderwearBoxerShorts
+  - ADTClothingUnderwearBottomBoxersAmerica # Wormix-Edit
   - BoxerShortsAssBlastUSA
+  - ADTClothingUnderwearBottomBoxersBoom # Wormix-Edit
   - BoxerShortsBee
   - BoxerShortsBriefs
   - BoxerShortsCommie
@@ -113,6 +117,8 @@
   - PantiesBeeKini
   - PantiesBriefs
   - PantiesCommie
+  - ADTClothingUnderwearBottomPantiesLaceRed # Wormix-Edit
+  - ADTClothingUnderwearBottomPantiesLace # Wormix-Edit
   - PantiesFishnet
   - PantiesFishnetLower
   - PantiesFishnetLowerAlt
@@ -169,6 +175,27 @@
   - StockingsOrange
   - StockingsPurple
   - StockingsYellow
+  # Wormix-Start
+  - ADTClothingUnderwearSocksAzure
+  - ADTClothingUnderwearSocksKneeAzure
+  - ADTClothingUnderwearSocksThighAzure
+  - ADTClothingUnderwearSocksComfyBlue
+  - ADTClothingUnderwearSocksKneeComfyBlue
+  - ADTClothingUnderwearSocksThighBlue
+  - ADTClothingUnderwearSocksCyan
+  - ADTClothingUnderwearSocksKneeCyan
+  - ADTClothingUnderwearSocksThighCyan
+  #- ADTClothingUnderwearSocksSyndieGreen
+  #- ADTClothingUnderwearSocksKneeSyndieGreen
+  #- ADTClothingUnderwearSocksThighSyndieGreen
+  #- ADTClothingUnderwearSocksSyndieRed
+  #- ADTClothingUnderwearSocksKneeSyndieRed
+  #- ADTClothingUnderwearSocksThighSyndieRed
+  - ADTClothingUnderwearSocksLaceThigh
+  - ADTClothingUnderwearSocksStockingsRed
+  - ADTClothingUnderwearSocksStockingsBlack
+  - ADTClothingUnderwearSocksThighBlack
+  # Wormix-End
   - SocksStripedKnee
   - SocksStripedThigh
   - SocksThinKnee

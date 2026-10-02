@@ -1,0 +1,183 @@
+#приколы празата
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksLaceThigh
+  name: lace stockings
+  description: Good looking lace stockings.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/lace_socks_thigh.rsi
+
+#Stockings
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksStockingsRed
+  name: red stockings
+  description: Red lace stockings. Not for a standart shift
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/red_stockings.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksStockingsBlack
+  name: black stockings
+  description: Black lace stockings. Not for a standart shift
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/black_stockings.rsi
+
+
+# TGS
+## Носки
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksComfyBlue
+  name: blue socks
+  description: Comfy blue socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/socks_comfyblue.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksAzure
+  name: azure socks
+  description: azure socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/azure_norm.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksCyan
+  name: cyan socks
+  description: Cyan socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/cyan_norm.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksSyndieGreen
+  name: syndie green socks
+  description: Syndie green socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/syndie_green_norm.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksSyndieRed
+  name: syndie red socks
+  description: Syndie red socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/syndie_red_norm.rsi
+# 
+
+## Гольфы
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksKneeComfyBlue
+  name: blue knee socks
+  description: Comfy blue knee socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/socks_kneecomfyblue.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksKneeAzure
+  name: azure knee socks
+  description: Azure knee socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/azure_knee.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksKneeCyan
+  name: cyan knee socks
+  description: Cyan knee socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/cyan_knee.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksKneeSyndieGreen
+  name: syndie green knee socks
+  description: Syndie green knee socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/syndie_green_knee.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksKneeSyndieRed
+  name: syndie red knee socks
+  description: Syndie red knee socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/syndie_red_knee.rsi
+
+
+## Чулки
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksThighAzure
+  name: azure thigh socks
+  description: Azure thigh socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/azure_thigh.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksThighBlack
+  name: black thigh socks
+  description: Black thigh socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/black_thigh.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksThighBlue
+  name: blue thigh socks
+  description: Blue thigh socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/blue_thigh.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksThighCyan
+  name: cyan thigh socks
+  description: Cyan thigh socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/cyan_thigh.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksThighSyndieGreen
+  name: syndie green socks
+  description: Syndie green thigh socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/syndie_green_thigh.rsi
+
+- type: entity
+  parent: ClothingSocksBase #Wormix-Edit
+  id: ADTClothingUnderwearSocksThighSyndieRed
+  name: syndie redsocks
+  description: Syndie red thigh socks.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Socks/syndie_red_thigh.rsi

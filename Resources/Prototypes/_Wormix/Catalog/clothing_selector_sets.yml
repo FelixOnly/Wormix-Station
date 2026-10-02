@@ -1,0 +1,715 @@
+# Шарфы
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedRed
+  name: полосатый красный шарф
+  description: Стильный полосатый красный шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/red.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedRed
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedGreen
+  name: полосатый зелёный шарф
+  description: Стильный полосатый зелёный шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/green.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedGreen
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedBlue
+  name: полосатый синий шарф
+  description: Стильный полосатый синий шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/blue.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedBlue
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedBlack
+  name: полосатый чёрный шарф
+  description: Стильный полосатый чёрный шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/black.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedBlack
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedBrown
+  name: полосатый коричневый шарф
+  description: Стильный полосатый коричневый шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/brown.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedBrown
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedLightBlue
+  name: полосатый светло-синий шарф
+  description: Стильный полосатый светло-синий шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/lightblue.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedLightBlue
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedOrange
+  name: полосатый оранжевый шарф
+  description: Стильный полосатый оранжевый шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/orange.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedOrange
+
+- type: selectableSet
+  id: ClothingSelectorClothingNeckScarfStripedPurple
+  name: полосатый пурпурный шарф
+  description: Стильный полосатый пурпурный шарф. Идеальный зимний аксессуар для тех, у кого обострённое чувство моды и тех, кто просто не выносит холодного ветра на своей шее.
+  sprite:
+    sprite: Clothing/Neck/Scarfs/purple.rsi
+    state: icon
+  content:
+  - ClothingNeckScarfStripedPurple
+
+
+
+# Длинные шарфы
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongRed
+  name: длинный красный шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Red_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongRed
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongGreen
+  name: длинный зелёный шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Green_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongGreen
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongBlue
+  name: длинный синий шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Blue_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongBlue
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongYellow
+  name: длинный жёлтый шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Yellow_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongYellow
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongOrange
+  name: длинный оранжевый шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Orange_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongOrange
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongPink
+  name: длинный розовый шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Pink_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongPink
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongPurple
+  name: длинный пурпурный шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Purple_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongPurple
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongBlack
+  name: длинный чёрный шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/Black_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongBlack
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckScarfLongWhite
+  name: длинный белый шарф
+  description: Длинный клетчатый шарф. Очень тёплый и приятный на ощупь.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+    state: icon
+  content:
+  - ADTClothingNeckScarfLongWhite
+
+
+
+# Лицевые шарфы
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfRed
+  name: красный лицевой шарф
+  description: Уютный красный лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_red.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfRed
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfGreen
+  name: зелёный лицевой шарф
+  description: Уютный зелёный лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_green.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfGreen
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfBlue
+  name: синий лицевой шарф
+  description: Уютный синий лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_blue.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfBlue
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfOrange
+  name: оранжевый лицевой шарф
+  description: Уютный оранжевый лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_orange.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfOrange
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfPurple
+  name: фиолетовый лицевой шарф
+  description: Уютный фиолетовый лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_purple.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfPurple
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfGrey
+  name: серый лицевой шарф
+  description: Уютный серый лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_grey.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfGrey
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfBlack
+  name: чёрный лицевой шарф
+  description: Уютный чёрный лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_black.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfBlack
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingNeckFacescarfWhite
+  name: белый лицевой шарф
+  description: Уютный белый лицевой шарф, который позволит держать ваше лицо в тепле. Можно носить как на лице, так и на шее.
+  sprite:
+    sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_white.rsi
+    state: icon
+  content:
+  - ADTClothingNeckFacescarfWhite
+
+
+
+# Куртки
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterCoat
+  name: зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterCoat
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorRed
+  name: красная зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorRed
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorOrange
+  name: оранжевая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi 
+    state: icon
+  content:
+  - ClothingOuterWinterColorOrange
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorYellow
+  name: жёлтая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorYellow
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorGreen
+  name: зелёная зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorGreen
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorBlue
+  name: синяя зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorBlue
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorPurple
+  name: фиолетовая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorPurple
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorLightBrown
+  name: светло-коричневая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorLightBrown
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorBrown
+  name: коричневая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorBrown
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorBlack
+  name: чёрная зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorBlack
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorGrey
+  name: серая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorGrey
+
+- type: selectableSet
+  id: ClothingSelectorClothingOuterWinterColorWhite
+  name: белая зимняя куртка
+  description: Тяжёлая куртка из «синтетического» меха животных.
+  sprite:
+    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+    state: icon
+  content:
+  - ClothingOuterWinterColorWhite
+
+
+
+# Водолазки
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckAquamarine
+  name: аквамариновая водолазка
+  description: Слишком ярко!
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_aquamarine.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckAquamarine
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckWhite
+  name: белая водолазка
+  description: Тепло и уютно.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckWhite
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckAzure
+  name: голубая водолазка
+  description: Яркий оттенок синего.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_azure.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckAzure
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckYellow
+  name: жёлтая водолазка
+  description: Наполнена счастьем.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_yellow.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckYellow
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckGreen
+  name: зелёная водолазка
+  description: Дешёвый аналог водолазки Центрального Командования.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_green.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckGreen
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckBrown
+  name: коричневая водолазка
+  description: Знаешь ли ты, почему я ношу красное? Оно хорошо скрывает следы крови! И я вижу, что ты одета в коричневое...
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_brown.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckBrown
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckRed
+  name: красная водолазка
+  description: Хорошо маскирует следы крови.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_red.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckRed
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckOrange
+  name: оранжевая водолазка
+  description: Я не буду это комментировать.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_orange.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckOrange
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckPink
+  name: розовая водолазка
+  description: И кто это будет носить?
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_pink.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckPink
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckGrey
+  name: серая водолазка
+  description: Грей стиль?
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckGrey 
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckBlue
+  name: синяя водолазка
+  description: Тёмный оттенок голубого.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blue.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckBlue
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckPurple
+  name: фиолетовая водолазка
+  description: Почувствуй себя учёным РНД.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_purple.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckPurple
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckBlack
+  name: чёрная водолазка
+  description: Любимая одежда книжного червя.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_black.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckBlack
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckDarkBlue
+  name: тёмно-синяя водолазка
+  description: Для тех, кто любит косить под капитана.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_darkblue.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckDarkBlue
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckWhiteSleeveless
+  name: белая водолазка
+  description: Практичная и удобная водолазка белого цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whitesleeveless.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckWhiteSleeveless
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless
+  name: чёрно-белая водолазка
+  description: Практичная и удобная водолазка чёрно-белого цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whiteblacksleeveless.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpsuitTurtleneckBlackSleeveless
+  name: чёрная водолазка
+  description: Практичная и удобная водолазка чёрного цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_blacksleeveless.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpsuitTurtleneckBlackSleeveless
+
+
+
+# Водолазки с юбкой
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckAquamarine
+  name: аквамариновая водолазка с юбкой
+  description: Слишком ярко!
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_aquamarine_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckAquamarine
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckWhite
+  name: белая водолазка с юбкой
+  description: Тепло и уютно.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckWhite
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckAzure
+  name: голубая водолазка с юбкой
+  description: Яркий оттенок синего.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_azure_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckAzure
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckYellow
+  name: жёлтая водолазка с юбкой
+  description: Наполнена счастьем.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_yellow_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckYellow
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckGreen
+  name: зелёная водолазка с юбкой
+  description: Дешёвый аналог водолазки Центрального Командования.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_green_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckGreen
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckBrown
+  name: коричневая водолазка с юбкой
+  description: Знаешь ли ты, почему я ношу красное? Оно хорошо скрывает следы крови! И я вижу, что ты одета в коричневое...
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_brown_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckBrown
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckRed
+  name: красная водолазка с юбкой
+  description: Хорошо маскирует следы крови.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_red_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckRed
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckOrange
+  name: оранжевая водолазка с юбкой
+  description: Я не буду это комментировать.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_orange_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckOrange
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckPink
+  name: розовая водолазка с юбкой
+  description: И кто это будет носить?
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_pink_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckPink
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckGrey
+  name: серая водолазка с юбкой
+  description: Грей стиль?
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_grey_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckGrey 
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckBlue
+  name: синяя водолазка с юбкой
+  description: Тёмный оттенок голубого.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_blue_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckBlue
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckPurple
+  name: фиолетовая водолазка с юбкой
+  description: Почувствуй себя учёным РНД.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_purple_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckPurple
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckBlack
+  name: чёрная водолазка с юбкой
+  description: Любимая одежда книжного червя.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckBlack
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckDarkBlue
+  name: тёмно-синяя водолазка с юбкой
+  description: Для тех, кто любит косить под капитана.
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_darkblue_women.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckDarkBlue
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckWhiteSleeveless
+  name: белая водолазка с юбкой
+  description: Практичная и удобная водолазка белого цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_womensleeveless.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckWhiteSleeveless
+
+- type: selectableSet
+  id: ClothingSelectorADTClothingUniformJumpskirtTurtleneckBlackSleeveless
+  name: чёрная водолазка с юбкой
+  description: Практичная и удобная водолазка чёрного цвета. На бирке можно заметить "Modeling Agency Dar-Vaxed".
+  sprite:
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_black_womensleeveless.rsi
+    state: icon
+  content:
+  - ADTClothingUniformJumpskirtTurtleneckBlackSleeveless

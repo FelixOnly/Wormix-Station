@@ -1,0 +1,12 @@
+# Боты деку, ага
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ADTClothingShoesOldDetectiveBoots
+  name: old detective boots
+  description: Decy boots, ok da?
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Shoes/Boots/old_detective_boots.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Shoes/Boots/old_detective_boots.rsi

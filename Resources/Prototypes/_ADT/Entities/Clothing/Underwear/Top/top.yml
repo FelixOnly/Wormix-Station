@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingUndershirtBase #Wormix-Edit
+  id: ADTClothingUnderwearTopBraLace
+  name: lace bra
+  description: Good looking lace underwear.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Top/lace_bra.rsi
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ClothingUndershirtBase #Wormix-Edit
+  id: ADTClothingUnderwearTopBraLaceRed
+  name: red lace bra
+  description: Red, lacy and, probably, very expensive.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Top/red_bra.rsi
+  - type: StaticPrice
+    price: 28

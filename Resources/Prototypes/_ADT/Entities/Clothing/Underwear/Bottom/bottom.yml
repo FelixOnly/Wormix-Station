@@ -1,0 +1,39 @@
+- type: entity
+  parent: ClothingUnderwearBase #Wormix-Edit
+  id: ADTClothingUnderwearBottomBoxersAmerica
+  name: boxers america
+  description: Standard Nanotrasen underwear for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Bottom/boxers_america.rsi
+
+- type: entity
+  parent: ClothingUnderwearBase #Wormix-Edit
+  id: ADTClothingUnderwearBottomBoxersBoom
+  name: boxers boom
+  description: Standard Nanotrasen underwear for station employees. Dyed white.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Bottom/boxers_boom.rsi
+
+- type: entity
+  parent: ClothingUnderwearBase #Wormix-Edit
+  id: ADTClothingUnderwearBottomPantiesLace
+  name: lace panties
+  description: Good looking lace underwear.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Bottom/lace_panties.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 28
+
+- type: entity
+  parent: ClothingUnderwearBase #Wormix-Edit
+  id: ADTClothingUnderwearBottomPantiesLaceRed
+  name: red lace panties
+  description: Red, lacy and, probably, very expensive.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Underwear/Bottom/red_panties.rsi
+  - type: StaticPrice
+    price: 25

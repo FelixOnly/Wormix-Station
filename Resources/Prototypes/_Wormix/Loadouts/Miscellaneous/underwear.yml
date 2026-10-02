@@ -1,0 +1,19 @@
+- type: loadout
+  id: ADTClothingUnderwearBottomBoxersAmerica
+  equipment:
+    underwear: ADTClothingUnderwearBottomBoxersAmerica
+
+- type: loadout
+  id: ADTClothingUnderwearBottomBoxersBoom
+  equipment:
+    underwear: ADTClothingUnderwearBottomBoxersBoom
+
+- type: loadout
+  id: ADTClothingUnderwearBottomPantiesLace
+  equipment:
+    underwear: ADTClothingUnderwearBottomPantiesLace
+
+- type: loadout
+  id: ADTClothingUnderwearBottomPantiesLaceRed
+  equipment:
+    underwear: ADTClothingUnderwearBottomPantiesLaceRed

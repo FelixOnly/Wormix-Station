@@ -1,0 +1,177 @@
+# Шарфы
+- type: entity
+  id: UndeterminedClothingScarf
+  name: scarf selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _ADT/Clothing/Neck/Scarfs/white.rsi
+        state: icon
+      - sprite: _ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: SetSelector
+    possibleSets:
+    - ClothingSelectorClothingNeckScarfStripedRed
+    - ClothingSelectorClothingNeckScarfStripedGreen
+    - ClothingSelectorClothingNeckScarfStripedBlue
+    - ClothingSelectorClothingNeckScarfStripedBlack
+    - ClothingSelectorClothingNeckScarfStripedBrown
+    - ClothingSelectorClothingNeckScarfStripedLightBlue
+    - ClothingSelectorClothingNeckScarfStripedOrange
+    - ClothingSelectorClothingNeckScarfStripedPurple
+
+# Длинные шарфы
+- type: entity
+  id: UndeterminedClothingScarfLong
+  name: long scarf selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _ADT/Clothing/Neck/Scarfs/White_long_scarf.rsi
+        state: icon
+      - sprite: _ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: SetSelector
+    possibleSets:
+    - ClothingSelectorADTClothingNeckScarfLongRed
+    - ClothingSelectorADTClothingNeckScarfLongGreen
+    - ClothingSelectorADTClothingNeckScarfLongBlue
+    - ClothingSelectorADTClothingNeckScarfLongYellow
+    - ClothingSelectorADTClothingNeckScarfLongOrange
+    - ClothingSelectorADTClothingNeckScarfLongPink
+    - ClothingSelectorADTClothingNeckScarfLongPurple
+    - ClothingSelectorADTClothingNeckScarfLongBlack
+    - ClothingSelectorADTClothingNeckScarfLongWhite
+
+# Лицевые шарфы
+- type: entity
+  id: UndeterminedClothingFacescarf
+  name: facescarf selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _ADT/Clothing/Neck/Facescarfs/facescarf_white.rsi
+        state: icon
+      - sprite: _ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: SetSelector
+    possibleSets:
+    - ClothingSelectorADTClothingNeckFacescarfRed
+    - ClothingSelectorADTClothingNeckFacescarfGreen
+    - ClothingSelectorADTClothingNeckFacescarfBlue
+    - ClothingSelectorADTClothingNeckFacescarfOrange
+    - ClothingSelectorADTClothingNeckFacescarfPurple
+    - ClothingSelectorADTClothingNeckFacescarfGrey
+    - ClothingSelectorADTClothingNeckFacescarfBlack
+    - ClothingSelectorADTClothingNeckFacescarfWhite
+
+# Куртки
+- type: entity
+  id: UndeterminedClothingWinterCoat
+  name: wintercoat selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+        state: coatybits-icon
+        color: "#EAE8E8"
+      - sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+        state: winterbits-icon
+      - sprite: _ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: SetSelector
+    possibleSets:
+    - ClothingSelectorClothingOuterWinterCoat
+    - ClothingSelectorClothingOuterWinterColorRed
+    - ClothingSelectorClothingOuterWinterColorOrange
+    - ClothingSelectorClothingOuterWinterColorYellow
+    - ClothingSelectorClothingOuterWinterColorGreen
+    - ClothingSelectorClothingOuterWinterColorBlue
+    - ClothingSelectorClothingOuterWinterColorPurple
+    - ClothingSelectorClothingOuterWinterColorLightBrown
+    - ClothingSelectorClothingOuterWinterColorBrown
+    - ClothingSelectorClothingOuterWinterColorBlack
+    - ClothingSelectorClothingOuterWinterColorGrey
+    - ClothingSelectorClothingOuterWinterColorWhite
+
+# Водолазки
+- type: entity
+  id: UndeterminedClothingTurtleneck
+  name: turtleneck selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_white.rsi
+        state: icon
+      - sprite: _ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: SetSelector
+    possibleSets:
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckAquamarine
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckWhite
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckAzure
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckYellow
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckGreen
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckBrown
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckRed
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckOrange
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckPink
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckGrey
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckBlue
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckPurple
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckBlack
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckDarkBlue
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckWhiteSleeveless
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckWhiteBlackSleeveless
+    - ClothingSelectorADTClothingUniformJumpsuitTurtleneckBlackSleeveless
+
+# Водолазки с юбкой
+- type: entity
+  id: UndeterminedClothingTurtleneckSkirt
+  name: turtleneck with skirt selector
+  description: A small remote utilizing bluespace technology to drop in a hardsuit or modsuit of your choosing.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    layers:
+      - sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_white_women.rsi
+        state: icon
+      - sprite: _ADT/Objects/Specific/clothing_voucher.rsi
+        state: icon
+  - type: SetSelector
+    possibleSets:
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckAquamarine
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckWhite
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckAzure
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckYellow
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckGreen
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckBrown
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckRed
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckOrange
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckPink
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckGrey
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckBlue
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckPurple
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckBlack
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckDarkBlue
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckWhiteSleeveless
+    - ClothingSelectorADTClothingUniformJumpskirtTurtleneckBlackSleeveless
+
+
+#====
+#  - type: Sprite
+#    sprite: _CorvaxGoob/Clothing/OuterClothing/WinterCoats/coat.rsi
+#    layers:
+#    - state: coatybits-icon
+#      
+#    - state: winterbits-icon

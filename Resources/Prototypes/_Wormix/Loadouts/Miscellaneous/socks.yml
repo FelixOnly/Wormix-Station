@@ -1,0 +1,99 @@
+# Носки
+- type: loadout
+  id: ADTClothingUnderwearSocksComfyBlue
+  equipment:
+    socks: ADTClothingUnderwearSocksComfyBlue
+
+- type: loadout
+  id: ADTClothingUnderwearSocksAzure
+  equipment:
+    socks: ADTClothingUnderwearSocksAzure
+
+- type: loadout
+  id: ADTClothingUnderwearSocksCyan
+  equipment:
+    socks: ADTClothingUnderwearSocksCyan
+
+- type: loadout
+  id: ADTClothingUnderwearSocksSyndieGreen
+  equipment:
+    socks: ADTClothingUnderwearSocksSyndieGreen
+
+- type: loadout
+  id: ADTClothingUnderwearSocksSyndieRed
+  equipment:
+    socks: ADTClothingUnderwearSocksSyndieRed
+
+
+# Гольфы
+- type: loadout
+  id: ADTClothingUnderwearSocksKneeComfyBlue
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeComfyBlue
+
+- type: loadout
+  id: ADTClothingUnderwearSocksKneeAzure
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeAzure
+
+- type: loadout
+  id: ADTClothingUnderwearSocksKneeCyan
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeCyan
+
+- type: loadout
+  id: ADTClothingUnderwearSocksKneeSyndieGreen
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeSyndieGreen
+
+- type: loadout
+  id: ADTClothingUnderwearSocksKneeSyndieRed
+  equipment:
+    socks: ADTClothingUnderwearSocksKneeSyndieRed
+
+
+# Чулки
+- type: loadout
+  id: ADTClothingUnderwearSocksThighBlue
+  equipment:
+    socks: ADTClothingUnderwearSocksThighBlue
+
+- type: loadout
+  id: ADTClothingUnderwearSocksThighAzure
+  equipment:
+    socks: ADTClothingUnderwearSocksThighAzure
+
+- type: loadout
+  id: ADTClothingUnderwearSocksThighCyan
+  equipment:
+    socks: ADTClothingUnderwearSocksThighCyan
+
+- type: loadout
+  id: ADTClothingUnderwearSocksThighSyndieGreen
+  equipment:
+    socks: ADTClothingUnderwearSocksThighSyndieGreen
+
+- type: loadout
+  id: ADTClothingUnderwearSocksThighSyndieRed
+  equipment:
+    socks: ADTClothingUnderwearSocksThighSyndieRed
+
+- type: loadout
+  id: ADTClothingUnderwearSocksLaceThigh
+  equipment:
+    socks: ADTClothingUnderwearSocksLaceThigh
+
+- type: loadout
+  id: ADTClothingUnderwearSocksStockingsRed
+  equipment:
+    socks: ADTClothingUnderwearSocksStockingsRed
+
+- type: loadout
+  id: ADTClothingUnderwearSocksStockingsBlack
+  equipment:
+    socks: ADTClothingUnderwearSocksStockingsBlack
+
+- type: loadout
+  id: ADTClothingUnderwearSocksThighBlack
+  equipment:
+    socks: ADTClothingUnderwearSocksThighBlack
