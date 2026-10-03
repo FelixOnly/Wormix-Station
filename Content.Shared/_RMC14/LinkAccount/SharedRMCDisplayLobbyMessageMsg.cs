@@ -26,7 +26,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-/* CorvaxGoob-Coins-start
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -38,4 +37,3 @@ public sealed class SharedRMCDisplayLobbyMessageEvent(string message, string use
     public readonly string Message = message;
     public readonly string User = user;
 }
-CorvaxGoob-Coins-end */

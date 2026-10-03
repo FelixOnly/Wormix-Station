@@ -26,7 +26,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-/* CorvaxGoob-Coins-start
 using Content.Shared._RMC14.GhostColor;
 using Robust.Client.GameObjects;
 
@@ -44,4 +43,3 @@ public sealed class GhostColorSystem : EntitySystem
         }
     }
 }
-CorvaxGoob-Coins-end */

@@ -26,7 +26,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-/*
+
 using Content.Shared._RMC14.LinkAccount;
 using Robust.Shared.Network;
 
@@ -90,4 +90,4 @@ public sealed class LinkAccountManager : IPostInjectInit
         _net.RegisterNetMessage<RMCChangeNTShoutoutMsg>();
     }
 }
-*/
+

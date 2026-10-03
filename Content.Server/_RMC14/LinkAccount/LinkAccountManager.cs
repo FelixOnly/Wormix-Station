@@ -26,7 +26,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-/*
 
 using System.Threading;
 using System.Threading.Tasks;
@@ -309,4 +308,3 @@ public sealed class LinkAccountManager : IPostInjectInit
 
 
 }
-*/

@@ -28,7 +28,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-/* CorvaxGoob-Coins-start
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Goobstation.Common.CCVar;
@@ -81,7 +80,7 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         if (UIManager.ActiveScreen is not LobbyGui gui)
             return;
 
-        gui.CharacterPreview.PatronPerks.Visible = _linkAccount.CanViewPatronPerks();
+        // gui.CharacterPreview.PatronPerks.Visible = _linkAccount.CanViewPatronPerks();
     }
 
     private void OnLobbyMessageReceived(SharedRMCDisplayLobbyMessageEvent message)
@@ -91,7 +90,7 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
 
         var user = FormattedMessage.EscapeText(message.User);
         var msg = FormattedMessage.EscapeText(message.Message);
-        gui.LobbyMessageLabel.SetMarkupPermissive($"[font size=20]Lobby message by: {user}\n{msg}[/font]");
+        // gui.LobbyMessageLabel.SetMarkupPermissive($"[font size=20]Lobby message by: {user}\n{msg}[/font]");
     }
 
     public void ToggleWindow()
@@ -278,4 +277,3 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         }
     }
 }
-CorvaxGoob-Coins-end */

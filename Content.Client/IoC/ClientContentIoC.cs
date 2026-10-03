@@ -124,6 +124,8 @@
 using Content.Client._durkcode.ServerCurrency;
 using Content.Client._RMC14.LinkAccount;
 CorvaxGoob-Coins-end */
+
+using Content.Client._RMC14.LinkAccount;
 using Content.Client.Administration.Managers;
 using Content.Client.Audio.Midi;
 using Content.Client.Changelog;
@@ -191,10 +193,8 @@ namespace Content.Client.IoC
             collection.Register<PlayerRateLimitManager>();
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
-            /* CorvaxGoob-Coins-start
             //collection.Register<ServerCurrencySystem>(); // Goob Station - Goob Coin
             collection.Register<LinkAccountManager>(); // RMC14
-            CorvaxGoob-Coins-end */
             collection.Register<ClientsidePlaytimeTrackingManager>();
             collection.Register<MidiFileCollectionManager>();
         }
