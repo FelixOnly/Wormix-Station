@@ -167,6 +167,7 @@
     ClothingNeckPonchoSmallBlack: 3 # Monolith
     ClothingNeckPonchoSmallWhite: 3 # Monolith
     # Wormix-Start
+    ADTClothingNeckDarkGreyCloak: 3
     ClothingHeadEnglishHatBlue: 2
     ClothingHeadEnglishHatViolet: 2
     ClothingHeadEnglishHatRed: 2
@@ -218,6 +219,22 @@
     ClothingUniformJumpsuitRichard: 2
     ClothingUniformJumpsuitbiker: 2
     ClothingUniformJumpsuitPants: 3
+    ADTClothingUniformJumpsuitDenimPants: 3
+    ADTClothingUniformJumpsuitBlackPants: 3
+    ADTClothingUniformJumpsuitWhitePants: 3
+    ADTClothingUniformJumpsuitOldBrownSuit: 3
+    ADTClothingUniformJumpsuitOldGreySuit: 3
+    ADTClothingUniformJumpsuitTuxedo: 3
+    ADTClothingUniformJumpsuitTuxedoWhite: 3
+    ADTClothingUniformJumpsuitTuxedoHell: 3 
+    ADTClothingUniformJumpsuitTuxedoRed: 3
+    ADTClothingUniformJumpsuitWhiteShirt: 3
+    ADTClothingUniformJumpsuitBlackShirt: 3
+    ADTClothingUniformJumpsuitBlueShirt: 3
+    ADTClothingUniformJumpsuitRedShirt: 3
+    ADTClothingUniformJumpsuitRedPlaidShirt: 3
+    ADTClothingUniformJumpsuitPurpleShirt: 3
+    ADTClothingUniformJumpsuitFancyShirt: 3
     ClothingUniformJumpsuitVergil: 2
     ClothingUniformJumpsuitJeester: 2
     ClothingUniformJumpsuitdirF: 2
@@ -233,7 +250,10 @@
     ClothingUniformJumpsuitAlxLaiho: 2
     ClothingUniformJumpsuitPsychologistCrimson: 2
     ClothingUniformJumpsuitNull: 2
+    ADTClothingNeckBlueTie: 2
+    ADTClothingNeckGoldTie: 2
     ClothingNeckCloakBlackCloak: 1
+    ADTMaskCoif: 2
     ClothingShoesBootsBerrci: 5
     # Wormix-End
     # DO NOT ADD MORE, USE UNIFORM DYING

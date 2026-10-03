@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPilotkaSec
+  name: security flight cap
+  description: Side cap of Nanotrasen Security Service personnel, also used by its space defense forces. It has a double brim and the NT insignia.
+  suffix: Backmen
+  components:
+    - type: Sprite
+      sprite: _Backmen/Clothing/Head/Soft/secpilotka.rsi
+    - type: Clothing
+      sprite: _Backmen/Clothing/Head/Soft/secpilotka.rsi

@@ -85,33 +85,29 @@
 - type: loadoutEffectGroup
   id: SeniorOfficer
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobWarden
-      time: 21600 #6 hrs
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Security
-      time: 216000 # 60 hrs
+    - !type:JobRequirementLoadoutEffect
+      requirement: !type:RoleTimeRequirement
+        role: JobWarden
+        time: 21600 #6 hrs
+    - !type:JobRequirementLoadoutEffect
+      requirement: !type:DepartmentTimeRequirement
+        department: Security
+        time: 216000 # 60 hrs
 
 - type: loadoutEffectGroup
   id: VeteranOfficer
   effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Security
-      time: 360000 # 100 hrs
+    - !type:JobRequirementLoadoutEffect
+      requirement: !type:DepartmentTimeRequirement
+        department: Security
+        time: 360000 # 100 hrs
 
 #Security Star
 - type: loadoutEffectGroup
   id: SecurityStarWorthy
   effects:
     - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:DepartmentTimeRequirement
+      requirement: !type:DepartmentTimeRequirement
         department: Security
         time: 360000 #100 hrs
 
@@ -121,30 +117,30 @@
   equipment:
     head: ClothingHeadHelmetBasic
 
-
 - type: loadout # Goobstation
   id: SecurityHelmetAlt
   equipment:
     head: ClothingHeadHelmetBasicAlt
-
 
 - type: loadout
   id: SecurityHat
   equipment:
     head: ClothingHeadHatSecsoft
 
-
 - type: loadout
   id: SecurityBeret
   equipment:
     head: ClothingHeadHatBeretSecurity
-
 
 - type: loadout
   id: TrooperHat
   equipment:
     head: ClothingHeadHatSecurityTrooper
 
+- type: loadout
+  id: SideCap
+  equipment:
+    head: ClothingHeadHatPilotkaSec
 
 # Jumpsuit
 - type: loadout
@@ -152,44 +148,39 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
 
-
 - type: loadout
   id: SecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
-
 
 - type: loadout
   id: SecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
 
-
 - type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
-
 
 - type: loadout
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
 
-
 - type: loadout
   id: SeniorOfficerJumpsuit
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+    - !type:GroupLoadoutEffect
+      proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
 
 - type: loadout
   id: SeniorOfficerJumpskirt
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+    - !type:GroupLoadoutEffect
+      proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 
@@ -261,8 +252,8 @@
 - type: loadout
   id: SeniorOfficerPDA
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
+    - !type:GroupLoadoutEffect
+      proto: SeniorOfficer
   equipment:
     id: SeniorOfficerPDA
 
@@ -270,8 +261,8 @@
 - type: loadout
   id: SecStar
   effects:
-  - !type:GroupLoadoutEffect
-    proto: SecurityStarWorthy
+    - !type:GroupLoadoutEffect
+      proto: SecurityStarWorthy
   storage:
     back:
-    - Dinkystar
+      - Dinkystar

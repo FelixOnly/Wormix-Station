@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ADTClothingFootBlackBoots
+  name: black boots
+  description: Comfortable for bullies!
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Shoes/Boots/black_boots.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Shoes/Boots/black_boots.rsi  #спрайты от dion_clawed
+  - type: StaticPrice
+    price: 23

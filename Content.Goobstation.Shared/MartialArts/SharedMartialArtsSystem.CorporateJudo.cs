@@ -14,14 +14,21 @@
 
 using Content.Goobstation.Common.Grab;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Maths.FixedPoint; // Wormix EDIT
 using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Targeting; // Wormix EDIT
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components; // Wormix EDIT
 using Content.Shared.Damage.Events;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Hands.Components; // Wormix EDIT
+using Content.Shared.Interaction.Events; // Wormix EDIT
+using Content.Shared.Item; // Wormix EDIT
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
@@ -29,6 +36,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
+using System.Linq; // Wormix EDIT
 
 namespace Content.Goobstation.Shared.MartialArts;
 
@@ -42,12 +50,18 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, JudoArmbarPerformedEvent>(OnJudoArmbar);
         SubscribeLocalEvent<CanPerformComboComponent, JudoWheelThrowPerformedEvent>(OnJudoWheelThrow);
         SubscribeLocalEvent<CanPerformComboComponent, JudoGoldenBlastPerformedEvent>(OnJudoGoldenBlast);
+        SubscribeLocalEvent<CanPerformComboComponent, JudoDisarmingPerformedEvent>(OnJudoDisarming); // Wormix EDIT
 
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
 
         SubscribeLocalEvent<ArmbarredComponent, StoodEvent>(OnArmbarredStood);
         SubscribeLocalEvent<ArmbarredComponent, PullStoppedMessage>(OnArmbarStopped);
+        // Wormix EDIT Start
+        SubscribeLocalEvent<ArmbarredComponent, InteractionAttemptEvent>(OnArmbarCancelInteraction);
+        SubscribeLocalEvent<ArmbarredComponent, UseAttemptEvent>(OnArmbarCancelUse);
+        SubscribeLocalEvent<ArmbarredComponent, PickupAttemptEvent>(OnArmbarCancelPickup);
+        // Wormix EDIT End
     }
 
     #region Generic Methods
@@ -90,12 +104,20 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _)
-            || !TryComp(target, out StatusEffectsComponent? status))
+            || !TryComp(target, out StatusEffectsComponent? status)
+            || !TryComp<GrabbableComponent>(target, out var grabbable)) // Wormix EDIT
             return;
 
         _movementMod.TryUpdateMovementSpeedModDuration(target, MartsGenericSlow, TimeSpan.FromSeconds(5), 0.5f, 0.5f);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+
+        // Wormix EDIT Start
+
+        grabbable.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(2));
+        Dirty(target, grabbable);
+
+        // Wormix EDIT End
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.ID); // CorvaxGoob-Localization // proto.Name -> proto.ID
@@ -123,6 +145,20 @@ public partial class SharedMartialArtsSystem
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
 
+        float mul = 1;
+        // Wormix EDIT Start
+        if(TryComp<MartialArtModifiersComponent>(ent, out var modifiers))
+        {
+            (mul, _) = GetMultiplierModifier(new Entity<MartialArtModifiersComponent>(ent, modifiers), MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed, false);
+        }
+
+        if (mul > 1 / args.AttackSpeedMultiplier)
+        {
+            ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime, MartialArtModifierType.AttackRate | MartialArtModifierType.Unarmed);
+            ApplyMultiplier(ent, args.DamageMultiplier, 0f, args.AttackSpeedMultiplierTime, MartialArtModifierType.Damage | MartialArtModifierType.Unarmed);
+        }
+        // Wormix EDIT End
+
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.ID); // CorvaxGoob-Localization // proto.Name -> proto.ID
         ent.Comp.LastAttacks.Clear();
@@ -133,7 +169,9 @@ public partial class SharedMartialArtsSystem
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed
-            || !TryComp<PullableComponent>(target, out var pullable))
+            || !TryComp<PullableComponent>(target, out var pullable)
+            || !TryComp<PullerComponent>(ent, out var puller)
+            || !TryComp<GrabIntentComponent>(ent, out var grabIntent))
             return;
 
         var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
@@ -143,7 +181,17 @@ public partial class SharedMartialArtsSystem
 
         knockdownTime *= ev.Value;
 
-        _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
+        // Wormix EDIT Start
+        var staminaResistance = new BeforeStaminaDamageEvent(100f);
+        RaiseLocalEvent(target, ref staminaResistance);
+
+        var canResist =
+               staminaResistance.Value < 98f
+            || puller.Pulling != target
+            || grabIntent.GrabStage < GrabStage.Hard;
+
+        _stun.TryKnockdown(target, knockdownTime, true, true, !canResist);
+        // Wormix EDIT End
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -181,9 +229,22 @@ public partial class SharedMartialArtsSystem
         // Taking someone in an armbar is an equivalent of taking them in a choke grab
         if (grabIntent.GrabStage != GrabStage.Suffocate
             || grabbable.GrabStage != GrabStage.Suffocate)
+        {
             _grab.TrySetGrabStages((ent, puller, grabIntent), (target, pullable, grabbable), GrabStage.Suffocate);
+            grabbable.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(10)); // Wormix EDIT
+        }
 
         _stun.TryKnockdown(target, knockdownTime, true, true, proto.DropItems);
+
+        // Wormix EDIT Start
+        if (TryComp<HandsComponent>(target, out var hands))
+        {
+            foreach (var hand in hands.Hands.Keys)
+            {
+                _virtualItem.TrySpawnVirtualItemInHand(ent, target);
+            }
+        }
+        // Wormix EDIT End
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.ID); // CorvaxGoob-Localization // proto.Name -> proto.ID
@@ -209,8 +270,14 @@ public partial class SharedMartialArtsSystem
             5,
             behavior: proto.DropItems);
 
-        _status.TryRemoveStatusEffect(ent, "KnockedDown");
-        _standingState.Stand(ent);
+        // Wormix EDIT Start
+        if (TryComp<StandingStateComponent>(ent.Owner, out var standing) && !standing.Standing)
+        {
+            if (HasComp<KnockedDownComponent>(ent.Owner))
+                RemComp<KnockedDownComponent>(ent.Owner);
+            _standingState.Stand(ent.Owner, standing);
+        }
+        // Wormix EDIT End
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.ID); // CorvaxGoob-Localization // proto.Name -> proto.ID
@@ -235,15 +302,77 @@ public partial class SharedMartialArtsSystem
         ent.Comp.LastAttacks.Clear();
     }
 
+    // Wormix EDIT Start
+    private void OnJudoDisarming(Entity<CanPerformComboComponent> ent, ref JudoDisarmingPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
+            || !downed
+            || !TryComp<PullableComponent>(target, out var pullable)
+            || !TryComp<ArmbarredComponent>(target, out var armbarred)
+            || armbarred.Puller != ent.Owner
+            || !(TryComp(target, out StaminaComponent? stamina)/* && stamina.Critical*/)
+            || !TryComp<TargetingComponent>(ent, out var targeting)
+            || targeting.Target
+                is not TargetBodyPart.LeftHand
+                and not TargetBodyPart.RightHand)
+            return;
+
+        var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+        var targetLimb = _body.GetBodyChildrenOfType(target, partType, symmetry: symmetry).FirstOrDefault();
+
+        var targetEntity = targetLimb.Id != default ? targetLimb.Id : target;
+
+        if (!TryComp<WoundableComponent>(targetLimb.Id, out var woundable)
+            || woundable.WoundableIntegrity <= 0)
+            return;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add("Blunt", proto.ExtraDamage / 3f);
+
+        _damageable.TryChangeDamage(targetEntity, damage, ignoreResistances: false, origin: ent, canMiss: false);
+
+        if (_wound.TryInduceWound(targetLimb.Id, "Blunt", proto.ExtraDamage, out var woundInduced))
+        {
+            var bone = woundable.Bone.ContainedEntities.FirstOrDefault();
+            if (bone != default)
+                _trauma.ApplyBoneTrauma(woundable.Bone.ContainedEntities.FirstOrDefault(), (targetLimb.Id, woundable), (woundInduced.Value.Owner, EnsureComp<TraumaInflicterComponent>(woundInduced.Value.Owner)), proto.ExtraDamage);
+
+            _pulling.TryStopPull(target, pullable, ent, true);
+
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Effects/bone_crack.ogg"), target);
+            ComboPopup(ent, target, proto.ID);
+            ent.Comp.LastAttacks.Clear();
+        }
+    }
+    // Wormix EDIT End
+
     #endregion
 
     #region Armbar
+    // Wormix EDIT Start
+    private void OnArmbarCancelInteraction(Entity<ArmbarredComponent> ent, ref InteractionAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    private void OnArmbarCancelUse(Entity<ArmbarredComponent> ent, ref UseAttemptEvent args)
+    {
+        args.Cancel();
+    }
+
+    private void OnArmbarCancelPickup(Entity<ArmbarredComponent> ent, ref PickupAttemptEvent args)
+    {
+        args.Cancel();
+    }
+    // Wormix EDIT End
 
     private void OnArmbarredStood(Entity<ArmbarredComponent> ent, ref StoodEvent args)
     {
         if (!TryComp<PullableComponent>(ent, out var pullable))
             return;
 
+        _virtualItem.DeleteInHandsMatching(ent, ent.Comp.Puller); // Wormix EDIT
         _pulling.TryStopPull(ent, pullable, ent.Comp.Puller, true);
         RemComp<ArmbarredComponent>(ent);
     }
@@ -252,6 +381,8 @@ public partial class SharedMartialArtsSystem
     {
         if (args.PullerUid != ent.Comp.Puller)
             return;
+
+        _virtualItem.DeleteInHandsMatching(ent, ent.Comp.Puller); // Wormix EDIT
 
         if (!_status.HasStatusEffect(ent, "Stun"))
             _status.TryRemoveStatusEffect(ent, "KnockedDown");

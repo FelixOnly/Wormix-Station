@@ -32,7 +32,6 @@ using Content.Goobstation.Shared.GrabIntent;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Sprinting;
 using Content.Goobstation.Shared.Stealth;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
@@ -47,6 +46,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory.VirtualItem; // Wormix EDIT
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -112,6 +112,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSprintingSystem _sprinting = default!;
+    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Wormix EDIT
 
     public static readonly EntProtoId MartsGenericSlow = "MartialArtsGenericSlowdownEffect";
 
@@ -407,7 +408,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (TerminatingOrDeleted(ent))
             return;
 
-        if(TryComp<CanPerformComboComponent>(ent, out var comboComponent))
+        if (TryComp<CanPerformComboComponent>(ent, out var comboComponent))
             comboComponent.AllowedCombos.Clear();
 
         RemCompDeferred<DragonKungFuTimerComponent>(ent);
@@ -537,22 +538,22 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.CloseQuartersCombat:
                 var itcryeverytime =
                     new CanDoCQCEvent();
-                  /*
-                var riposte = EnsureComp<RiposteeComponent>(user);
-                riposte.Data.TryAdd("CQC",
-                    new(0.1f,
-                    false,
-                    null,
-                    true,
-                    new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
-                    TimeSpan.Zero,
-                    TimeSpan.FromSeconds(4),
-                    false,
-                    0.75f,
-                    null,
-                    null,
-                    new CanDoCQCEvent()));
-                    */
+                /*
+              var riposte = EnsureComp<RiposteeComponent>(user);
+              riposte.Data.TryAdd("CQC",
+                  new(0.1f,
+                  false,
+                  null,
+                  true,
+                  new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
+                  TimeSpan.Zero,
+                  TimeSpan.FromSeconds(4),
+                  false,
+                  0.75f,
+                  null,
+                  null,
+                  new CanDoCQCEvent()));
+                  */
                 break;
         }
 
@@ -640,7 +641,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         TargetBodyPart? targetBodyPart = null)
     {
         damage = new DamageSpecifier();
-        if(!TryComp<TargetingComponent>(ent, out var targetingComponent))
+        if (!TryComp<TargetingComponent>(ent, out var targetingComponent))
             return;
         damage.DamageDict.Add(damageType, damageAmount);
         if (TryComp(ent, out MartialArtModifiersComponent? modifiers))

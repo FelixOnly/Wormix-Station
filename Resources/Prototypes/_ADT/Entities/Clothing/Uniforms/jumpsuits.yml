@@ -219,3 +219,211 @@
     sprite: _ADT/Clothing/Uniforms/Jumpsuit/turtleneck_whiteblacksleeveless.rsi
   - type: StaticPrice
     price: 15
+
+# Смокинги
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedo
+  name: tuxedo
+  description: A tuxedo.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedoWhite
+  name: white tuxedo
+  description: A white tuxedo.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo_white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedoRed
+  name: red tuxedo
+  description: A red tuxedo.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo_red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitTuxedoHell
+  name: hell tuxedo
+  description: A hell tuxedo.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/tuxedo_hell.rsi
+
+# Рубашки
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitBlackShirt
+  name: black shirt
+  description: An usual black shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/black_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitBlueShirt
+  name: blue shirt
+  description: An usual blue shirt with brown pants. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/blue_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitPurpleShirt
+  name: purple shirt
+  description: An usual purple shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/purple_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitRedShirt
+  name: red shirt
+  description: An usual red shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/red_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitWhiteShirt
+  name: white shirt
+  description: An usual white shirt. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/white_shirt.rsi #спрайты от prazat911, респрайт от orange6775
+  - type: StaticPrice
+    price: 45
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitFancyShirt
+  name: fancy shirt
+  description: I don't know how he got there...
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/fancy_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 55
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ADTClothingUniformJumpsuitRedPlaidShirt
+  name: red plaid shirt
+  description: Smells like barbecue... Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/red_plaid_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 55
+
+# Костюмы
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldGreySuit
+  name: old grey suit
+  description: The suit is new, but the design is outdated, considering other clothes of company "Modeling Agency Dar-Vaxed". Pretty suprising, that this suit still on sale.
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/grey_suit.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 55
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitOldBrownSuit
+  name: old brown suit
+  description: A carefully groomed suit. Maybe it had bright brown colours, until they came out. Made by company "Modeling Agency Dar-Vaxed".
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/old_brown_shirt.rsi #спрайты от prazat911
+  - type: StaticPrice
+    price: 55
+
+# Штаны
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitDenimPants
+  name: denim pants
+  description: denim pants
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/denim_pants.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitBlackPants
+  name: black pants
+  description: black pants
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/black_pants.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/black_pants.rsi
+  - type: StaticPrice
+    price: 40
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ADTClothingUniformJumpsuitWhitePants
+  name: white pants
+  description: white pants
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/white_pants.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpsuit/white_pants.rsi
+  - type: StaticPrice
+    price: 40

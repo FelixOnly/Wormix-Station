@@ -641,17 +641,25 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var fireRate = TimeSpan.FromSeconds(1f / GetAttackRate(weaponUid, user, weapon));
         var swings = 0;
 
+        // Wormix EDIT Start
         // TODO: If we get autoattacks then probably need a shotcounter like guns so we can do timing properly.
-        if (weapon.NextAttack < curTime)
-            weapon.NextAttack = curTime;
+        TimeSpan nextAttack = weapon.NextAttack;
 
-        while (weapon.NextAttack <= curTime)
+        if (weapon.NextAttack < curTime)
+            nextAttack = curTime;
+
+        while (nextAttack <= curTime)
         {
-            weapon.NextAttack += fireRate;
+            nextAttack += fireRate;
             swings++;
         }
 
-        DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
+        if (attack is not DisarmAttackEvent disarmForTarget || disarmForTarget.Target.HasValue)
+        {
+            weapon.NextAttack = nextAttack;
+            DirtyField(weaponUid, weapon, nameof(MeleeWeaponComponent.NextAttack));
+        }
+        // Wormix EDIT End
 
         // Do this AFTER attack so it doesn't spam every tick
         var ev = new AttemptMeleeEvent(user, weaponUid, weapon, attack is HeavyAttackEvent); // Goob edit

@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ADTClothingHeadOldFedora
+  name: old fedora
+  description: Decy fedora, ok da?
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Head/Hats/old_fedora.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Head/Hats/old_fedora.rsi
