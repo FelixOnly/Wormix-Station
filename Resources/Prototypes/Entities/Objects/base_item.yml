@@ -153,6 +153,8 @@
     noRot: false
   - type: Pullable
   - type: DamageExaminable
+  - type: Rotatable  # ADT Feature
+    increment: 30
 
 - type: entity
   name: "storage item"
