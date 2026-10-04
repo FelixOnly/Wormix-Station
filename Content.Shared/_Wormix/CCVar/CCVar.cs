@@ -14,4 +14,7 @@ public sealed partial class CCVar
 
     public static readonly CVarDef<string> FaxDiscordWebhook =
         CVarDef.Create("discord.fax_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    public static readonly CVarDef<string> VoteAltDiscordWebhook =
+        CVarDef.Create("discord.vote_webhook_alt", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 }
