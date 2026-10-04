@@ -14,6 +14,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System.Numerics;
 using Content.Client.Stylesheets;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -24,6 +25,9 @@ namespace Content.Client.UserInterface.Systems.Chat.Controls;
 [Virtual]
 public class ChatInputBox : PanelContainer
 {
+    public readonly Button SearchButton; // ADT-Tweak
+    public event Action? OnSearchButtonPressed;// ADT-Tweak
+
     public readonly ChannelSelectorButton ChannelSelector;
     public readonly HistoryLineEdit Input;
     public readonly ChannelFilterButton FilterButton;
@@ -55,6 +59,20 @@ public class ChatInputBox : PanelContainer
             StyleClasses = {"chatLineEdit"}
         };
         Container.AddChild(Input);
+
+        // ADT-Tweak start
+        SearchButton = new Button
+        {
+            Name = "SearchButton",
+            Text = "🔍",
+            ToolTip = Loc.GetString("hud-adt-chat-search-button-tooltip"),
+            StyleClasses = { "chatFilterOptionButton" },
+            MinSize = new Vector2(28, 0)
+        };
+        SearchButton.OnPressed += _ => OnSearchButtonPressed?.Invoke();
+        Container.AddChild(SearchButton);
+        // ADT-Tweak end
+
         FilterButton = new ChannelFilterButton
         {
             Name = "FilterButton",

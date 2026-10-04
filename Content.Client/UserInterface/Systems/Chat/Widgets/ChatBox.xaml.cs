@@ -42,6 +42,8 @@ using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.LineEdit;
+using Content.Client._ADT.UI.Chat;
+
 
 namespace Content.Client.UserInterface.Systems.Chat.Widgets;
 
@@ -57,7 +59,11 @@ public partial class ChatBox : UIWidget
     private readonly IConfigurationManager _cfg; // WD EDIT
     private readonly ILocalizationManager _loc; // WD EDIT
 
+    private readonly ChatSearchController _searchController; // ADT-Tweak
+
     public bool Main { get; set; }
+
+    public string SearchFilter { get; private set; } = string.Empty; // ADT-Tweak
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
     // WD EDIT START
@@ -80,10 +86,17 @@ public partial class ChatBox : UIWidget
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
         ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights;
+        // ADT-Tweak start
+        ChatInput.OnSearchButtonPressed += ToggleSearch;
+        ChatSearch.OnSearchChanged += OnSearchTextChanged;
+        ChatSearch.OnSearchClosed += CloseSearch;
+        // ADT-Tweak end
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
         _controller.HighlightsUpdated += OnHighlightsUpdated;
         _controller.RegisterChat(this);
+
+        _searchController = UserInterfaceManager.GetUIController<ChatSearchController>(); // ADT-Tweak
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>();
@@ -104,6 +117,14 @@ public partial class ChatBox : UIWidget
         {
             return;
         }
+
+        // ADT-Tweak start
+        if (!string.IsNullOrWhiteSpace(SearchFilter)
+            && !_searchController.MatchesQuery(msg, SearchFilter))
+        {
+            return;
+        }
+        // ADT-Tweak end
 
         if (msg is { Read: false, AudioPath: { } })
             _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.WithVolume(msg.AudioVolume));
@@ -133,6 +154,47 @@ public partial class ChatBox : UIWidget
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
         } // WD EDIT END
     }
+
+    // ADT-Tweak start
+    public void SetSearchFilter(string filter)
+    {
+        SearchFilter = filter.Trim();
+        Repopulate();
+    }
+
+    private void ToggleSearch()
+    {
+        if (SearchPanel.Visible)
+        {
+            CloseSearch();
+        }
+        else
+        {
+            OpenSearch();
+        }
+    }
+
+    private void OpenSearch()
+    {
+        SearchPanel.Visible = true;
+        ChatSearch.FocusSearch();
+    }
+
+    private void CloseSearch()
+    {
+        if (!SearchPanel.Visible)
+            return;
+
+        SearchPanel.Visible = false;
+        ChatSearch.SearchInput.Clear();
+        _searchController.ClearSearch(this);
+    }
+
+    private void OnSearchTextChanged(string query)
+    {
+        _searchController.SetSearch(this, query);
+    }
+    // ADT-Tweak end
 
     private void OnHighlightsUpdated(string highlights)
     {
@@ -291,5 +353,10 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
         _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        // ADT-Tweak start
+        ChatInput.OnSearchButtonPressed -= ToggleSearch;
+        ChatSearch.OnSearchChanged -= OnSearchTextChanged;
+        ChatSearch.OnSearchClosed -= CloseSearch;
+        // ADT-Tweak end
     }
 }
